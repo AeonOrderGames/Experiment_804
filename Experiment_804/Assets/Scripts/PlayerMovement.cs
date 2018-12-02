@@ -6,12 +6,19 @@ public class PlayerMovement : MonoBehaviour {
 
     //Script in use
     private Animator animator;
-
+    private Rigidbody2D rigidBody;
     //Speed of the player
-    public float speed;
-	// Use this for initialization
-	void Awake () {
+    private float speed = 2;
+
+    //How hight the hand Jumps
+    private float jumpForce = 2.5f;
+
+    private bool grounded;
+
+    // Use this for initialization
+    void Awake () {
         animator = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 	
 	// Update is called once per frame
@@ -29,9 +36,34 @@ public class PlayerMovement : MonoBehaviour {
         //Checking if the Hand is Walking
         if (Input.GetKey("a") || Input.GetKey("d")) {
             float handPosition = transform.position.x + horizontal * speed * Time.deltaTime;
-            transform.position = new Vector2(Mathf.Clamp(handPosition, -8f, 8f), 0.3f);
+            transform.position = new Vector2(Mathf.Clamp(handPosition, -8f, 8f), transform.position.y);
         }
         //Set the float handWalking to the horizontal value
         animator.SetFloat("handWalking", Mathf.Abs(horizontal));
+
+        //Checking if the Hand is jumping
+        if(grounded && Input.GetKeyDown("w"))
+        {
+            rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+    }
+
+    //For the jumping Hand
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Ground"))
+        {
+            grounded = true;
+            animator.SetBool("Jumping", !grounded);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Ground"))
+        {
+            grounded = false;
+            animator.SetBool("Jumping", !grounded);
+        }
     }
 }
