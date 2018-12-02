@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     private Animator animator;
     private Rigidbody2D rigidBody;
     //Speed of the player
-    private float speed = 2;
+    public float speed = 2;
     //How high the hand Jumps
     private float jumpForce = 2.5f;
     private bool grounded;

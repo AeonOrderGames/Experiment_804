@@ -7,7 +7,7 @@ public class PlayerFootMovement : MonoBehaviour {
     private Animator animator;
     private Rigidbody2D rigidBody;
     //Speed of the player
-    public float speed;
+    public float speed = 1;
     //How high the hand Jumps
     private float jumpForce = 3.5f;
     private bool grounded;
@@ -40,6 +40,14 @@ public class PlayerFootMovement : MonoBehaviour {
         if (grounded && Input.GetKeyDown("up")) {
             rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+        //Checking if the Foot is stomping
+        if (animator.GetBool("FootJumping") && Input.GetKey("m")) {
+            animator.SetBool("FootJumping", false);
+            animator.SetBool("FootStomping", true);
+        }
+        else if(grounded && !animator.GetBool("FootJumping")) {
+            animator.SetBool("FootStomping", false);
+        }
     }
 
     //For the jumping Hand
@@ -53,6 +61,7 @@ public class PlayerFootMovement : MonoBehaviour {
     private void OnCollisionExit2D(Collision2D col) {
         if (col.gameObject.CompareTag("Ground")) {
             grounded = false;
+            //Foot stomping
             animator.SetBool("FootJumping", !grounded);
         }
     }
