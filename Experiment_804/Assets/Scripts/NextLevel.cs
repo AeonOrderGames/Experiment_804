@@ -25,8 +25,8 @@ public class NextLevel : MonoBehaviour {
             foot.GetComponent<Animator>().Play("Foot_Faded");
             var footAnimator = foot.GetComponent<Animator>();
             footAnimator.SetBool("Jumping", false);
-            footAnimator.SetFloat("HandWalking", 0);
-            footAnimator.Play("Hand_Faded");
+            footAnimator.SetFloat("FootWalking", 0);
+            footAnimator.Play("Foot_Faded");
             Destroy(foot.gameObject, 1f);
             footInDoor = true;
         }
