@@ -9,7 +9,7 @@ public class PlayerFootMovement : MonoBehaviour {
     //Speed of the player
     public float speed = 1;
     //How high the hand Jumps
-    private float jumpForce = 3.5f;
+    public float jumpForce = 3.5f;
     private bool grounded;
 
     // Use this for initialization
@@ -44,9 +44,11 @@ public class PlayerFootMovement : MonoBehaviour {
         if (animator.GetBool("FootJumping") && Input.GetKey("m")) {
             animator.SetBool("FootJumping", false);
             animator.SetBool("FootStomping", true);
+            rigidBody.AddForce(Vector2.down * jumpForce, ForceMode2D.Impulse);
         }
         else if(grounded && !animator.GetBool("FootJumping")) {
             animator.SetBool("FootStomping", false);
+        
         }
     }
 

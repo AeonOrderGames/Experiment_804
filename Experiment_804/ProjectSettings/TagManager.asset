@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Player_Hand
+  - Player_Foot
   layers:
   - Default
   - TransparentFX

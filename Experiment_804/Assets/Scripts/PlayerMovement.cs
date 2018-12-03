@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     //Speed of the player
     public float speed = 2;
     //How high the hand Jumps
-    private float jumpForce = 2.5f;
+    public float jumpForce = 2.5f;
     public bool grounded;
     //Hand pushing collider
     private CircleCollider2D handCircleCollider;
@@ -61,18 +61,14 @@ public class PlayerMovement : MonoBehaviour {
 
     //For the jumping Hand
     private void OnCollisionEnter2D(Collision2D col) {
-        Debug.Log(col.gameObject.tag);
-        Debug.Log(col.gameObject);
-        if (col.gameObject.CompareTag("Ground")) {
-            Debug.Log("hllo");
-
+        if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player_Foot")) {
             grounded = true;
             animator.SetBool("HandJumping", !grounded);
         }
     }
 
     private void OnCollisionExit2D(Collision2D col) {
-        if (col.gameObject.CompareTag("Ground")) {
+        if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player_Foot")) {
             grounded = false;
             animator.SetBool("HandJumping", !grounded);
         }
