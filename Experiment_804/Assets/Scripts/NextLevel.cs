@@ -7,10 +7,8 @@ public class NextLevel : MonoBehaviour {
     private bool footInDoor;
 
 
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player_Hand")
-        {
+    private void OnTriggerEnter2D(Collider2D col) {
+        if (col.gameObject.tag == "Player_Hand") {
             var hand = FindObjectOfType<PlayerHandMovement>();
             hand.enabled = false;
             var handAnimator = hand.GetComponent<Animator>();
@@ -21,8 +19,7 @@ public class NextLevel : MonoBehaviour {
             handInDoor = true;
         }
 
-        if (col.gameObject.tag == "Player_Foot")
-        {
+        if (col.gameObject.tag == "Player_Foot") {
             var foot = FindObjectOfType<PlayerFootMovement>();
             foot.enabled = false;
             foot.GetComponent<Animator>().Play("Foot_Faded");
@@ -34,8 +31,7 @@ public class NextLevel : MonoBehaviour {
             footInDoor = true;
         }
 
-        if (footInDoor == true && handInDoor == true)
-        {
+        if (footInDoor == true && handInDoor == true) {
 
         }
     }
