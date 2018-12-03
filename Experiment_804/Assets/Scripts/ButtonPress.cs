@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonPress : MonoBehaviour {
-
+public class ButtonPress : MonoBehaviour
+{
     public BoxCollider2D buttonCol;
     private Animator animator;
     public GameObject nextLevelTrigger;
