@@ -11,11 +11,16 @@ public class PlayerMovement : MonoBehaviour {
     //How high the hand Jumps
     private float jumpForce = 2.5f;
     private bool grounded;
+    //Hand pushing collider
+    private CircleCollider2D handCircleCollider;
+    public GameObject handBoxCollider;
+
 
     // Use this for initialization
     void Awake () {
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
+        handCircleCollider = GetComponent<CircleCollider2D>();
     }
 	
 	// Update is called once per frame
@@ -39,6 +44,18 @@ public class PlayerMovement : MonoBehaviour {
         //Checking if the Hand is jumping
         if(grounded && Input.GetKeyDown("w")) {
             rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+
+        //Checking if the Hand is pushing
+        if (Input.GetKeyDown("f")) {
+            handCircleCollider.enabled = false;
+            handBoxCollider.SetActive(true);
+            animator.SetBool("HandPushing", true);
+        }
+        else if (Input.GetKeyUp("f")) {
+            handCircleCollider.enabled = true;
+            handBoxCollider.SetActive(false);
+            animator.SetBool("HandPushing", false);
         }
     }
 
