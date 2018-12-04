@@ -31,7 +31,7 @@ public class PlayerFootMovement : MonoBehaviour {
         //Checking if the Foot is Walking
         if ((Input.GetKey("left") || Input.GetKey("right"))) {
             float footPosition = transform.position.x + horizontal * speed * Time.deltaTime;
-            transform.position = new Vector2(Mathf.Clamp(footPosition, -8f, 8f), transform.position.y);
+            transform.position = new Vector2(footPosition, transform.position.y);
         }
         //Set the float footWalking to the horizontal value
         animator.SetFloat("FootWalking", Mathf.Abs(horizontal));

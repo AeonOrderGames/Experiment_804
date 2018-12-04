@@ -36,7 +36,7 @@ public class PlayerHandMovement : MonoBehaviour {
         //Checking if the Hand is Walking
         if (Input.GetKey("a") || Input.GetKey("d")) {
             float handPosition = transform.position.x + horizontal * speed * Time.deltaTime;
-            transform.position = new Vector2(Mathf.Clamp(handPosition, -8f, 8f), transform.position.y);
+            transform.position = new Vector2(handPosition, transform.position.y);
         }
         //Set the float handWalking to the horizontal value
         animator.SetFloat("HandWalking", Mathf.Abs(horizontal));
