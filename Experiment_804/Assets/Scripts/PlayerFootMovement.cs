@@ -11,15 +11,18 @@ public class PlayerFootMovement : MonoBehaviour {
     //How high the hand Jumps
     public float jumpForce = 3.5f;
     private bool grounded;
+    private BoxCollider2D footBoxCollider;
+
 
     // Use this for initialization
     void Awake() {
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
+        footBoxCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         float horizontal = Input.GetAxis("Player_Foot_Horizontal");
         //Checking which direction the foot turns to
         if (horizontal > 0 && transform.localScale.x < 0) {
@@ -50,8 +53,21 @@ public class PlayerFootMovement : MonoBehaviour {
             animator.SetBool("FootStomping", false);
 
         }
+
+        if (!footBoxCollider.IsTouchingLayers(-1)) {
+            grounded = false;
+            animator.SetBool("FootJumping", true);
+        }
     }
 
+    private void OnCollisionStay2D(Collision2D col) {
+        if (col.gameObject.CompareTag("Ground")) {
+            grounded = true;
+            animator.SetBool("FootJumping", !grounded);
+        }
+    }
+
+    /*
     //For the jumping Hand
     private void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.CompareTag("Ground")) {
@@ -67,13 +83,5 @@ public class PlayerFootMovement : MonoBehaviour {
             animator.SetBool("FootJumping", !grounded);
         }
     }
-
-    private void OnCollisionStay2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("Ground"))
-        {
-            grounded = true;
-            animator.SetBool("FootJumping", !grounded);
-        }
-    }
+    */
 }

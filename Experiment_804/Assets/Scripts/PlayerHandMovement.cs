@@ -26,7 +26,7 @@ public class PlayerHandMovement : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         float horizontal = Input.GetAxis("Player_Hand_Horizontal");
         //Checking which direction the hand turns to
         if (horizontal > 0 && transform.localScale.x < 0) {
@@ -61,8 +61,22 @@ public class PlayerHandMovement : MonoBehaviour {
             Pushing = false;
             animator.SetBool("HandPushing", false);
         }
+
+        if(!handCircleCollider.IsTouchingLayers(-1)) {
+            grounded = false;
+            animator.SetBool("HandJumping", true);
+        }
     }
 
+    private void OnCollisionStay2D(Collision2D col) {
+        if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player_Foot")) {
+            grounded = true;
+            animator.SetBool("HandJumping", !grounded);
+        }
+    }
+
+    //Old jumping code
+    /*
     //For the jumping Hand
     private void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player_Foot")) {
@@ -77,4 +91,5 @@ public class PlayerHandMovement : MonoBehaviour {
             animator.SetBool("HandJumping", !grounded);
         }
     }
+    */
 }
