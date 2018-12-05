@@ -3,10 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ground
-  - Player_Hand
-  - Player_Foot
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -16,6 +13,7 @@ TagManager:
   - UI
   - 
   - 
+<<<<<<< HEAD
   - Player_Hand
   - Player_Foot
   - Level_Colliders
@@ -24,6 +22,12 @@ TagManager:
 =======
   - CameraColliders
 >>>>>>> 886d84d3e0f4b6b6330458fef8d83524b2ef1601
+=======
+  - 
+  - 
+  - 
+  - 
+>>>>>>> a50f7edbcbb3167ea358452c24fe8c0d62f35040
   - 
   - 
   - 
