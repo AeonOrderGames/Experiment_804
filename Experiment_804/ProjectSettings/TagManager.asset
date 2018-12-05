@@ -22,7 +22,7 @@ TagManager:
   - CameraColliders
   - OnlyFoot
   - Obsticles
-  - 
+  - OnlyHand
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Vent
+    uniqueID: 1941330641
     locked: 0
