@@ -489,23 +489,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &948719449 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1746229881583696, guid: 469e37a7a996d364c8bdbacd1e91132a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1397284982}
---- !u!114 &948719452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 948719449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3796412ba90d6c94a80a45e2c419967a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  footInsideTrigger: 0
 --- !u!1 &1019716227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,21 +1356,6 @@ Prefab:
       propertyPath: ShelfCollider
       value: 
       objectReference: {fileID: 752042862}
-    - target: {fileID: 61316309441829442, guid: 469e37a7a996d364c8bdbacd1e91132a,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61316309441829442, guid: 469e37a7a996d364c8bdbacd1e91132a,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: -2.267148
-      objectReference: {fileID: 0}
-    - target: {fileID: 61316309441829442, guid: 469e37a7a996d364c8bdbacd1e91132a,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.3933618
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 469e37a7a996d364c8bdbacd1e91132a, type: 2}
   m_IsPrefabAsset: 0
