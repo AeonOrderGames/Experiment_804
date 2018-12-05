@@ -14,6 +14,8 @@ public class PlayerHandMovement : MonoBehaviour {
     //Hand pushing collider
     private CircleCollider2D handCircleCollider;
     public GameObject handBoxCollider;
+    //Hand pushing public variable referenced and used in puzzle box script
+    public bool Pushing;
 
 
     // Use this for initialization
@@ -50,11 +52,13 @@ public class PlayerHandMovement : MonoBehaviour {
         if (Input.GetKeyDown("f")) {
             handCircleCollider.enabled = false;
             handBoxCollider.SetActive(true);
+            Pushing = true;
             animator.SetBool("HandPushing", true);
         }
         else if (Input.GetKeyUp("f")) {
             handCircleCollider.enabled = true;
             handBoxCollider.SetActive(false);
+            Pushing = false;
             animator.SetBool("HandPushing", false);
         }
     }
