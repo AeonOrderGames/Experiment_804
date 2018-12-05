@@ -35,10 +35,12 @@ public class PuzzleBox : MonoBehaviour {
         if(!Hand.Pushing) {
             box.mass = 100;
         }
-        if (foot.GetComponent<Animator>().GetBool("footStomping")) {
+        if (foot.GetComponent<Animator>().GetBool("FootStomping")
+            && boxStompCollider.activeSelf
+            && boxStompCollider.GetComponent<ShelfStompTrigger>().footInsideTrigger)
+        {
             boxStompCollider.SetActive(false);
             ShelfCollider.SetActive(false);
-
         }
     }
 }
