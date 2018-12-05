@@ -6,6 +6,10 @@ public class PuzzleBox : MonoBehaviour {
 
     private PlayerHandMovement Hand;
     private Rigidbody2D box;
+    public GameObject foot;
+    public GameObject boxStompCollider;
+    public GameObject ShelfCollider;
+
 
     private void Awake() {
         Hand = FindObjectOfType<PlayerHandMovement>();
@@ -30,6 +34,11 @@ public class PuzzleBox : MonoBehaviour {
     private void FixedUpdate() {
         if(!Hand.Pushing) {
             box.mass = 100;
+        }
+        if (foot.GetComponent<Animator>().GetBool("footStomping")) {
+            boxStompCollider.SetActive(false);
+            ShelfCollider.SetActive(false);
+
         }
     }
 }
