@@ -14,19 +14,12 @@ public class VentStomp : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (foot.GetComponent<Animator>().GetBool("FootStomping")) 
         {
             body.bodyType = RigidbodyType2D.Dynamic;
             StartCoroutine(delaySpawn());
-
         }
 
     }
