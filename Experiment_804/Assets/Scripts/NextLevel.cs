@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour {
     private bool handInDoor;
@@ -31,7 +32,7 @@ public class NextLevel : MonoBehaviour {
         }
 
         if (footInDoor == true && handInDoor == true) {
-
+            Initiate.Fade("Level_One", Color.black, 2f);
         }
     }
 
