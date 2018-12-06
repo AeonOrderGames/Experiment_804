@@ -16,9 +16,9 @@ public class ElevatorOpen : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player_Hand")
-        { 
-            animator.Play("ElevatorOpen");
+        {
             sound.Play();
+            animator.Play("ElevatorOpen");
             buttonCol.enabled = false;
             //nextLevelTrigger.SetActive(true);
         }
