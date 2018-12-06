@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VentStomp : MonoBehaviour
 {
-    private Rigidbody2D body;
+    //private Rigidbody2D body;
     public GameObject foot;
     public GameObject ventOpen;
     private AudioSource sound;
@@ -12,7 +12,7 @@ public class VentStomp : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+        //body = GetComponent<Rigidbody2D>();
         sound = GetComponent<AudioSource>();
     }
 
