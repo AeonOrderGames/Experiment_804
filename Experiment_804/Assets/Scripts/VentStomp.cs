@@ -26,15 +26,15 @@ public class VentStomp : MonoBehaviour
         {
             body.bodyType = RigidbodyType2D.Dynamic;
             sound.Play();
-            StartCoroutine(delaySpawn());
+            //StartCoroutine(delaySpawn());
         }
 
     }
 
-    private IEnumerator delaySpawn()
+    /*private IEnumerator delaySpawn()
     {
         yield return new WaitForSeconds(0.15f);
         Instantiate(ventOpen, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
-    }
+    }*/
 }
