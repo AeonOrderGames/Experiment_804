@@ -13,28 +13,39 @@ public class VentStomp : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        sound = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        sound = GetComponent<AudioSource>();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (foot.GetComponent<Animator>().GetBool("FootStomping")) 
         {
-            body.bodyType = RigidbodyType2D.Dynamic;
+            Instantiate(ventOpen, new Vector2(transform.position.x , -1.425f), Quaternion.identity);
+            
+            //body.bodyType = RigidbodyType2D.Dynamic;
             sound.Play();
             //StartCoroutine(delaySpawn());
+            Destroy(gameObject);
         }
 
     }
 
-    /*private IEnumerator delaySpawn()
+    /*
+    private void OnCollisionEnter2D(Collision2D col) {
+        if(col.gameObject.CompareTag("Ground")) {
+            StartCoroutine(delayedStatic());       
+        }
+    }
+
+    private IEnumerator delayedStatic()
     {
-        yield return new WaitForSeconds(0.15f);
-        Instantiate(ventOpen, transform.position, Quaternion.identity);
-        Destroy(this.gameObject);
-    }*/
+        yield return new WaitForSeconds(1f);
+        body.bodyType = RigidbodyType2D.Static;
+    }
+    */
 }
