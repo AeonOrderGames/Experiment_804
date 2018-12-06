@@ -64,7 +64,6 @@ public class PlayerFootMovement : MonoBehaviour {
         }
 
         if (!footBoxCollider.IsTouchingLayers(defaultLayer)) {
-            Debug.Log("Jumping");
             grounded = false;
             animator.SetBool("FootJumping", true);
         }
