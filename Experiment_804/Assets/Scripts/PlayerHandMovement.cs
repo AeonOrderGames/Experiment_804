@@ -47,6 +47,11 @@ public class PlayerHandMovement : MonoBehaviour {
         if (grounded && Input.GetKeyDown("w")) {
             rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+        
+        //Limiting max jump velocity
+        if (rigidBody.velocity.y > jumpForce) {
+            rigidBody.velocity = Vector2.ClampMagnitude(rigidBody.velocity, 3.0f);
+        }
 
         //Checking if the Hand is pushing
         if (Input.GetKeyDown("f")) {
@@ -62,9 +67,10 @@ public class PlayerHandMovement : MonoBehaviour {
             animator.SetBool("HandPushing", false);
         }
 
-        if(!handCircleCollider.IsTouchingLayers(-1)) {
-            grounded = false;
-            animator.SetBool("HandJumping", true);
+        //Check if hand is not touching layer 0 at all
+        if(handCircleCollider.IsTouchingLayers(-1)) {
+            grounded = true;
+            animator.SetBool("HandJumping", false);
         }
     }
 

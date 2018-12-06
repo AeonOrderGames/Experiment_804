@@ -43,6 +43,12 @@ public class PlayerFootMovement : MonoBehaviour {
         if (grounded && Input.GetKeyDown("up")) {
             rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+
+        //Limiting max jump velocity
+        if (rigidBody.velocity.y > jumpForce) {
+            rigidBody.velocity = Vector2.ClampMagnitude(rigidBody.velocity, 3.0f);
+        }
+
         //Checking if the Foot is stomping
         if (animator.GetBool("FootJumping") && Input.GetKey("m")) {
             animator.SetBool("FootJumping", false);
