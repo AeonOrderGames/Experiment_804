@@ -9,11 +9,13 @@ public class PuzzleBox : MonoBehaviour {
     public GameObject foot;
     public GameObject boxStompCollider;
     public GameObject ShelfCollider;
+    private AudioSource sound;
 
 
     private void Awake() {
         Hand = FindObjectOfType<PlayerHandMovement>();
         box = GetComponent<Rigidbody2D>();
+        sound = GetComponent<AudioSource>();
     }
 
     //If the player touches the box and is pushing with the hand, the box becomes easier to move
@@ -41,6 +43,13 @@ public class PuzzleBox : MonoBehaviour {
         {
             boxStompCollider.SetActive(false);
             ShelfCollider.SetActive(false);
+            StartCoroutine(PlaySound());
         }
+    }
+
+    IEnumerator PlaySound()
+    {
+        yield return new WaitForSeconds(0.5f);
+        sound.Play();
     }
 }

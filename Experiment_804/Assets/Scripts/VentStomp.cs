@@ -6,7 +6,8 @@ public class VentStomp : MonoBehaviour
 {
     private Rigidbody2D body;
     public GameObject foot;
-    public GameObject obj;
+    public GameObject ventOpen;
+    private AudioSource sound;
 
     // Use this for initialization
     void Start()
@@ -14,11 +15,17 @@ public class VentStomp : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        sound = GetComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (foot.GetComponent<Animator>().GetBool("FootStomping")) 
         {
             body.bodyType = RigidbodyType2D.Dynamic;
+            sound.Play();
             StartCoroutine(delaySpawn());
         }
 
@@ -27,7 +34,7 @@ public class VentStomp : MonoBehaviour
     private IEnumerator delaySpawn()
     {
         yield return new WaitForSeconds(0.15f);
-        Instantiate(obj, transform.position, Quaternion.identity);
+        Instantiate(ventOpen, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }

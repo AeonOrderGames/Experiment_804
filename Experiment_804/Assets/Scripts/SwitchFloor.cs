@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SwitchFloor : MonoBehaviour {
-    public GameObject hand;
+    private GameObject hand;
 
     // Use this for initialization
     void Start () {
-		
-	}
+       
+    }
 	
 	// Update is called once per frame
 	void Update () {
