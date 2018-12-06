@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4033276181872860}
   - component: {fileID: 61962203547477302}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: HoleCollider
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1920514917323676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0100858, y: -0.37819827, z: 0.32895005}
+  m_LocalPosition: {x: 2.09, y: -0.37819827, z: 0.32895005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
