@@ -6,8 +6,16 @@ using UnityEngine.SceneManagement;
 public class NextLevel : MonoBehaviour {
     private bool handInDoor;
     private bool footInDoor;
+    private int nextScene = 0;
+    private string[] sceneNames;
 
-    private void OnTriggerEnter2D(Collider2D col) {
+
+        public void Awake() {
+        sceneNames = new string[] { "Main", "Level_One" ,"Level_Two"};
+        }
+
+        private void OnTriggerEnter2D(Collider2D col) {
+
         if (col.gameObject.tag == "Player_Hand") {
             var hand = FindObjectOfType<PlayerHandMovement>();
             hand.enabled = false;
@@ -32,7 +40,8 @@ public class NextLevel : MonoBehaviour {
         }
 
         if (footInDoor == true && handInDoor == true) {
-            Initiate.Fade("Level_One", Color.black, 2f);
+            nextScene++;
+            Initiate.Fade(sceneNames[nextScene], Color.black, 2f);
         }
     }
 
