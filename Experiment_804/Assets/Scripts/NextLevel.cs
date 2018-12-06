@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class NextLevel : MonoBehaviour {
     private bool handInDoor;
     private bool footInDoor;
-    private int nextScene = 0;
+    public int nextScene;
     private string[] sceneNames;
 
 
         public void Awake() {
-        sceneNames = new string[] { "Main", "Level_One" ,"Level_Two"};
+        nextScene = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log(nextScene);
+        sceneNames = new string[] {"Main", "Level_One" ,"Level_Two"};
         }
 
         private void OnTriggerEnter2D(Collider2D col) {
@@ -40,7 +42,6 @@ public class NextLevel : MonoBehaviour {
         }
 
         if (footInDoor == true && handInDoor == true) {
-            nextScene++;
             Initiate.Fade(sceneNames[nextScene], Color.black, 2f);
         }
     }
