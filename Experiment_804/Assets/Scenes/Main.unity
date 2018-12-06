@@ -197,7 +197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 318111676}
   - component: {fileID: 318111675}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015993118, y: 0.6691401}
+  m_Offset: {x: -0.015993118, y: 0.2763958}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -227,7 +227,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.7009783, y: 0.12720823}
+  m_Size: {x: 6.7009783, y: 0.91269684}
   m_EdgeRadius: 0
 --- !u!4 &318111676
 Transform:
@@ -394,7 +394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 555142027}
   - component: {fileID: 555142026}
-  - component: {fileID: 555142029}
+  - component: {fileID: 555142028}
   m_Layer: 0
   m_Name: LightManager
   m_TagString: Untagged
@@ -461,7 +461,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &555142029
+--- !u!95 &555142028
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -470,7 +470,7 @@ Animator:
   m_GameObject: {fileID: 555142025}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 65fa61aa1310b4e0dbe71fe4882e801f, type: 2}
+  m_Controller: {fileID: 9100000, guid: b5464a17121cf4a1686b0d29c2b67e43, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1403,6 +1403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a1b63efab454ee1893a5ac5613e77f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: 0
 --- !u!61 &1807730280
 BoxCollider2D:
   m_ObjectHideFlags: 0
