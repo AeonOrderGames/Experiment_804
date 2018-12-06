@@ -17,12 +17,15 @@ public class PlayerHandMovement : MonoBehaviour {
     //Hand pushing public variable referenced and used in puzzle box script
     public bool Pushing;
 
+    private LayerMask defaultLayer;
+
 
     // Use this for initialization
     void Awake() {
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         handCircleCollider = GetComponent<CircleCollider2D>();
+        defaultLayer = LayerMask.GetMask("Default");
     }
 
     // Update is called once per frame
@@ -67,10 +70,10 @@ public class PlayerHandMovement : MonoBehaviour {
             animator.SetBool("HandPushing", false);
         }
 
-        //Check if hand is not touching layer 0 at all
-        if(handCircleCollider.IsTouchingLayers(-1)) {
-            grounded = true;
-            animator.SetBool("HandJumping", false);
+        //Check if hand is not touching the DEFAULT layer
+        if(!handCircleCollider.IsTouchingLayers(defaultLayer)) {
+            grounded = false;
+            animator.SetBool("HandJumping", true);
         }
     }
 

@@ -10,8 +10,10 @@ public class PlayerFootMovement : MonoBehaviour {
     public float speed = 1;
     //How high the hand Jumps
     public float jumpForce = 3.5f;
-    private bool grounded;
+    public bool grounded;
     private BoxCollider2D footBoxCollider;
+
+    private LayerMask defaultLayer;
 
 
     // Use this for initialization
@@ -19,6 +21,7 @@ public class PlayerFootMovement : MonoBehaviour {
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         footBoxCollider = GetComponent<BoxCollider2D>();
+        defaultLayer = LayerMask.GetMask("Default");
     }
 
     // Update is called once per frame
@@ -60,7 +63,7 @@ public class PlayerFootMovement : MonoBehaviour {
 
         }
 
-        if (!footBoxCollider.IsTouchingLayers(-1)) {
+        if (!footBoxCollider.IsTouchingLayers(defaultLayer)) {
             grounded = false;
             animator.SetBool("FootJumping", true);
         }

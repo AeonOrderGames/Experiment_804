@@ -17,12 +17,14 @@ public class SwitchFloor : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        hand.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        if(col.gameObject.CompareTag("Player_Hand"))
+            hand.GetComponent<SpriteRenderer>().sortingOrder = 2;
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        hand.GetComponent<SpriteRenderer>().sortingOrder = 5;
+        if (col.gameObject.CompareTag("Player_Hand"))
+            hand.GetComponent<SpriteRenderer>().sortingOrder = 5;
 
     }
 }
