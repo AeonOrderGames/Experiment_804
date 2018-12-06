@@ -9,8 +9,11 @@ public class CameraSystem : MonoBehaviour {
     public GameObject Hand;
     public GameObject Foot;
 
-    public float followPositionX;
-    public float followPositionY;
+    public float minPos = 0;
+    public float maxPos = 10;
+
+    private float followPositionX;
+    private float followPositionY;
     private Vector3 followPosition;
     private Vector3 newPosition;
 
@@ -22,9 +25,13 @@ public class CameraSystem : MonoBehaviour {
     }
 
     private void LateUpdate() {
-            followPosition.x = (Hand.transform.position.x + Foot.transform.position.x) * 0.5f;
+        followPosition.x = (Hand.transform.position.x + Foot.transform.position.x) * 0.5f;
 
-            newPosition = Vector3.Lerp(transform.position, followPosition, smoothing);
-            transform.position = newPosition;
+        if (followPosition.x < minPos) followPosition.x = minPos;
+
+        if (followPosition.x > maxPos) followPosition.x = maxPos;
+
+        newPosition = Vector3.Lerp(transform.position, followPosition, smoothing);
+        transform.position = newPosition;
     }
 }

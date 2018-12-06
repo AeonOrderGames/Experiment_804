@@ -12,7 +12,7 @@ public class NextLevel : MonoBehaviour {
 
         public void Awake() {
         nextScene = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(nextScene);
+        //Debug.Log(nextScene);
         sceneNames = new string[] {"Main", "Level_One" ,"Level_Two"};
         }
 
