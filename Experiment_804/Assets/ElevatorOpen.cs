@@ -17,7 +17,7 @@ public class ElevatorOpen : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player_Hand")
         { 
-            animator.Play("Elevator_Parent");
+            animator.Play("ElevatorOpen");
             sound.Play();
             buttonCol.enabled = false;
             //nextLevelTrigger.SetActive(true);
