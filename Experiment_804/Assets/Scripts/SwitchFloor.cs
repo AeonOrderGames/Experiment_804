@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SwitchFloor : MonoBehaviour {
-    private GameObject hand;
+    public GameObject hand;
 
     // Use this for initialization
     void Start () {
