@@ -13,13 +13,13 @@ public class ButtonPress : MonoBehaviour {
         sound = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter2D(Collider2D col) {
-        if (col.gameObject.tag == "Player_Hand") {
 
+    private void OnTriggerEnter2D(Collider2D col) {
+        if (GameObject.FindGameObjectWithTag("Player_Hand").GetComponentInChildren<BoxCollider2D>().name.Equals(col.name)) {
             animator.Play("Door_Open");
             sound.Play();
             buttonCol.enabled = false;
-            nextLevelTrigger.SetActive(true);
+            nextLevelTrigger.SetActive(true); 
         }
     }
 }

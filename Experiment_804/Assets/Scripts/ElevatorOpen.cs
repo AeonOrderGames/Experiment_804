@@ -15,7 +15,7 @@ public class ElevatorOpen : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player_Hand")
+        if (GameObject.FindGameObjectWithTag("Player_Hand").GetComponentInChildren<BoxCollider2D>().name.Equals(col.name))
         {
             sound.Play();
             animator.Play("ElevatorOpen");
