@@ -57,7 +57,6 @@ public class PlayerFootMovement : MonoBehaviour {
             animator.SetBool("FootJumping", false);
             animator.SetBool("FootStomping", true);
             rigidBody.AddForce(Vector2.down * jumpForce, ForceMode2D.Impulse);
-
         }
         else if (grounded && !animator.GetBool("FootJumping")) {
             animator.SetBool("FootStomping", false);
