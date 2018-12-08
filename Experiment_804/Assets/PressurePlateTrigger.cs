@@ -28,8 +28,7 @@ public class PressurePlateTrigger : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D col)
     {
         this.gameObject.GetComponent<SpriteRenderer>().sprite = plateOff;
-        pressurePlateOn = false;
+         pressurePlateOn = false;
     }
-
 
 }
