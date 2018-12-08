@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class PlayerFootMovement : MonoBehaviour {
     //Script in use
@@ -12,6 +13,8 @@ public class PlayerFootMovement : MonoBehaviour {
     public float jumpForce = 3.5f;
     public bool grounded;
     private BoxCollider2D footBoxCollider;
+    private AudioSource sound;
+
 
     private LayerMask defaultLayer;
 
@@ -22,6 +25,7 @@ public class PlayerFootMovement : MonoBehaviour {
         rigidBody = GetComponent<Rigidbody2D>();
         footBoxCollider = GetComponent<BoxCollider2D>();
         defaultLayer = LayerMask.GetMask("Default");
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -57,6 +61,10 @@ public class PlayerFootMovement : MonoBehaviour {
             animator.SetBool("FootJumping", false);
             animator.SetBool("FootStomping", true);
             rigidBody.AddForce(Vector2.down * jumpForce, ForceMode2D.Impulse);
+            //Stomp sound
+            sound.Play();
+            //To shake the camera when the foot stomps
+            CameraShaker.Instance.ShakeOnce(1f, 1f, .1f, 1f);
         }
         else if (grounded && !animator.GetBool("FootJumping")) {
             animator.SetBool("FootStomping", false);
