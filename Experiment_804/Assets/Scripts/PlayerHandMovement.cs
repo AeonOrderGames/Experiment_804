@@ -78,7 +78,7 @@ public class PlayerHandMovement : MonoBehaviour {
     }
 
     private void OnCollisionStay2D(Collision2D col) {
-        if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player_Foot")) {
+        if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player_Foot") || Pushing) {
             grounded = true;
             animator.SetBool("HandJumping", !grounded);
         }
