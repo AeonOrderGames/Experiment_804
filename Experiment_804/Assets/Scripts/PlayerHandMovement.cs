@@ -9,7 +9,7 @@ public class PlayerHandMovement : MonoBehaviour {
     //Speed of the player
     public float speed = 2;
     //How high the hand Jumps
-    public float jumpForce = 2.5f;
+    public float jumpForce = 2f;
     public bool grounded;
     //Hand pushing collider
     private CircleCollider2D handCircleCollider;
@@ -48,22 +48,22 @@ public class PlayerHandMovement : MonoBehaviour {
 
         //Checking if the Hand is jumping
         if (grounded && Input.GetKeyDown("w")) {
-            rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rigidBody.AddForce(Vector2.up * (jumpForce - 0.4f), ForceMode2D.Impulse);
         }
         
         //Limiting max jump velocity
-        if (rigidBody.velocity.y > jumpForce) {
-            rigidBody.velocity = Vector2.ClampMagnitude(rigidBody.velocity, 3.0f);
+        if (rigidBody.velocity.y > jumpForce){
+            rigidBody.velocity = Vector2.ClampMagnitude(rigidBody.velocity, 2.3f);
         }
 
         //Checking if the Hand is pushing
-        if (Input.GetKey("f")) {
+        if (Input.GetKeyDown("2")) {
             handCircleCollider.enabled = false;
             handBoxCollider.SetActive(true);
             Pushing = true;
             animator.SetBool("HandPushing", true);
         }
-        else {
+        else if (Input.GetKeyUp("2")) {
             handCircleCollider.enabled = true;
             handBoxCollider.SetActive(false);
             Pushing = false;
@@ -71,7 +71,7 @@ public class PlayerHandMovement : MonoBehaviour {
         }
 
         //Check if hand is not touching the DEFAULT layer
-        if(!handCircleCollider.IsTouchingLayers(defaultLayer) && !Pushing) {
+        if (!handCircleCollider.IsTouchingLayers(defaultLayer)) {
             grounded = false;
             animator.SetBool("HandJumping", true);
         }
