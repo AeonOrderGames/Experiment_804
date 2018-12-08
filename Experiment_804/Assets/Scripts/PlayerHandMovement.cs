@@ -57,13 +57,13 @@ public class PlayerHandMovement : MonoBehaviour {
         }
 
         //Checking if the Hand is pushing
-        if (Input.GetKeyDown("f")) {
+        if (Input.GetKey("f")) {
             handCircleCollider.enabled = false;
             handBoxCollider.SetActive(true);
             Pushing = true;
             animator.SetBool("HandPushing", true);
         }
-        else if (Input.GetKeyUp("f")) {
+        else {
             handCircleCollider.enabled = true;
             handBoxCollider.SetActive(false);
             Pushing = false;
@@ -71,14 +71,14 @@ public class PlayerHandMovement : MonoBehaviour {
         }
 
         //Check if hand is not touching the DEFAULT layer
-        if(!handCircleCollider.IsTouchingLayers(defaultLayer)) {
+        if(!handCircleCollider.IsTouchingLayers(defaultLayer) && !Pushing) {
             grounded = false;
             animator.SetBool("HandJumping", true);
         }
     }
 
     private void OnCollisionStay2D(Collision2D col) {
-        if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player_Foot")) {
+        if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player_Foot") || Pushing) {
             grounded = true;
             animator.SetBool("HandJumping", !grounded);
         }

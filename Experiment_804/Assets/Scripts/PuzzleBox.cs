@@ -47,7 +47,7 @@ public class PuzzleBox : MonoBehaviour {
         }
     }
 
-    IEnumerator PlaySound()
+    private IEnumerator PlaySound()
     {
         yield return new WaitForSeconds(0.5f);
         sound.Play();
