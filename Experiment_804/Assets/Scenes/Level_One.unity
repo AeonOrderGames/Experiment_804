@@ -3042,6 +3042,11 @@ Prefab:
       propertyPath: ShelfCollider
       value: 
       objectReference: {fileID: 1328973025}
+    - target: {fileID: 212655216094062758, guid: 469e37a7a996d364c8bdbacd1e91132a,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 469e37a7a996d364c8bdbacd1e91132a, type: 2}
   m_IsPrefabAsset: 0
