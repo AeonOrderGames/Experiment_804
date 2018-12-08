@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NextLevel : MonoBehaviour {
+public class NextLevel : MonoBehaviour
+{
     private bool handInDoor;
     private bool footInDoor;
     public int nextScene;
     private string[] sceneNames;
 
 
-        public void Awake() {
+    public void Awake() {
         nextScene = SceneManager.GetActiveScene().buildIndex;
-        //Debug.Log(nextScene);
-        sceneNames = new string[] {"Main", "Level_One" ,"Level_Two"};
-        }
+        sceneNames = new string[] { "Main", "Level_One", "Level_Two" };
+    }
 
-        private void OnTriggerEnter2D(Collider2D col) {
+    private void OnTriggerEnter2D(Collider2D col) {
 
         if (col.gameObject.tag == "Player_Hand") {
             var hand = FindObjectOfType<PlayerHandMovement>();
@@ -41,12 +41,13 @@ public class NextLevel : MonoBehaviour {
             footInDoor = true;
         }
 
-        if (footInDoor == true && handInDoor == true) {
+        if (footInDoor && handInDoor) {
             Initiate.Fade(sceneNames[nextScene], Color.black, 2f);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D col) {
+    private void OnTriggerExit2D(Collider2D col)
+    {
         if (col.gameObject.tag == "Player_Hand") {
             handInDoor = false;
         }

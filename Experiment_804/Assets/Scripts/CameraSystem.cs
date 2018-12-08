@@ -25,7 +25,16 @@ public class CameraSystem : MonoBehaviour {
     }
 
     private void LateUpdate() {
-        followPosition.x = (Hand.transform.position.x + Foot.transform.position.x) * 0.5f;
+        //Edge cases:
+        if (Hand == null) {
+            followPosition.x = Foot.transform.position.x;
+        }
+        else if (Foot == null) {
+            followPosition.x = Hand.transform.position.x;
+        }
+        else {
+            followPosition.x = (Hand.transform.position.x + Foot.transform.position.x) * 0.5f;
+        }
 
         if (followPosition.x < minPos) followPosition.x = minPos;
 
