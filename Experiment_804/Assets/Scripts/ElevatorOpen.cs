@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ElevatorOpen : MonoBehaviour {
+    //take buttonCol out later
     public BoxCollider2D buttonCol;
     private Animator animator;
     private AudioSource sound;
