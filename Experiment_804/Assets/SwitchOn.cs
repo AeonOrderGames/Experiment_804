@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class SwitchOn : MonoBehaviour {
 
-	public GameObject obsticle1;
+    public GameObject obsticle1;
     public GameObject hand;
     public Sprite switchOn;
     private Sprite switchOff;
     
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         switchOff = GetComponent<SpriteRenderer>().sprite;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
+    
+    // Update is called once per frame
+    void Update () {
+        
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
-    { 
+    {
         if (hand.GetComponent<PlayerHandMovement>().Pushing)
         {
             //Obsticle goes up and switch goes on.
