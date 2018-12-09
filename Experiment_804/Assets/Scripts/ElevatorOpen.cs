@@ -8,6 +8,7 @@ public class ElevatorOpen : MonoBehaviour {
     private Animator animator;
     private AudioSource sound;
     public GameObject nextLevelTrigger;
+    public GameObject LegSolo;
 
     private void Awake() {
         animator = GetComponent<Animator>();
@@ -16,7 +17,8 @@ public class ElevatorOpen : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (GameObject.FindGameObjectWithTag("Player_Hand").GetComponentInChildren<BoxCollider2D>().name.Equals(col.name))
+        Debug.Log(LegSolo.activeSelf);
+        if (GameObject.FindGameObjectWithTag("Player_Hand").GetComponentInChildren<BoxCollider2D>().name.Equals(col.name) && LegSolo.activeSelf == false)
         {
             sound.Play();
             animator.Play("ElevatorOpen");

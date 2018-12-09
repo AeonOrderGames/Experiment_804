@@ -1357,6 +1357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonCol: {fileID: 947335680}
   nextLevelTrigger: {fileID: 1389752262}
+  LegSolo: {fileID: 1818947001}
 --- !u!61 &947335680
 BoxCollider2D:
   m_ObjectHideFlags: 0
