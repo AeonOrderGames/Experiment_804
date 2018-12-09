@@ -13,7 +13,7 @@ public class NextLevel : MonoBehaviour
 
     public void Awake() {
         nextScene = SceneManager.GetActiveScene().buildIndex;
-        sceneNames = new string[] { "Main", "Level_One", "Level_Two" };
+        sceneNames = new string[] { "Main", "Level_One", "Elevator_One", "Level_Two" };
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
