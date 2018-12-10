@@ -42,24 +42,26 @@ public class PuzzleBox : MonoBehaviour {
         if (boxStompCollider.activeSelf && boxStompCollider.GetComponent<ShelfStompTrigger>().footInsideTrigger) {
             if (foot.activeSelf) {
                 if (foot.GetComponent<Animator>().GetBool("FootStomping")) {
-                    boxStompCollider.SetActive(false);
                     ShelfCollider.SetActive(false);
-                    StartCoroutine(PlaySound());
                 }
             }
             else if (leg.activeSelf) {
                 if (leg.GetComponent<Animator>().GetBool("LegStomping")) {
-                    boxStompCollider.SetActive(false);
                     ShelfCollider.SetActive(false);
-                    StartCoroutine(PlaySound());
+                    StartCoroutine(setShelfActive());
                 }
             }
         }
     }
 
-    private IEnumerator PlaySound()
-    {
+    private void OnTriggerEnter2D(Collider2D col) {
+        if(col.tag == "Ground") {
+            sound.Play();
+        }
+    }
+
+    private IEnumerator setShelfActive() {
         yield return new WaitForSeconds(0.5f);
-        sound.Play();
+        ShelfCollider.SetActive(true);
     }
 }
