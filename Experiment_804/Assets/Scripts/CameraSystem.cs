@@ -28,19 +28,19 @@ public class CameraSystem : MonoBehaviour {
     private void LateUpdate() {
         //Edge cases:
         //If the hand is in the elevator
-        if(Hand == null && Leg.activeSelf) {
+        if (Hand == null && Leg != null) {
             followPosition.x = Leg.transform.position.x;
         }
         //If the leg is in the elevator
-        if (Hand.activeSelf && Leg == null) {
+        if (Hand != null && Leg == null) {
             followPosition.x = Hand.transform.position.x;
         }
         //If both hand and foot are still in the scene
-        else if (Hand != null && Foot.activeSelf) {
+        else if (Hand != null && Foot != null) {
             followPosition.x = (Hand.transform.position.x + Foot.transform.position.x) * 0.5f;
         }
         //If both hand and leg are still in the scene
-        else if (Hand != null && Leg.activeSelf) {
+        else if (Hand != null && Leg != null) {
             followPosition.x = (Hand.transform.position.x + Leg.transform.position.x) * 0.5f;
         }
 

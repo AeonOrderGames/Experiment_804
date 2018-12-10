@@ -30,6 +30,7 @@ public class NextLevel : MonoBehaviour
         }
 
         if (col.gameObject.tag == "Player_Foot") {
+
             var foot = FindObjectOfType<PlayerFootMovement>();
             var leg = FindObjectOfType<LegMovement>();
 
@@ -43,7 +44,7 @@ public class NextLevel : MonoBehaviour
                 footInDoor = true;
             }
 
-            if(leg != null) {
+            else {
                 leg.enabled = false;
                 var legAnimator = leg.GetComponent<Animator>();
                 legAnimator.SetBool("LegJumping", false);

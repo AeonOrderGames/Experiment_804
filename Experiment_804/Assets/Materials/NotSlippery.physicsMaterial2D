@@ -6,5 +6,9 @@ PhysicsMaterial2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: NotSlippery
+<<<<<<< HEAD
   friction: 1.2
+=======
+  friction: 0.4
+>>>>>>> 802bda6a1d774252806b8571fed97886efb33c6d
   bounciness: 0
