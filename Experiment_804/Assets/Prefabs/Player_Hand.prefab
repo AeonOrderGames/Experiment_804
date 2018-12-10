@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1199381254323158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.43, y: -0.48, z: 0}
+  m_LocalPosition: {x: -1.77, y: 1.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4465821968011678}
@@ -168,6 +168,7 @@ MonoBehaviour:
   grounded: 0
   handBoxCollider: {fileID: 1421970766520562}
   Pushing: 0
+  climbing: 0
 --- !u!212 &212123193206262270
 SpriteRenderer:
   m_ObjectHideFlags: 1

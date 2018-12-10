@@ -11,6 +11,7 @@ public class LegMovement : MonoBehaviour {
 
     private float horizontal;
     private bool jumping;
+    public bool kicking;
     private PlayerHandMovement hand;
 
     //private bool kick;
@@ -36,6 +37,17 @@ public class LegMovement : MonoBehaviour {
         if (animator.GetBool("LegJumping") && Input.GetKeyDown("down")) {
             animator.SetBool("LegStomping", true);
         }
+
+        if (Input.GetKey(KeyCode.RightShift) && horizontal == 0)
+        {
+            kicking = true;
+            animator.Play("Leg_Kick");
+            //animator.SetBool("LegKicking", true);
+        }
+        else
+        {
+            kicking = false;
+        }
     }
 
     public void OnLanding() {
@@ -43,6 +55,7 @@ public class LegMovement : MonoBehaviour {
         animator.SetBool("LegStomping", false);
         this.gameObject.transform.Find("ClimbCollider").gameObject.SetActive(true); //climbing collider goes back on
     }
+
 
     private void FixedUpdate() {
         controller.Move(horizontal * Time.fixedDeltaTime, false, jumping);
