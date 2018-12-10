@@ -2212,11 +2212,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1737396780057248, guid: b48f19ad65eb44dc3893a9d375a0e29a,
     type: 2}
   m_PrefabInternal: {fileID: 1333526830}
---- !u!4 &895764325 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1333526830}
 --- !u!1 &910761183
 GameObject:
   m_ObjectHideFlags: 0
@@ -3300,7 +3295,7 @@ GameObject:
   - component: {fileID: 1168554066}
   - component: {fileID: 1168554065}
   - component: {fileID: 1168554064}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: StompCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3331,7 +3326,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.18647456, y: 0.7617895}
+  m_Offset: {x: 0.18647456, y: 1.0330102}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3342,7 +3337,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.833898, y: 1.2704769}
+  m_Size: {x: 4.833898, y: 0.72803557}
   m_EdgeRadius: 0
 --- !u!4 &1168554066
 Transform:
@@ -3470,17 +3465,6 @@ Prefab:
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_RootOrder
       value: 29
-      objectReference: {fileID: 0}
-    - target: {fileID: 212262109578561554, guid: b48f19ad65eb44dc3893a9d375a0e29a,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6e8d17e4e91f5b04984e1b23877907c6,
-        type: 3}
-    - target: {fileID: 70350168572070436, guid: b48f19ad65eb44dc3893a9d375a0e29a,
-        type: 2}
-      propertyPath: m_UsedByEffector
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
@@ -3657,10 +3641,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 7.599474, y: 2.129936}
-      - {x: 7.5874844, y: 2.0063171}
-      - {x: 9.591744, y: 1.9073408}
-      - {x: 9.600626, y: 2.019289}
+    - - {x: 7.6715693, y: 2.1203232}
+      - {x: 7.6595798, y: 2.0111237}
+      - {x: 9.703182, y: 1.9083765}
+      - {x: 9.708293, y: 2.0144827}
 --- !u!114 &1559398182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3748,72 +3732,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1610584112
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1610584113}
-  - component: {fileID: 1610584115}
-  - component: {fileID: 1610584114}
-  m_Layer: 9
-  m_Name: KickCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1610584113
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1610584112}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 895764325}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1610584114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1610584112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db924503b5ec0481299b8dafdfdbf899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &1610584115
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1610584112}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.6946856, y: -0.5042071}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.43976992, y: 0.66386163}
-  m_EdgeRadius: 0
 --- !u!1 &1773653578
 GameObject:
   m_ObjectHideFlags: 0
