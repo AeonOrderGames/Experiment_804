@@ -64,7 +64,7 @@ public class PuzzleBox : MonoBehaviour {
     }
 
     private IEnumerator setShelfActive() {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         ShelfCollider.SetActive(true);
     }
 }
