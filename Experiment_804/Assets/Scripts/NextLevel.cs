@@ -30,15 +30,30 @@ public class NextLevel : MonoBehaviour
         }
 
         if (col.gameObject.tag == "Player_Foot") {
+
             var foot = FindObjectOfType<PlayerFootMovement>();
-            foot.enabled = false;
-            foot.GetComponent<Animator>().Play("Foot_Faded");
-            var footAnimator = foot.GetComponent<Animator>();
-            footAnimator.SetBool("Jumping", false);
-            footAnimator.SetFloat("FootWalking", 0);
-            footAnimator.Play("Foot_Faded");
-            Destroy(foot.gameObject, 1f);
-            footInDoor = true;
+            var leg = FindObjectOfType<LegMovement>();
+
+            if (foot != null) {
+                foot.enabled = false;
+                var footAnimator = foot.GetComponent<Animator>();
+                footAnimator.SetBool("Jumping", false);
+                footAnimator.SetFloat("FootWalking", 0);
+                footAnimator.Play("Foot_Faded");
+                Destroy(foot.gameObject, 1f);
+                footInDoor = true;
+            }
+
+            else {
+                leg.enabled = false;
+                var legAnimator = leg.GetComponent<Animator>();
+                legAnimator.SetBool("LegJumping", false);
+                legAnimator.SetFloat("LegWalking", 0);
+                legAnimator.Play("Leg_Faded");
+                Destroy(leg.gameObject, 1f);
+                footInDoor = true;
+            }
+            
         }
 
         if (footInDoor && handInDoor) {

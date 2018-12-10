@@ -8,6 +8,7 @@ public class CameraSystem : MonoBehaviour {
 
     public GameObject Hand;
     public GameObject Foot;
+    public GameObject Leg;
 
     public float minPos = 0;
     public float maxPos = 10;
@@ -26,14 +27,21 @@ public class CameraSystem : MonoBehaviour {
 
     private void LateUpdate() {
         //Edge cases:
-        if (Hand == null) {
-            followPosition.x = Foot.transform.position.x;
+        //If the hand is in the elevator
+        if (Hand == null && Leg != null) {
+            followPosition.x = Leg.transform.position.x;
         }
-        else if (Foot == null) {
+        //If the leg is in the elevator
+        if (Hand != null && Leg == null) {
             followPosition.x = Hand.transform.position.x;
         }
-        else {
+        //If both hand and foot are still in the scene
+        else if (Hand != null && Foot != null) {
             followPosition.x = (Hand.transform.position.x + Foot.transform.position.x) * 0.5f;
+        }
+        //If both hand and leg are still in the scene
+        else if (Hand != null && Leg != null) {
+            followPosition.x = (Hand.transform.position.x + Leg.transform.position.x) * 0.5f;
         }
 
         if (followPosition.x < minPos) followPosition.x = minPos;

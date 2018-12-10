@@ -7,6 +7,7 @@ public class PuzzleBox : MonoBehaviour {
     private PlayerHandMovement Hand;
     private Rigidbody2D box;
     public GameObject foot;
+    public GameObject leg;
     public GameObject boxStompCollider;
     public GameObject ShelfCollider;
     private AudioSource sound;
@@ -34,22 +35,36 @@ public class PuzzleBox : MonoBehaviour {
 
     //If the hand is touching the box but is not pushing, then it becomes heavy again as well
     private void FixedUpdate() {
-        if(!Hand.Pushing) {
+        if (!Hand.Pushing) {
             box.mass = 100;
         }
-        if (foot.GetComponent<Animator>().GetBool("FootStomping")
-            && boxStompCollider.activeSelf
-            && boxStompCollider.GetComponent<ShelfStompTrigger>().footInsideTrigger)
-        {
-            boxStompCollider.SetActive(false);
-            ShelfCollider.SetActive(false);
-            StartCoroutine(PlaySound());
+        //Checking if the foot is active
+        if (boxStompCollider.activeSelf && boxStompCollider.GetComponent<ShelfStompTrigger>().footInsideTrigger) {
+
+            if (foot != null && foot.activeSelf) {
+                if (foot.GetComponent<Animator>().GetBool("FootStomping")) {
+                    ShelfCollider.SetActive(false);
+                }
+            }
+
+            else if (leg != null && leg.activeSelf) {
+                if (leg.GetComponent<Animator>().GetBool("LegStomping")) {
+                    Debug.Log("Leg is stompy");
+                    ShelfCollider.SetActive(false);
+                    StartCoroutine(setShelfActive());
+                }
+            }
         }
     }
 
-    private IEnumerator PlaySound()
-    {
-        yield return new WaitForSeconds(0.5f);
-        sound.Play();
+    private void OnTriggerEnter2D(Collider2D col) {
+        if(col.tag == "Ground") {
+            sound.Play();
+        }
+    }
+
+    private IEnumerator setShelfActive() {
+        yield return new WaitForSeconds(2f);
+        ShelfCollider.SetActive(true);
     }
 }

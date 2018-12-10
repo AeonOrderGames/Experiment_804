@@ -6,6 +6,8 @@ public class TempDestroy : MonoBehaviour {
 
     public Canvas dialogCanvas;
     public Level_1_Dialog dialogue;
+    public GameObject foot;
+    public GameObject leg;
 
     private void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag("Player_Foot")) {
@@ -20,5 +22,7 @@ public class TempDestroy : MonoBehaviour {
 
     public void TriggerDialogue() {
         FindObjectOfType<Level_1_DialogManager>().StartDialogue(dialogue);
+        foot.gameObject.SetActive(false);
+        leg.gameObject.SetActive(true);
     }
 }

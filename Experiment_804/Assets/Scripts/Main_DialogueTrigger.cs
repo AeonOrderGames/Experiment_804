@@ -14,6 +14,7 @@ public class Main_DialogueTrigger : MonoBehaviour {
         dialogueManager = FindObjectOfType<Level_1_DialogManager>();
     }
     private void OnTriggerEnter2D(Collider2D col) {
+        //To make sure the dialogue happens only once
         if(!done) {
             DialogueCanvas.gameObject.SetActive(true);
             Time.timeScale = 0.0f;
