@@ -17,11 +17,8 @@ public class LegKick : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        Debug.Log(col.gameObject.name);
-
         if ((col.gameObject.name == "MetalBox1" || col.gameObject.name == "MetalBox2") && leg.kicking)
         {
-            Debug.Log("blob");
             col.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(leg.direction, 0.6f ), ForceMode2D.Impulse);
         }
     }

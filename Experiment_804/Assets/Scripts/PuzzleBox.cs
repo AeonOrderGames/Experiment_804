@@ -40,13 +40,16 @@ public class PuzzleBox : MonoBehaviour {
         }
         //Checking if the foot is active
         if (boxStompCollider.activeSelf && boxStompCollider.GetComponent<ShelfStompTrigger>().footInsideTrigger) {
-            if (foot.activeSelf) {
+
+            if (foot != null && foot.activeSelf) {
                 if (foot.GetComponent<Animator>().GetBool("FootStomping")) {
                     ShelfCollider.SetActive(false);
                 }
             }
-            else if (leg.activeSelf) {
+
+            else if (leg != null && leg.activeSelf) {
                 if (leg.GetComponent<Animator>().GetBool("LegStomping")) {
+                    Debug.Log("Leg is stompy");
                     ShelfCollider.SetActive(false);
                     StartCoroutine(setShelfActive());
                 }
@@ -61,7 +64,7 @@ public class PuzzleBox : MonoBehaviour {
     }
 
     private IEnumerator setShelfActive() {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         ShelfCollider.SetActive(true);
     }
 }

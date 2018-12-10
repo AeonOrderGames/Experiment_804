@@ -40,6 +40,7 @@ public class LegMovement : MonoBehaviour {
 
         if (animator.GetBool("LegJumping") && Input.GetKeyDown("down")) {
             animator.SetBool("LegStomping", true);
+            //animator.SetBool("LegJumping", false);
         }
 
         if (Input.GetKey(KeyCode.RightShift) && horizontal == 0)
