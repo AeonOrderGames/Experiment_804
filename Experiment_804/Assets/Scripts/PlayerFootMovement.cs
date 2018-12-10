@@ -84,6 +84,8 @@ public class PlayerFootMovement : MonoBehaviour {
         }
     }
 
+
+
     /*
     //For the jumping Hand
     private void OnCollisionEnter2D(Collision2D col) {

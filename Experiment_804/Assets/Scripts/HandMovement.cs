@@ -13,9 +13,18 @@ public class HandMovement : MonoBehaviour {
     private bool jumping; //Jumping and pushing will need to be public if we implement this script into production
     private bool pushing;
 
-    private void Awake() {
+    private Rigidbody2D hand; //new code climb
+    public float distance; //new code climb
+    private float vertical; //new code climb
+    private LayerMask legLadder; //new code climb
+    private bool climbing; //new code climb
+
+
+    private void Start()
+    {
         controller = GetComponent<CharacterController2D>();
         animator = GetComponent<Animator>();
+        hand = GetComponent<Rigidbody2D>(); //new code climb
     }
 
     void Update () {
@@ -31,7 +40,7 @@ public class HandMovement : MonoBehaviour {
         if(Input.GetKeyDown("2")) {
             pushing = true;
         }
-	}
+    }
 
     public void OnLanding() {
         animator.SetBool("HandJumping", false);
