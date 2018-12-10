@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: -667331979, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: YouMurderFont
   m_EditorClassIdentifier: 
-  hashCode: -1959108237
+  hashCode: -38995735
   material: {fileID: 21943872737849258}
   materialHashCode: -1595523688
   fontAssetType: 1
