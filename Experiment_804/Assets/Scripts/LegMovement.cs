@@ -8,7 +8,7 @@ public class LegMovement : MonoBehaviour {
     private Animator animator;
 
     public float moveSpeed = 40f;
-
+    public float direction;
     private float horizontal;
     private bool jumping;
     public bool kicking;
@@ -24,6 +24,10 @@ public class LegMovement : MonoBehaviour {
 
     void Update() {
         horizontal = Input.GetAxisRaw("Player_Foot_Horizontal") * moveSpeed;
+        if (horizontal != 0)
+        {
+            direction = Mathf.Sign(horizontal);
+        }
 
         animator.SetFloat("LegWalking", Mathf.Abs(horizontal));
 
