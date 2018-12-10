@@ -16,11 +16,9 @@ public class ElevatorOpen : MonoBehaviour {
         sound = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
-    {
+    private void OnTriggerEnter2D(Collider2D col) {
         //Debug.Log(Leg.enabled);
-        if (Hand.Pushing && Leg.gameObject.activeSelf)
-        {
+        if (Hand.Pushing && Leg.gameObject.activeSelf) {
             sound.Play();
             animator.Play("ElevatorOpen");
             buttonCol.enabled = false;

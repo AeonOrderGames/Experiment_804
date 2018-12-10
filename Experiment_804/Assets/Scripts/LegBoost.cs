@@ -16,11 +16,15 @@ public class LegBoost : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        col.gameObject.GetComponent<Rigidbody2D>().mass = 0f;
+        if (col.gameObject.CompareTag("Player_Hand")) {
+            col.gameObject.GetComponent<Rigidbody2D>().mass = 0f;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D col)
     {
-        col.gameObject.GetComponent<Rigidbody2D>().mass = 1f;
+        if (col.gameObject.CompareTag("Player_Hand")) {
+            col.gameObject.GetComponent<Rigidbody2D>().mass = 1f;
+        }
     }
 }
