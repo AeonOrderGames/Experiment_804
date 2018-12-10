@@ -100,14 +100,20 @@ public class PlayerHandMovement : MonoBehaviour
             rigidBody.gravityScale = 0f;
             if (Input.GetKey("w"))
             {
+                animator.SetBool("HandClimbingMoving", true);
+                animator.SetBool("HandClimbingIdle", false);
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, speed * 1);
             }
             else if (Input.GetKey("s"))
             {
+                animator.SetBool("HandClimbingMoving", true);
+                animator.SetBool("HandClimbingIdle", false);
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, speed * -1);
             }
             else
             {
+                animator.SetBool("HandClimbingIdle", true);
+                animator.SetBool("HandClimbingMoving", false);
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, speed * 0);
             }
         }
@@ -115,6 +121,8 @@ public class PlayerHandMovement : MonoBehaviour
         else 
         {
             rigidBody.gravityScale = 1f;
+            animator.SetBool("HandClimbingMoving", false);
+            animator.SetBool("HandClimbingIdle", false);
         }
     }
 
