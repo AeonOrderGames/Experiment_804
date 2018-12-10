@@ -11,7 +11,7 @@ public class HandMovement : MonoBehaviour {
 
     private float horizontal;
     private bool jumping; //Jumping and pushing will need to be public if we implement this script into production
-    private bool pushing;
+    public bool pushing;
 
     private Rigidbody2D hand; //new code climb
     public float distance; //new code climb

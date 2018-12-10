@@ -8,6 +8,7 @@ public class CameraSystem : MonoBehaviour {
 
     public GameObject Hand;
     public GameObject Foot;
+    public GameObject Leg;
 
     public float minPos = 0;
     public float maxPos = 10;
@@ -29,11 +30,16 @@ public class CameraSystem : MonoBehaviour {
         if (Hand == null) {
             followPosition.x = Foot.transform.position.x;
         }
-        else if (Foot == null) {
+        else if (Foot == null || Leg == null) {
             followPosition.x = Hand.transform.position.x;
         }
-        else {
+        //If both players are still in the scene
+        else if (Hand != null && Foot != null) {
             followPosition.x = (Hand.transform.position.x + Foot.transform.position.x) * 0.5f;
+        }
+        else if (Hand != null && Leg != null) {
+            //If the foot grabs the leg
+            followPosition.x = (Hand.transform.position.x + Leg.transform.position.x) * 0.5f;
         }
 
         if (followPosition.x < minPos) followPosition.x = minPos;
