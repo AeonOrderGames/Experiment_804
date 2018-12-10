@@ -7,8 +7,6 @@ public class Level_1_DialogManager : MonoBehaviour {
     public Canvas dialogueCanvas;
     public Text nameText;
     public Text dialogueText;
-    public int sentencesLeft = 0;
-
 
     private Queue<string> sentences;
 
@@ -28,8 +26,7 @@ public class Level_1_DialogManager : MonoBehaviour {
 
      public void DisplayNextSentence() {
         //Checking if there are more sentences in the queue
-        sentencesLeft = sentences.Count;
-        if(sentencesLeft == 0) {
+        if(sentences.Count == 0) {
             EndDialogue();
             return;
         }
