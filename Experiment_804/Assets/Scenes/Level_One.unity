@@ -519,9 +519,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9606d392776dd38429551f18ce349caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogCanvas: {fileID: 1971379100}
+  dialogueCanvas: {fileID: 1971379100}
   nameText: {fileID: 501434206}
   dialogueText: {fileID: 1858868497}
+  sentencesLeft: 0
 --- !u!4 &516298290
 Transform:
   m_ObjectHideFlags: 0

@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Level_1_DialogManager : MonoBehaviour {
-    public Canvas dialogCanvas;
+    public Canvas dialogueCanvas;
     public Text nameText;
     public Text dialogueText;
+    public int sentencesLeft = 0;
+
 
     private Queue<string> sentences;
 
@@ -26,7 +28,8 @@ public class Level_1_DialogManager : MonoBehaviour {
 
      public void DisplayNextSentence() {
         //Checking if there are more sentences in the queue
-        if(sentences.Count == 0) {
+        sentencesLeft = sentences.Count;
+        if(sentencesLeft == 0) {
             EndDialogue();
             return;
         }
@@ -39,7 +42,7 @@ public class Level_1_DialogManager : MonoBehaviour {
     void EndDialogue() {
         //Unfreezing the screen
         Time.timeScale = 1.0f;
-        dialogCanvas.gameObject.SetActive(false);
+        dialogueCanvas.gameObject.SetActive(false);
     }
 
     IEnumerator TypeSentence(string sentence) {
