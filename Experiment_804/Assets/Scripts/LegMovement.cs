@@ -33,11 +33,14 @@ public class LegMovement : MonoBehaviour {
             hand.climbing = false; //hand cant climb anymore
         }
 
+        if (animator.GetBool("LegJumping") && Input.GetKeyDown("down")) {
+            animator.SetBool("LegStomping", true);
+        }
     }
 
     public void OnLanding() {
         animator.SetBool("LegJumping", false);
-        Debug.Log("Not jumping");
+        animator.SetBool("LegStomping", false);
         this.gameObject.transform.Find("ClimbCollider").gameObject.SetActive(true); //climbing collider goes back on
     }
 
