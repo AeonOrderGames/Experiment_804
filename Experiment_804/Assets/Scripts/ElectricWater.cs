@@ -27,7 +27,7 @@ public class ElectricWater : MonoBehaviour {
         }
         if (col.gameObject.name == "Player_Hand" && electric)
         {
-            //col.gameObject.GetComponent<Animator>().Play("Hand_Death");
+            col.gameObject.GetComponent<Animator>().Play("Hand_Death");
         }
     }
 
