@@ -10,9 +10,12 @@ public class BoxSpawner : MonoBehaviour {
     public GameObject box2;
     public ShelfAvailability shelfStatus;
 
+    private bool canPush;
+
     // Use this for initialization
     void Start () {
         boxes = new Queue<GameObject>();
+        canPush = true;
     }
     
     // Update is called once per frame
@@ -22,17 +25,15 @@ public class BoxSpawner : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (hand.GetComponent<PlayerHandMovement>().Pushing)
+        if (hand.GetComponent<PlayerHandMovement>().Pushing && canPush)
         {
-            Debug.Log("hand is pushing");
             if (shelfStatus.available)
             {
-                Debug.Log("There is nothing on the shelf");
                 if (boxes.Count == 0)
                 {
-                    Debug.Log("Box should fall down");
                     boxes.Enqueue(box1);
                     box1.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+
                 }
                 else if (boxes.Count == 1)
                 {
@@ -45,10 +46,18 @@ public class BoxSpawner : MonoBehaviour {
                     tempBox.transform.position = new Vector3(0.842f, 2.5f, 0);
                     boxes.Enqueue(tempBox);
                 }
+                StartCoroutine(WaitButton());
             }
 
         }
 
+    }
+
+    private IEnumerator WaitButton()
+    {
+        canPush = false;
+        yield return new WaitForSeconds(1.5f);
+        canPush = true;
     }
 
 }

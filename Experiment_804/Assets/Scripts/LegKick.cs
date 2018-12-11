@@ -19,7 +19,8 @@ public class LegKick : MonoBehaviour {
     {
         if ((col.gameObject.name == "MetalBox1" || col.gameObject.name == "MetalBox2") && leg.kicking)
         {
-            col.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(leg.direction, 0.6f ), ForceMode2D.Impulse);
+            col.gameObject.GetComponent<Rigidbody2D>().mass = 2;
+            col.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(leg.direction * 1.4f, 0.4f ), ForceMode2D.Impulse);
         }
     }
 
