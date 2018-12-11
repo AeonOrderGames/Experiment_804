@@ -60,6 +60,7 @@ public class PuzzleBox : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D col) {
         if(col.tag == "Ground") {
             sound.Play();
+            box.mass = 100;
         }
     }
 

@@ -22,12 +22,15 @@ public class ShelfAvailability : MonoBehaviour {
         }
     }
 
+    private void OnEnable()
+    {
+        available = true;
+    }
+
     private void OnCollisionExit2D(Collision2D col)
     {
-        Debug.Log(col.gameObject.name);
         if (col.gameObject.name == "MetalBox1" || col.gameObject.name == "MetalBox2")
         {
-            Debug.Log("blobby out");
             available = true;
         }
     }
