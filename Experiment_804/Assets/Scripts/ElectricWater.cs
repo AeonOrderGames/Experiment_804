@@ -21,6 +21,14 @@ public class ElectricWater : MonoBehaviour {
         {
             electric = true;
         }
+        if (col.gameObject.name == "Player_Leg" && electric) 
+        {
+            col.gameObject.GetComponent<Animator>().Play("Leg_Death");
+        }
+        if (col.gameObject.name == "Player_Hand" && electric)
+        {
+            //col.gameObject.GetComponent<Animator>().Play("Hand_Death");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D col)
