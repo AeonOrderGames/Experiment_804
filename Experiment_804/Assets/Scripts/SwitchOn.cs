@@ -22,15 +22,15 @@ public class SwitchOn : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (hand.GetComponent<PlayerHandMovement>().Pushing)
-        {
+        //if (hand.GetComponent<PlayerHandMovement>().Pushing)
+        //{
             //Obsticle goes up and switch goes on.
             obsticle1.GetComponent<Animator>().Play("Obsticle1Up");
 
             this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOn;
             //wait 
             StartCoroutine(Obsticle1Timer());
-        }
+        //}
     }
 
     private IEnumerator Obsticle1Timer()
