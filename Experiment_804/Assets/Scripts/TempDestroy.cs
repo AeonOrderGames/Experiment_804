@@ -11,7 +11,6 @@ public class TempDestroy : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.CompareTag("Player_Foot")) {
-            //Destroy(gameObject);
             gameObject.SetActive(false);
             //Freezing the screen
             Time.timeScale = 0.0f;
