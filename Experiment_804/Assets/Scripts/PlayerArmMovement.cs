@@ -61,12 +61,12 @@ public class PlayerArmMovement : MonoBehaviour {
         }
 
         //Checking if the Arm is standing up
-        if (Input.GetKey("w") && !Standing) {
+        if (Input.GetKey("w")) {
             animator.SetBool("ArmStanding", true);
             standingBoxCollider.SetActive(true);
             Standing = true;
         }
-        if(Pushing || Walking) {
+        if(Walking) {
             animator.SetBool("ArmStanding", false);
             standingBoxCollider.SetActive(false);
             Standing = false;
