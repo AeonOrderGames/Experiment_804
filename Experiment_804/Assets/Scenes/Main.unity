@@ -143,7 +143,6 @@ MonoBehaviour:
   dialogueCanvas: {fileID: 1261798625}
   nameText: {fileID: 563434159}
   dialogueText: {fileID: 1297854944}
-  sentencesLeft: 0
 --- !u!4 &229843687
 Transform:
   m_ObjectHideFlags: 0
@@ -578,8 +577,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a30f933bed2f6504bae572c0ef6aaeb7, type: 3}
-    m_FontSize: 20
+    m_Font: {fileID: 12800000, guid: 2ac4a178284d14d7399df689d1150975, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1279,8 +1278,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a30f933bed2f6504bae572c0ef6aaeb7, type: 3}
-    m_FontSize: 20
+    m_Font: {fileID: 12800000, guid: 2ac4a178284d14d7399df689d1150975, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1565,7 +1564,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a30f933bed2f6504bae572c0ef6aaeb7, type: 3}
+    m_Font: {fileID: 12800000, guid: 2ac4a178284d14d7399df689d1150975, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
