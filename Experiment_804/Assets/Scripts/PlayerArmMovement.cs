@@ -14,9 +14,12 @@ public class PlayerArmMovement : MonoBehaviour {
     private float horizontal;
     //Hand/Arm pushing collider
     private CircleCollider2D handCircleCollider;
-    public GameObject handBoxCollider;
+    //public GameObject handBoxCollider;
+    public GameObject standingBoxCollider;
     //Hand pushing public variable referenced and used in puzzle box script
-    public bool Pushing;
+    public bool Pushing = false;
+    public bool Walking = false;
+    public bool Standing = false;
 
     private LayerMask defaultLayer;
 
@@ -34,9 +37,14 @@ public class PlayerArmMovement : MonoBehaviour {
         if (horizontal != 0) {
             direction = Mathf.Sign(horizontal);
         }
-
+        
         animator.SetFloat("ArmWalking", Mathf.Abs(horizontal));
-
+        if(Mathf.Abs(horizontal) < 0.01) {
+            Walking = false;
+        }
+        else {
+            Walking = true;
+        }
 
         //Checking if the Arm is pushing
         /*if (Input.GetKeyDown("2")) {
@@ -51,6 +59,18 @@ public class PlayerArmMovement : MonoBehaviour {
             Pushing = false;
             animator.SetBool("ArmPushing", false);
         }*/
+
+        //Checking if the Arm is standing up
+        if (Input.GetKey("w") && !Standing) {
+            animator.SetBool("ArmStanding", true);
+            standingBoxCollider.SetActive(true);
+            Standing = true;
+        }
+        if(Pushing || Walking) {
+            animator.SetBool("ArmStanding", false);
+            standingBoxCollider.SetActive(false);
+            Standing = false;
+        }
     }
 
     private void FixedUpdate() {
