@@ -1640,8 +1640,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonCol: {fileID: 538266454}
   nextLevelTrigger: {fileID: 1074574220}
-  Leg: {fileID: 0}
-  Hand: {fileID: 0}
+  Leg: {fileID: 895764319}
+  Hand: {fileID: 1480197353}
+  Arm: {fileID: 2103292979}
 --- !u!95 &538266452
 Animator:
   serializedVersion: 3
@@ -2470,6 +2471,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1737396780057248, guid: b48f19ad65eb44dc3893a9d375a0e29a,
     type: 2}
   m_PrefabInternal: {fileID: 1333526830}
+--- !u!114 &895764319 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114165547973830740, guid: b48f19ad65eb44dc3893a9d375a0e29a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1333526830}
+  m_Script: {fileID: 11500000, guid: e6190305693a97b4a9d8e97471631cbe, type: 3}
 --- !u!1 &907529598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,6 +2944,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1074574222}
   - component: {fileID: 1074574221}
+  - component: {fileID: 1074574223}
   m_Layer: 4
   m_Name: NextLevel
   m_TagString: Untagged
@@ -2956,7 +2964,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 13.118868, y: 1.2731607}
+  m_Offset: {x: 13.057343, y: 1.2731607}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2967,7 +2975,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62217045, y: 1.8363833}
+  m_Size: {x: 0.74522114, y: 1.8363833}
   m_EdgeRadius: 0
 --- !u!4 &1074574222
 Transform:
@@ -2982,6 +2990,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074574223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1074574220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a1b63efab454ee1893a5ac5613e77f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: 0
 --- !u!1 &1077373290
 GameObject:
   m_ObjectHideFlags: 0
@@ -3576,6 +3596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1131377796}
   - component: {fileID: 1131377795}
+  - component: {fileID: 1131377794}
   m_Layer: 0
   m_Name: ElevatorButton
   m_TagString: Untagged
@@ -3583,6 +3604,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1131377794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1131377793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d068732c5b9cb2b4f8d5361fcf55c41a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: 0
 --- !u!212 &1131377795
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4088,6 +4121,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1199381254323158, guid: 445f30631ddf7314e8028d2ed8c9c5b9,
     type: 2}
   m_PrefabInternal: {fileID: 106228838}
+--- !u!114 &1480197353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114928645004959310, guid: 445f30631ddf7314e8028d2ed8c9c5b9,
+    type: 2}
+  m_PrefabInternal: {fileID: 106228838}
+  m_Script: {fileID: 11500000, guid: dca5cd66f88a57248addbe7d6767e588, type: 3}
 --- !u!1 &1556211420
 GameObject:
   m_ObjectHideFlags: 0
@@ -5512,3 +5551,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1583187612930898, guid: 53c8fecd14ffb394ebbfcb987f6afda1,
     type: 2}
   m_PrefabInternal: {fileID: 282740166}
+--- !u!114 &2103292979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114602482060583058, guid: 53c8fecd14ffb394ebbfcb987f6afda1,
+    type: 2}
+  m_PrefabInternal: {fileID: 282740166}
+  m_Script: {fileID: 11500000, guid: 6a5f51ffaa5359c448f51ee00dbcbd4f, type: 3}
