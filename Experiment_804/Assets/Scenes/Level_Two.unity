@@ -5571,6 +5571,8 @@ MonoBehaviour:
   obsticle1: {fileID: 1122732405}
   hand: {fileID: 1480197352}
   switchOn: {fileID: 21300016, guid: ccac86970564d4ba3bd21027ceac00a1, type: 3}
+  objUp: {fileID: 0}
+  objDown: {fileID: 0}
 --- !u!61 &2091906534
 BoxCollider2D:
   m_ObjectHideFlags: 0
