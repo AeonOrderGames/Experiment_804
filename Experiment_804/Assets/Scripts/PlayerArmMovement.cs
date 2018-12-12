@@ -9,14 +9,17 @@ public class PlayerArmMovement : MonoBehaviour {
     private Animator animator;
 
     //Speed of the player
-    public float moveSpeed = 40f;
+    public float moveSpeed = 20f;
     public float direction;
     private float horizontal;
     //Hand/Arm pushing collider
     private CircleCollider2D handCircleCollider;
-    public GameObject handBoxCollider;
+    public GameObject pushingArmCollider;
+    public GameObject standingBoxCollider;
     //Hand pushing public variable referenced and used in puzzle box script
-    public bool Pushing;
+    public bool Pushing = false;
+    public bool Walking = false;
+    public bool Standing = false;
 
     private LayerMask defaultLayer;
 
@@ -34,23 +37,40 @@ public class PlayerArmMovement : MonoBehaviour {
         if (horizontal != 0) {
             direction = Mathf.Sign(horizontal);
         }
-
+        
         animator.SetFloat("ArmWalking", Mathf.Abs(horizontal));
-
+        if(Mathf.Abs(horizontal) < 0.01) {
+            Walking = false;
+        }
+        else {
+            Walking = true;
+        }
 
         //Checking if the Arm is pushing
-        /*if (Input.GetKeyDown("2")) {
+        if (Input.GetKeyDown("2")) {
             handCircleCollider.enabled = false;
-            handBoxCollider.SetActive(true);
+            pushingArmCollider.SetActive(true);
             Pushing = true;
             animator.SetBool("ArmPushing", true);
         }
         else if (Input.GetKeyUp("2")) {
             handCircleCollider.enabled = true;
-            handBoxCollider.SetActive(false);
+            pushingArmCollider.SetActive(false);
             Pushing = false;
             animator.SetBool("ArmPushing", false);
-        }*/
+        }
+
+        //Checking if the Arm is standing up
+        if (Input.GetKey("w") && !Standing) {
+            animator.SetBool("ArmStanding", true);
+            standingBoxCollider.SetActive(true);
+            Standing = true;
+        }
+        if(Pushing || Walking) {
+            animator.SetBool("ArmStanding", false);
+            standingBoxCollider.SetActive(false);
+            Standing = false;
+        }
     }
 
     private void FixedUpdate() {
