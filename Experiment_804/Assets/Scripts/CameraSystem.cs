@@ -7,8 +7,10 @@ public class CameraSystem : MonoBehaviour {
     public float smoothing = 0.5f;
 
     public GameObject Hand;
+    public GameObject Arm;
     public GameObject Foot;
     public GameObject Leg;
+
 
     public float minPos = 0;
     public float maxPos = 10;
@@ -26,24 +28,26 @@ public class CameraSystem : MonoBehaviour {
     }
 
     private void LateUpdate() {
+        if(Hand.activeSelf == false) {
+            Hand = Arm;
+        }
+        if(Foot.activeSelf == false) {
+            Foot = Leg;
+        }
         //Edge cases:
         //If the hand is in the elevator
-        if (Hand == null && Leg != null) {
-            followPosition.x = Leg.transform.position.x;
+        if ((Hand == null && Hand.activeSelf == false) && Foot != null) {
+            followPosition.x = Foot.transform.position.x;
         }
         //If the leg is in the elevator
-        if (Hand != null && Leg == null) {
-            followPosition.x = Hand.transform.position.x;
+        if (Hand != null && (Foot == null && Foot.activeSelf == false)) {
+            followPosition.x = Foot.transform.position.x;
         }
         //If both hand and foot are still in the scene
-        else if (Hand != null && Foot != null) {
+        else if (Hand != null && Foot != null && Hand.activeSelf && Foot.activeSelf) {
             followPosition.x = (Hand.transform.position.x + Foot.transform.position.x) * 0.5f;
         }
-        //If both hand and leg are still in the scene
-        else if (Hand != null && Leg != null) {
-            followPosition.x = (Hand.transform.position.x + Leg.transform.position.x) * 0.5f;
-        }
-
+     
         if (followPosition.x < minPos) followPosition.x = minPos;
 
         if (followPosition.x > maxPos) followPosition.x = maxPos;
