@@ -22,14 +22,19 @@ public class PlayerArmMovement : MonoBehaviour {
     public bool Standing = false;
 
     private LayerMask defaultLayer;
+    private Rigidbody2D rigidBody;
+
+    public bool climbing;
+    private float climbVelocity;
 
     // Use this for initialization
     private void Awake() {
         controller = GetComponent<CharacterController2D>();
         animator = GetComponent<Animator>();
         handCircleCollider = GetComponent<CircleCollider2D>();
-        //defaultLayer = LayerMask.GetMask("Default");
-    }
+        //defaultLayer = LayerMask.GetMask("Default")
+        rigidBody = GetComponent<Rigidbody2D>();
+}
 
     // Update is called once per frame
     void Update() {
@@ -70,6 +75,37 @@ public class PlayerArmMovement : MonoBehaviour {
             animator.SetBool("ArmStanding", false);
             standingBoxCollider.SetActive(false);
             Standing = false;
+        }
+
+        //
+        if (climbing)
+        {
+            rigidBody.gravityScale = 0f;
+            if (Input.GetKey("w"))
+            {
+                animator.SetBool("HandClimbingMoving", true);
+                animator.SetBool("HandClimbingIdle", false);
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, moveSpeed * 1);
+            }
+            else if (Input.GetKey("s"))
+            {
+                animator.SetBool("HandClimbingMoving", true);
+                animator.SetBool("HandClimbingIdle", false);
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, moveSpeed * -1);
+            }
+            else
+            {
+                animator.SetBool("HandClimbingIdle", true);
+                animator.SetBool("HandClimbingMoving", false);
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, moveSpeed * 0);
+            }
+        }
+
+        else
+        {
+            rigidBody.gravityScale = 1f;
+            animator.SetBool("HandClimbingMoving", false);
+            animator.SetBool("HandClimbingIdle", false);
         }
     }
 
