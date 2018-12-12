@@ -9,12 +9,12 @@ public class PlayerArmMovement : MonoBehaviour {
     private Animator animator;
 
     //Speed of the player
-    public float moveSpeed = 40f;
+    public float moveSpeed = 20f;
     public float direction;
     private float horizontal;
     //Hand/Arm pushing collider
     private CircleCollider2D handCircleCollider;
-    //public GameObject handBoxCollider;
+    public GameObject pushingArmCollider;
     public GameObject standingBoxCollider;
     //Hand pushing public variable referenced and used in puzzle box script
     public bool Pushing = false;
@@ -47,18 +47,18 @@ public class PlayerArmMovement : MonoBehaviour {
         }
 
         //Checking if the Arm is pushing
-        /*if (Input.GetKeyDown("2")) {
+        if (Input.GetKeyDown("2")) {
             handCircleCollider.enabled = false;
-            handBoxCollider.SetActive(true);
+            pushingArmCollider.SetActive(true);
             Pushing = true;
             animator.SetBool("ArmPushing", true);
         }
         else if (Input.GetKeyUp("2")) {
             handCircleCollider.enabled = true;
-            handBoxCollider.SetActive(false);
+            pushingArmCollider.SetActive(false);
             Pushing = false;
             animator.SetBool("ArmPushing", false);
-        }*/
+        }
 
         //Checking if the Arm is standing up
         if (Input.GetKey("w") && !Standing) {
