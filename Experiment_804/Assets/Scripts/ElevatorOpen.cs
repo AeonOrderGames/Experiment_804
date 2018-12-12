@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ElevatorOpen : MonoBehaviour {
     //take buttonCol out later
@@ -10,6 +11,7 @@ public class ElevatorOpen : MonoBehaviour {
     public GameObject nextLevelTrigger;
     public LegMovement Leg;
     public PlayerHandMovement Hand;
+    public PlayerArmMovement Arm;
 
     private void Awake() {
         animator = GetComponent<Animator>();
@@ -17,8 +19,7 @@ public class ElevatorOpen : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
-        //Debug.Log(Leg.enabled);
-        if (Hand.Pushing && Leg.gameObject.activeSelf) {
+        if ((Hand.Pushing && Leg.gameObject.activeSelf) || Arm.Pushing) {
             sound.Play();
             animator.Play("ElevatorOpen");
             buttonCol.enabled = false;
@@ -29,6 +30,5 @@ public class ElevatorOpen : MonoBehaviour {
     private IEnumerator elevatorDelayTrigger() {
         yield return new WaitForSeconds(5f);
         nextLevelTrigger.SetActive(true);
-       
     }
 }

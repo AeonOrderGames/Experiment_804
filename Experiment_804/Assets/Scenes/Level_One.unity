@@ -1356,6 +1356,7 @@ MonoBehaviour:
   nextLevelTrigger: {fileID: 1389752262}
   Leg: {fileID: 171261233}
   Hand: {fileID: 1593456138}
+  Arm: {fileID: 0}
 --- !u!61 &947335680
 BoxCollider2D:
   m_ObjectHideFlags: 0
