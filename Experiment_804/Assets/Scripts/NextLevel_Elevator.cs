@@ -10,7 +10,7 @@ public class NextLevel_Elevator : MonoBehaviour {
 
     public void Awake() {
         nextScene = SceneManager.GetActiveScene().buildIndex;
-        sceneNames = new string[] { "Main", "Level_One", "Elevator_One", "Level_Two", "Elevator_Two", "Level_Three" };
+        sceneNames = new string[] { "Main", "Level_One", "Elevator_One", "Level_Two", "Elevator_Two", "Level_Three"};
         StartCoroutine(SwitchScenes());
     }
 

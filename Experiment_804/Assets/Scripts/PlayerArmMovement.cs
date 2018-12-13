@@ -70,13 +70,16 @@ public class PlayerArmMovement : MonoBehaviour {
             animator.SetBool("ArmStanding", true);
             standingBoxCollider.SetActive(true);
             Standing = true;
+            if (Input.GetKeyDown("2")) {
+                Pushing = true;
+            }
         }
         if(Walking) {
             animator.SetBool("ArmStanding", false);
             standingBoxCollider.SetActive(false);
             Standing = false;
         }
-
+        
         //
         if (animator.GetBool("ArmClimbingIdle") && animator.GetBool("ArmStanding")) 
         {
