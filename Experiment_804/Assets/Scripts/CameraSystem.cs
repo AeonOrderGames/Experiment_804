@@ -19,6 +19,8 @@ public class CameraSystem : MonoBehaviour {
     private float followPositionY;
     private Vector3 followPosition;
     private Vector3 newPosition;
+    private NextLevel armDestroyed;
+    private NextLevel LegDestroyed;
 
     private void Awake() {
         followPositionX = (Hand.transform.position.x + Foot.transform.position.x) * 0.5f;
@@ -28,23 +30,29 @@ public class CameraSystem : MonoBehaviour {
     }
 
     private void LateUpdate() {
-        if(Hand.activeSelf == false) {
-            Hand = Arm;
+        if (Hand != null) {
+            if (Hand.activeSelf == false) {
+                Hand = Arm;
+            }
         }
-        if(Foot.activeSelf == false) {
-            Foot = Leg;
+        if(Foot != null) {
+            if (Foot.activeSelf == false) {
+                 if (Leg != null) {
+                    Foot = Leg;
+                 }
+            }
         }
         //Edge cases:
         //If the hand is in the elevator
-        if ((Hand == null && Hand.activeSelf == false) && Foot != null) {
+        if (Hand == null && Foot != null) {
             followPosition.x = Foot.transform.position.x;
         }
         //If the leg is in the elevator
-        if (Hand != null && (Foot == null && Foot.activeSelf == false)) {
+        if (Hand != null && Foot == null ) {
             followPosition.x = Foot.transform.position.x;
         }
         //If both hand and foot are still in the scene
-        else if (Hand != null && Foot != null && Hand.activeSelf && Foot.activeSelf) {
+        else if (Hand != null && Foot != null) {
             followPosition.x = (Hand.transform.position.x + Foot.transform.position.x) * 0.5f;
         }
      

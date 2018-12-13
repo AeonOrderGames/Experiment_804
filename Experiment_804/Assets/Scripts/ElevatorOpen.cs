@@ -27,7 +27,16 @@ public class ElevatorOpen : MonoBehaviour {
         }
     }
 
-    private IEnumerator elevatorDelayTrigger() {
+    private void OnTriggerStay2D(Collider2D col) {
+        if (Arm.pushing) {
+            sound.Play();
+            animator.Play("ElevatorOpen");
+            buttonCol.enabled = false;
+            StartCoroutine(elevatorDelayTrigger());
+        }
+    }
+
+        private IEnumerator elevatorDelayTrigger() {
         yield return new WaitForSeconds(5f);
         nextLevelTrigger.SetActive(true);
     }

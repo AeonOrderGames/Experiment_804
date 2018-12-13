@@ -10,7 +10,6 @@ public class NextLevel : MonoBehaviour
     public int nextScene;
     private string[] sceneNames;
 
-
     public void Awake() {
         nextScene = SceneManager.GetActiveScene().buildIndex;
         sceneNames = new string[] { "Main", "Level_One", "Elevator_One", "Level_Two","Elevator_Two", "Level_Three", "Credit_List"};
@@ -32,10 +31,10 @@ public class NextLevel : MonoBehaviour
                 handInDoor = true;
             }
             else {
-                hand.enabled = false;
-                var handAnimator = hand.GetComponent<Animator>();
-                handAnimator.SetFloat("ArmWalking", 0);
-                handAnimator.Play("Arm_Faded");
+                arm.enabled = false;
+                var armAnimator = arm.GetComponent<Animator>();
+                armAnimator.SetFloat("ArmWalking", 0);
+                armAnimator.Play("Arm_Faded");
                 Destroy(arm.gameObject, 1f);
                 handInDoor = true;
             }
