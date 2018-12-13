@@ -672,6 +672,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1581560297847910, guid: 469e37a7a996d364c8bdbacd1e91132a,
     type: 2}
   m_PrefabInternal: {fileID: 2107675561}
+--- !u!114 &625755232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 625755231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04528def1300b204f90f60e4c9f74372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderWidth: 0.01
+  cooldown: 4
+  shineSpeed: 0.01
 --- !u!61 &625755238
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3203,6 +3217,7 @@ GameObject:
   - component: {fileID: 1818947004}
   - component: {fileID: 1818947003}
   - component: {fileID: 1818947002}
+  - component: {fileID: 1818947006}
   m_Layer: 0
   m_Name: LegSolo
   m_TagString: Untagged
@@ -3275,7 +3290,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1caf00e96b011ff478dab2421b1da616, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3319,6 +3334,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 9.9470005, y: 5.188, z: 7.3710003}
+--- !u!114 &1818947006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1818947001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04528def1300b204f90f60e4c9f74372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderWidth: 0.15
+  cooldown: 2
+  shineSpeed: 0.04
 --- !u!1 &1858868495
 GameObject:
   m_ObjectHideFlags: 0
@@ -3941,7 +3970,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 1caf00e96b011ff478dab2421b1da616, type: 2}
     - target: {fileID: 114070508141273578, guid: 469e37a7a996d364c8bdbacd1e91132a,
         type: 2}
       propertyPath: leg
@@ -3969,6 +3998,7 @@ GameObject:
   - component: {fileID: 2110771391}
   - component: {fileID: 2110771392}
   - component: {fileID: 2110771393}
+  - component: {fileID: 2110771394}
   m_Layer: 0
   m_Name: VentClosed
   m_TagString: Ground
@@ -3991,7 +4021,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1caf00e96b011ff478dab2421b1da616, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4213,3 +4243,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2110771394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2110771386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04528def1300b204f90f60e4c9f74372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderWidth: 0.01
+  cooldown: 4
+  shineSpeed: 0.01
