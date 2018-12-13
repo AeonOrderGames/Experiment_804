@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class LegMovement : MonoBehaviour {
 
@@ -41,6 +42,8 @@ public class LegMovement : MonoBehaviour {
         if (animator.GetBool("LegJumping") && Input.GetKeyDown("down")) {
             animator.SetBool("LegStomping", true);
             //animator.SetBool("LegJumping", false);
+            //To shake the camera when the foot stomps
+            CameraShaker.Instance.ShakeOnce(1f, 1f, .1f, 1f);
         }
 
         if (Input.GetKey(KeyCode.RightShift) && horizontal == 0)
