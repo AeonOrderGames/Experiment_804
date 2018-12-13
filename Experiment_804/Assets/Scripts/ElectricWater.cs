@@ -34,7 +34,7 @@ public class ElectricWater : MonoBehaviour {
             handDead = true;
         }
         if(handDead || footDead) {
-            Initiate.Fade("Level_2", Color.black, 2f);
+            StartCoroutine(fadeTimer());
         }
     }
 
@@ -44,5 +44,10 @@ public class ElectricWater : MonoBehaviour {
         {
             electric = false;
         }
+    }
+
+    private IEnumerator fadeTimer() {
+        yield return new WaitForSeconds(1f);
+        Initiate.Fade("Level_2", Color.black, 2f);
     }
 }
