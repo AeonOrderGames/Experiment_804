@@ -40,7 +40,7 @@ public class nextRoom : MonoBehaviour {
             Destroy(leg.gameObject, 1f);
             footInDoor = true;
         }
-        Debug.Log(nextScene);
+
         if (footInDoor && handInDoor) {
             Debug.Log(nextScene);
             if(nextScene == 8) {
