@@ -305,11 +305,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4347102484494252, guid: 445f30631ddf7314e8028d2ed8c9c5b9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.08
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 4347102484494252, guid: 445f30631ddf7314e8028d2ed8c9c5b9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.42
+      value: 1.37
       objectReference: {fileID: 0}
     - target: {fileID: 4347102484494252, guid: 445f30631ddf7314e8028d2ed8c9c5b9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -825,6 +825,10 @@ Prefab:
     - target: {fileID: 4311386580345438, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
       propertyPath: m_RootOrder
       value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583187612930898, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
@@ -3241,7 +3245,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1122732405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.69, z: 0}
+  m_LocalPosition: {x: 0, y: 0.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1158620528}
@@ -3447,10 +3451,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5dfb2ec323fd8498fd4a149ee0cdc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foot: {fileID: 0}
+  foot: {fileID: 1271528053}
   leg: {fileID: 895764318}
-  hand: {fileID: 0}
-  arm: {fileID: 0}
+  hand: {fileID: 1480197352}
+  arm: {fileID: 2103292977}
   boxStompCollider: {fileID: 1168554063}
   ShelfCollider: {fileID: 1559398179}
 --- !u!61 &1124311036
@@ -3973,11 +3977,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.7
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.3
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4003,6 +4007,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 29
       objectReference: {fileID: 0}
+    - target: {fileID: 114492229676822586, guid: b48f19ad65eb44dc3893a9d375a0e29a,
+        type: 2}
+      propertyPath: hand
+      value: 
+      objectReference: {fileID: 1480197352}
+    - target: {fileID: 114492229676822586, guid: b48f19ad65eb44dc3893a9d375a0e29a,
+        type: 2}
+      propertyPath: arm
+      value: 
+      objectReference: {fileID: 2103292977}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
   m_IsPrefabAsset: 0
@@ -4261,8 +4275,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1559398180}
-  - component: {fileID: 1559398181}
   - component: {fileID: 1559398182}
+  - component: {fileID: 1559398181}
   m_Layer: 0
   m_Name: ShelfFloorCollider
   m_TagString: Ground
@@ -4283,8 +4297,8 @@ Transform:
   m_Father: {fileID: 1556211422}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &1559398181
-PolygonCollider2D:
+--- !u!61 &1559398181
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4295,7 +4309,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 8.725731, y: 1.9646311}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4305,12 +4319,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 7.6715693, y: 2.1203232}
-      - {x: 7.6595798, y: 2.0111237}
-      - {x: 9.703182, y: 1.9083765}
-      - {x: 9.708293, y: 2.0144827}
+  serializedVersion: 2
+  m_Size: {x: 1.9849205, y: 0.09262931}
+  m_EdgeRadius: 0
 --- !u!114 &1559398182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4902,10 +4913,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5dfb2ec323fd8498fd4a149ee0cdc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foot: {fileID: 0}
+  foot: {fileID: 1271528053}
   leg: {fileID: 895764318}
-  hand: {fileID: 0}
-  arm: {fileID: 0}
+  hand: {fileID: 1480197352}
+  arm: {fileID: 2103292977}
   boxStompCollider: {fileID: 1168554063}
   ShelfCollider: {fileID: 1559398179}
 --- !u!61 &1870227562
