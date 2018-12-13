@@ -6,8 +6,12 @@ public class InteractableShine : MonoBehaviour {
 
     private Material shine;
     private float val;
+    [Range(0, 1)]
     public float shaderWidth = 0.01f;
     public float cooldown = 2f;
+
+    [Range(0.01f, 0.1f)]
+    public float shineSpeed = 0.01f;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +29,7 @@ public class InteractableShine : MonoBehaviour {
             while (val < 1f) {
                 shine.SetFloat("_ShineLocation", val);
                 yield return null;
-                val += 0.01f;
+                val += shineSpeed;
             }
         }
     }
