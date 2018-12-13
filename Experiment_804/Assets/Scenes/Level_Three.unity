@@ -674,34 +674,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
-    - target: {fileID: 1583187612930898, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1169970235778720, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 61053208251693738, guid: 53c8fecd14ffb394ebbfcb987f6afda1,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 0.9164735
-      objectReference: {fileID: 0}
-    - target: {fileID: 61053208251693738, guid: 53c8fecd14ffb394ebbfcb987f6afda1,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.3369286
-      objectReference: {fileID: 0}
-    - target: {fileID: 61053208251693738, guid: 53c8fecd14ffb394ebbfcb987f6afda1,
-        type: 2}
-      propertyPath: m_Offset.x
-      value: -0.13413739
-      objectReference: {fileID: 0}
-    - target: {fileID: 61053208251693738, guid: 53c8fecd14ffb394ebbfcb987f6afda1,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 0.31048536
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
   m_IsPrefabAsset: 0
@@ -1714,7 +1686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &976367063
 BoxCollider2D:
   m_ObjectHideFlags: 0

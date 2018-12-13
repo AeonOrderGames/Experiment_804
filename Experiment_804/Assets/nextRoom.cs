@@ -19,7 +19,7 @@ public class nextRoom : MonoBehaviour {
 
         if (col.gameObject.tag == "Player_Hand") {
             var arm = FindObjectOfType<PlayerArmMovement>();
-
+            arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             arm.enabled = false;
             var armAnimator = arm.GetComponent<Animator>();
             armAnimator.SetFloat("ArmWalking", 0);
@@ -29,9 +29,8 @@ public class nextRoom : MonoBehaviour {
         }
 
         if (col.gameObject.tag == "Player_Foot") {
-
             var leg = FindObjectOfType<LegMovement>();
-       
+            leg.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             leg.enabled = false;
             var legAnimator = leg.GetComponent<Animator>();
             legAnimator.SetBool("LegJumping", false);
@@ -40,9 +39,8 @@ public class nextRoom : MonoBehaviour {
             Destroy(leg.gameObject, 1f);
             footInDoor = true;
         }
-        Debug.Log(nextScene);
+
         if (footInDoor && handInDoor) {
-            Debug.Log(nextScene);
             if(nextScene == 8) {
                 Initiate.Fade("Level_Three", Color.black, 2f);
             }

@@ -22,6 +22,7 @@ public class LegLadder : MonoBehaviour {
         if (hand != null && hand.activeSelf)
         {
             hand.GetComponent<Animator>().SetBool("HandClimbingIdle", true);
+            hand.GetComponent<PlayerHandMovement>().climbing = true;
         }
 
         if (arm != null && arm.activeSelf)
@@ -41,6 +42,7 @@ public class LegLadder : MonoBehaviour {
         if (hand != null && hand.activeSelf)
         {
             hand.GetComponent<Animator>().SetBool("HandClimbingIdle", false);
+            hand.GetComponent<PlayerHandMovement>().climbing = false;
         }
 
         if (arm != null && arm.activeSelf)

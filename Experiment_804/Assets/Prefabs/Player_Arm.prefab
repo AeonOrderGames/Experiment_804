@@ -80,7 +80,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1987310403798930
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1583187612930898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.67, y: -0.28, z: 0.07334395}
+  m_LocalPosition: {x: 7.01, y: -0.99, z: 0.07334395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4506943991622844}
@@ -227,7 +227,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.5134249, y: 0.021042109}
+  m_Offset: {x: -0.13413739, y: 0.9164735}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -238,7 +238,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.20882034, y: 0.25090456}
+  m_Size: {x: 0.31048536, y: 0.3369286}
   m_EdgeRadius: 0
 --- !u!61 &61170225806716262
 BoxCollider2D:
@@ -365,9 +365,10 @@ MonoBehaviour:
   direction: 0
   pushingArmCollider: {fileID: 1502207077985494}
   standingBoxCollider: {fileID: 1169970235778720}
-  Pushing: 0
-  Walking: 0
-  Standing: 0
+  pushing: 0
+  walking: 0
+  standing: 0
+  climbing: 0
 --- !u!212 &212425447547915018
 SpriteRenderer:
   m_ObjectHideFlags: 1
