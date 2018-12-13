@@ -45,6 +45,7 @@ public class LegLadder : MonoBehaviour {
         if (arm != null && arm.activeSelf)
         {
             arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", false);
+            arm.GetComponent<Animator>().SetBool("ArmStanding", true);
             Debug.Log("Blobby out");
         }
         

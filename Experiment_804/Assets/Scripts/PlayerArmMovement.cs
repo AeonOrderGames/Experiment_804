@@ -71,14 +71,14 @@ public class PlayerArmMovement : MonoBehaviour {
             standingBoxCollider.SetActive(true);
             Standing = true;
         }
-        if(Walking && !climbing) {
+        if(Walking) {
             animator.SetBool("ArmStanding", false);
             standingBoxCollider.SetActive(false);
             Standing = false;
         }
 
         //
-        if (animator.GetBool("ArmClimbingIdle")) 
+        if (animator.GetBool("ArmClimbingIdle") && animator.GetBool("ArmStanding")) 
         {
             climbing = true;
             rigidBody.gravityScale = 0f;
@@ -86,13 +86,13 @@ public class PlayerArmMovement : MonoBehaviour {
             {
                 animator.SetBool("ArmClimbing", true);
                 animator.SetBool("ArmClimbingIdle", false);
-                rigidBody.velocity = new Vector2(rigidBody.velocity.x, moveSpeed * 1);
+                rigidBody.velocity = transform.up * moveSpeed * 1;
             }
             else if (Input.GetKey("s"))
             {
                 animator.SetBool("ArmClimbing", true);
                 animator.SetBool("ArmClimbingIdle", false);
-                rigidBody.velocity = new Vector2(rigidBody.velocity.x, moveSpeed * -1);
+                rigidBody.velocity = transform.up * moveSpeed * -1;
             }
             else
             {
