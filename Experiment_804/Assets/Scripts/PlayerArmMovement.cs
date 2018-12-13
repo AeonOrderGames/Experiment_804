@@ -17,9 +17,9 @@ public class PlayerArmMovement : MonoBehaviour {
     public GameObject pushingArmCollider;
     public GameObject standingBoxCollider;
     //Hand pushing public variable referenced and used in puzzle box script
-    public bool Pushing = false;
-    public bool Walking = false;
-    public bool Standing = false;
+    public bool pushing = false;
+    public bool walking = false;
+    public bool standing = false;
     public bool climbing = false;
 
     private LayerMask defaultLayer;
@@ -44,70 +44,74 @@ public class PlayerArmMovement : MonoBehaviour {
         }
         
         animator.SetFloat("ArmWalking", Mathf.Abs(horizontal));
-        if(Mathf.Abs(horizontal) < 0.01) {
-            Walking = false;
+
+        if (Mathf.Abs(horizontal) < 0.01f) {
+            walking = false;
         }
         else {
-            Walking = true;
+            walking = true;
+        }
+
+        if (walking) {
+            animator.SetBool("ArmStanding", false);
+            standingBoxCollider.SetActive(false);
+            standing = false;
         }
 
         //Checking if the Arm is pushing
         if (Input.GetKeyDown("2")) {
             handCircleCollider.enabled = false;
             pushingArmCollider.SetActive(true);
-            Pushing = true;
+            pushing = true;
             animator.SetBool("ArmPushing", true);
         }
         else if (Input.GetKeyUp("2")) {
             handCircleCollider.enabled = true;
             pushingArmCollider.SetActive(false);
-            Pushing = false;
+            pushing = false;
             animator.SetBool("ArmPushing", false);
         }
 
         //Checking if the Arm is standing up
-        if (Input.GetKey("w") && !animator.GetBool("ArmClimbing")) {
+        if (Input.GetKey("w") && !climbing) {
             animator.SetBool("ArmStanding", true);
             standingBoxCollider.SetActive(true);
-            Standing = true;
+            standing = true;
         }
-        if(Walking) {
-            animator.SetBool("ArmStanding", false);
-            standingBoxCollider.SetActive(false);
-            Standing = false;
-        }
-
-        //
-        if (animator.GetBool("ArmClimbingIdle") && animator.GetBool("ArmStanding")) 
+        
+        if (climbing && standing) 
         {
-            climbing = true;
+            animator.SetBool("ArmClimbingIdle", true);
             rigidBody.gravityScale = 0f;
             if (Input.GetKey("w"))
             {
                 animator.SetBool("ArmClimbing", true);
                 animator.SetBool("ArmClimbingIdle", false);
-                rigidBody.velocity = transform.up * moveSpeed * 1;
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, (moveSpeed * 0.2f) * 1);
             }
             else if (Input.GetKey("s"))
             {
                 animator.SetBool("ArmClimbing", true);
                 animator.SetBool("ArmClimbingIdle", false);
-                rigidBody.velocity = transform.up * moveSpeed * -1;
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, (moveSpeed * 0.2f) * -1);
             }
             else
             {
                 animator.SetBool("ArmClimbingIdle", true);
                 animator.SetBool("ArmClimbing", false);
-                rigidBody.velocity = new Vector2(rigidBody.velocity.x, moveSpeed * 0);
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
             }
         }
-
         else
         {
             rigidBody.gravityScale = 1f;
             animator.SetBool("ArmClimbing", false);
             animator.SetBool("ArmClimbingIdle", false);
             climbing = false;
+        }
+
+        if (standing) {
+            horizontal = 0;
         }
     }
 
