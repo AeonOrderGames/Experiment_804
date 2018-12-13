@@ -36,7 +36,7 @@ public class LegMovement : MonoBehaviour {
             jumping = true;
             animator.SetBool("LegJumping", true);
             this.gameObject.transform.Find("ClimbCollider").gameObject.SetActive(false); // no climbing collider
-            hand.climbing = false; //hand cant climb anymore
+            if (hand != null) hand.climbing = false; //hand cant climb anymore
         }
 
         if (animator.GetBool("LegJumping") && Input.GetKeyDown("down")) {
