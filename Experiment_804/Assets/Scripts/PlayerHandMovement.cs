@@ -34,6 +34,22 @@ public class PlayerHandMovement : MonoBehaviour
         defaultLayer = LayerMask.GetMask("Default");
     }
 
+    private void Update() {
+        //Checking if the Hand is pushing
+        if (Input.GetKeyDown("2")) {
+            handCircleCollider.enabled = false;
+            handBoxCollider.SetActive(true);
+            Pushing = true;
+            animator.SetBool("HandPushing", true);
+        }
+        else if (Input.GetKeyUp("2")) {
+            handCircleCollider.enabled = true;
+            handBoxCollider.SetActive(false);
+            Pushing = false;
+            animator.SetBool("HandPushing", false);
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -66,22 +82,6 @@ public class PlayerHandMovement : MonoBehaviour
         if (rigidBody.velocity.y > jumpForce)
         {
             rigidBody.velocity = Vector2.ClampMagnitude(rigidBody.velocity, 2.3f);
-        }
-
-        //Checking if the Hand is pushing
-        if (Input.GetKeyDown("2"))
-        {
-            handCircleCollider.enabled = false;
-            handBoxCollider.SetActive(true);
-            Pushing = true;
-            animator.SetBool("HandPushing", true);
-        }
-        else if (Input.GetKeyUp("2"))
-        {
-            handCircleCollider.enabled = true;
-            handBoxCollider.SetActive(false);
-            Pushing = false;
-            animator.SetBool("HandPushing", false);
         }
 
         //Check if hand is not touching the DEFAULT layer
