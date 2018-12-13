@@ -91,6 +91,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: ArmClimbingIdle
     m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: ArmWalking
+    m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102005370027455876}
   m_Solo: 0
@@ -148,6 +151,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: ArmClimbing
     m_EventTreshold: 0
+  - m_ConditionMode: 4
+    m_ConditionEvent: ArmWalking
+    m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102473370840323002}
   m_Solo: 0
@@ -1084,7 +1090,7 @@ AnimatorStateMachine:
     m_Position: {x: 552, y: 168, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102005370027455876}
-    m_Position: {x: 888, y: 156, z: 0}
+    m_Position: {x: 936, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102024509603074954}
     m_Position: {x: 504, y: 444, z: 0}
