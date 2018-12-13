@@ -11,6 +11,14 @@ public class SwitchOn : MonoBehaviour {
     public AnimationClip objUp;
     public AnimationClip objDown;
 
+    private PlayerArmMovement armScript;
+    private PlayerHandMovement handScript;
+
+    private void Awake() {
+        armScript = hand.GetComponent<PlayerArmMovement>();
+        handScript = hand.GetComponent<PlayerHandMovement>();
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -23,15 +31,27 @@ public class SwitchOn : MonoBehaviour {
 
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerStay2D(Collider2D col)
     {
-        if (hand.GetComponent<PlayerHandMovement>().Pushing)
-        {
-            //Obsticle goes up and switch goes on.
-            obsticle1.GetComponent<Animator>().Play(objUp.name);
+        if(handScript == null) {
+            Debug.Log("hand is null");
+            Debug.Log(armScript.pushing);
+            if (armScript.pushing) {
+                //Obsticle goes up and switch goes on.
+                obsticle1.GetComponent<Animator>().Play(objUp.name);
 
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOn;
-            StartCoroutine(Obsticle1Timer());
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOn;
+                StartCoroutine(Obsticle1Timer());
+            }
+        }
+        else {
+            if (handScript.Pushing) {
+                //Obsticle goes up and switch goes on.
+                obsticle1.GetComponent<Animator>().Play(objUp.name);
+
+                this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOn;
+                StartCoroutine(Obsticle1Timer());
+            }
         }
     }
 

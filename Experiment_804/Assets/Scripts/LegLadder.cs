@@ -26,10 +26,11 @@ public class LegLadder : MonoBehaviour {
 
         if (arm != null && arm.activeSelf)
         {
-            Debug.Log("Blobby in");
-            arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", true);
-            Debug.Log(arm.GetComponent<Animator>().GetBool("ArmClimbingIdle"));
-            Debug.Log(arm.GetComponent<Animator>().GetBool("ArmStanding"));
+            //Debug.Log("Blobby in");
+            arm.GetComponent<PlayerArmMovement>().climbing = true;
+            //arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", true);
+            //Debug.Log(arm.GetComponent<Animator>().GetBool("ArmClimbingIdle"));
+            //Debug.Log(arm.GetComponent<Animator>().GetBool("ArmStanding"));
         }
 
     }
@@ -44,9 +45,10 @@ public class LegLadder : MonoBehaviour {
 
         if (arm != null && arm.activeSelf)
         {
-            arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", false);
-            arm.GetComponent<Animator>().SetBool("ArmStanding", true);
-            Debug.Log("Blobby out");
+            arm.GetComponent<PlayerArmMovement>().climbing = false;
+            //arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", false);
+            //arm.GetComponent<Animator>().SetBool("ArmStanding", true);
+            //Debug.Log("Blobby out");
         }
         
     }
