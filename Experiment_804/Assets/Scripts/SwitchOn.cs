@@ -8,38 +8,39 @@ public class SwitchOn : MonoBehaviour {
     public GameObject hand;
     public Sprite switchOn;
     private Sprite switchOff;
-    public Animation hgh;
-    
+    public AnimationClip objUp;
+    public AnimationClip objDown;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         switchOff = GetComponent<SpriteRenderer>().sprite;
     }
-    
+
     // Update is called once per frame
-    void Update () {
-        
+    void Update()
+    {
+
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        //if (hand.GetComponent<PlayerHandMovement>().Pushing)
-        //{
-        //Obsticle goes up and switch goes on.
-        Debug.Log("blob");
-        obsticle1.GetComponent<Animator>().Play("Obsticle1Up");
+        if (hand.GetComponent<PlayerHandMovement>().Pushing)
+        {
+            //Obsticle goes up and switch goes on.
+            obsticle1.GetComponent<Animator>().Play(objUp.name);
 
             this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOn;
-            //wait 
             StartCoroutine(Obsticle1Timer());
-        //}
+        }
     }
+
 
     private IEnumerator Obsticle1Timer()
     {
         yield return new WaitForSeconds(10f);
         //Obsticle goes down and switch goes off
-        obsticle1.GetComponent<Animator>().Play("Obsticle1Down");
+        obsticle1.GetComponent<Animator>().Play(objDown.name);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOff;
     }
 }

@@ -20,13 +20,26 @@ public class NextLevel : MonoBehaviour
 
         if (col.gameObject.tag == "Player_Hand") {
             var hand = FindObjectOfType<PlayerHandMovement>();
-            hand.enabled = false;
-            var handAnimator = hand.GetComponent<Animator>();
-            handAnimator.SetBool("Jumping", false);
-            handAnimator.SetFloat("HandWalking", 0);
-            handAnimator.Play("Hand_Faded");
-            Destroy(hand.gameObject, 1f);
-            handInDoor = true;
+            var arm = FindObjectOfType<PlayerArmMovement>();
+
+            if (hand != null) {
+                hand.enabled = false;
+                var handAnimator = hand.GetComponent<Animator>();
+                handAnimator.SetBool("Jumping", false);
+                handAnimator.SetFloat("HandWalking", 0);
+                handAnimator.Play("Hand_Faded");
+                Destroy(hand.gameObject, 1f);
+                handInDoor = true;
+            }
+            else {
+                hand.enabled = false;
+                var handAnimator = hand.GetComponent<Animator>();
+                handAnimator.SetFloat("ArmWalking", 0);
+                handAnimator.Play("Arm_Faded");
+                Destroy(arm.gameObject, 1f);
+                handInDoor = true;
+            }
+            
         }
 
         if (col.gameObject.tag == "Player_Foot") {
