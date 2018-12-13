@@ -34,7 +34,7 @@ public class PlayerArmMovement : MonoBehaviour {
         handCircleCollider = GetComponent<CircleCollider2D>();
         //defaultLayer = LayerMask.GetMask("Default")
         rigidBody = GetComponent<Rigidbody2D>();
-}
+    }
 
     // Update is called once per frame
     void Update() {
@@ -42,21 +42,8 @@ public class PlayerArmMovement : MonoBehaviour {
         if (horizontal != 0) {
             direction = Mathf.Sign(horizontal);
         }
-        
+
         animator.SetFloat("ArmWalking", Mathf.Abs(horizontal));
-
-        if (Mathf.Abs(horizontal) < 0.01f) {
-            walking = false;
-        }
-        else {
-            walking = true;
-        }
-
-        if (walking) {
-            animator.SetBool("ArmStanding", false);
-            standingBoxCollider.SetActive(false);
-            standing = false;
-        }
 
         //Checking if the Arm is pushing
         if (Input.GetKeyDown("2")) {
@@ -78,41 +65,52 @@ public class PlayerArmMovement : MonoBehaviour {
             standingBoxCollider.SetActive(true);
             standing = true;
         }
-        
-        if (climbing && standing) 
-        {
+
+        if (climbing && standing) {
+            handCircleCollider.enabled = false;
             animator.SetBool("ArmClimbingIdle", true);
             rigidBody.gravityScale = 0f;
-            if (Input.GetKey("w"))
-            {
+
+            if (Input.GetKey("w")) {
                 animator.SetBool("ArmClimbing", true);
                 animator.SetBool("ArmClimbingIdle", false);
-                rigidBody.velocity = new Vector2(rigidBody.velocity.x, (moveSpeed * 0.2f) * 1);
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, (moveSpeed * 0.05f) * 1);
             }
-            else if (Input.GetKey("s"))
-            {
+            else if (Input.GetKey("s")) {
                 animator.SetBool("ArmClimbing", true);
                 animator.SetBool("ArmClimbingIdle", false);
-                rigidBody.velocity = new Vector2(rigidBody.velocity.x, (moveSpeed * 0.2f) * -1);
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, (moveSpeed * 0.05f) * -1);
             }
-            else
-            {
+            else if (horizontal != 0) {
+                animator.SetBool("ArmClimbing", true);
+                animator.SetBool("ArmClimbingIdle", false);
+            }
+            else {
                 animator.SetBool("ArmClimbingIdle", true);
                 animator.SetBool("ArmClimbing", false);
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
             }
         }
-        else
-        {
+        else {
+            handCircleCollider.enabled = true;
             rigidBody.gravityScale = 1f;
             animator.SetBool("ArmClimbing", false);
             animator.SetBool("ArmClimbingIdle", false);
             climbing = false;
         }
 
-        if (standing) {
-            horizontal = 0;
+        if (standing && !climbing && horizontal != 0) {
+            standing = false;
+            animator.SetBool("ArmStanding", false);
         }
+    }
+
+    public void OnArmLanding() {
+        standingBoxCollider.SetActive(false);
+        handCircleCollider.enabled = true;
+        climbing = false;
+        standing = false;
+        animator.SetBool("ArmStanding", false);
     }
 
     private void FixedUpdate() {

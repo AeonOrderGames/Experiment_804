@@ -707,6 +707,21 @@ Prefab:
       propertyPath: m_AirControl
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114127951472052604, guid: 53c8fecd14ffb394ebbfcb987f6afda1,
+        type: 2}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 567117455}
+    - target: {fileID: 114127951472052604, guid: 53c8fecd14ffb394ebbfcb987f6afda1,
+        type: 2}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnArmLanding
+      objectReference: {fileID: 0}
+    - target: {fileID: 114127951472052604, guid: 53c8fecd14ffb394ebbfcb987f6afda1,
+        type: 2}
+      propertyPath: OnLandEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
   m_IsPrefabAsset: 0
@@ -865,6 +880,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1583187612930898, guid: 53c8fecd14ffb394ebbfcb987f6afda1,
     type: 2}
   m_PrefabInternal: {fileID: 498329109}
+--- !u!114 &567117455 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114602482060583058, guid: 53c8fecd14ffb394ebbfcb987f6afda1,
+    type: 2}
+  m_PrefabInternal: {fileID: 498329109}
+  m_Script: {fileID: 11500000, guid: 6a5f51ffaa5359c448f51ee00dbcbd4f, type: 3}
 --- !u!1 &653896590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,7 +3236,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2132148179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.55, y: 0, z: -10}
+  m_LocalPosition: {x: 2.52, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
