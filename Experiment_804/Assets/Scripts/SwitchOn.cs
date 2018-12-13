@@ -14,7 +14,6 @@ public class SwitchOn : MonoBehaviour {
     // Use this for initialization
     void Start () {
         switchOff = GetComponent<SpriteRenderer>().sprite;
-        hgh.n
     }
     
     // Update is called once per frame
@@ -28,7 +27,7 @@ public class SwitchOn : MonoBehaviour {
         //{
         //Obsticle goes up and switch goes on.
         Debug.Log("blob");
-        obsticle1.GetComponent<Animator>().Play();
+        obsticle1.GetComponent<Animator>().Play("Obsticle1Up");
 
             this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOn;
             //wait 

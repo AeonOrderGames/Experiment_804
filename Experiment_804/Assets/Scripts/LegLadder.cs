@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class LegLadder : MonoBehaviour {
 
-    private PlayerHandMovement hand;
-    private PlayerArmMovement arm;
+    public GameObject hand;
+    public GameObject arm;
+
 	// Use this for initialization
 	void Start () {
-        hand = FindObjectOfType<PlayerHandMovement>();
-        arm = FindObjectOfType<PlayerArmMovement>();
+
     }
 	
 	// Update is called once per frame
@@ -17,27 +17,36 @@ public class LegLadder : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerStay2D(Collider2D col)
     {
-         if(col.name == "Player_Hand")
+        if (hand != null && hand.activeSelf)
         {
-            hand.climbing = true; 
+            hand.GetComponent<Animator>().SetBool("HandClimbingIdle", true);
         }
-        if (col.name == "Player_Arm")
+
+        if (arm != null && arm.activeSelf)
         {
-            arm.climbing = true;
+            Debug.Log("Blobby in");
+            arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", true);
+            Debug.Log(arm.GetComponent<Animator>().GetBool("ArmClimbingIdle"));
+            Debug.Log(arm.GetComponent<Animator>().GetBool("ArmStanding"));
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.name == "Player_Hand")
+       
+        if (hand != null && hand.activeSelf)
         {
-            hand.climbing = false;
+            hand.GetComponent<Animator>().SetBool("HandClimbingIdle", false);
         }
-        if (col.name == "Player_Arm")
+
+        if (arm != null && arm.activeSelf)
         {
-            arm.climbing = false;
+            arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", false);
+            Debug.Log("Blobby out");
         }
+        
     }
 }

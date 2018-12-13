@@ -20,12 +20,12 @@ public class PlayerArmMovement : MonoBehaviour {
     public bool Pushing = false;
     public bool Walking = false;
     public bool Standing = false;
+    public bool climbing = false;
 
     private LayerMask defaultLayer;
     private Rigidbody2D rigidBody;
 
-    public bool climbing;
-    private float climbVelocity;
+    //private float climbVelocity;
 
     // Use this for initialization
     private void Awake() {
@@ -66,37 +66,38 @@ public class PlayerArmMovement : MonoBehaviour {
         }
 
         //Checking if the Arm is standing up
-        if (Input.GetKey("w")) {
+        if (Input.GetKey("w") && !animator.GetBool("ArmClimbing")) {
             animator.SetBool("ArmStanding", true);
             standingBoxCollider.SetActive(true);
             Standing = true;
         }
-        if(Walking) {
+        if(Walking && !climbing) {
             animator.SetBool("ArmStanding", false);
             standingBoxCollider.SetActive(false);
             Standing = false;
         }
 
         //
-        if (climbing)
+        if (animator.GetBool("ArmClimbingIdle")) 
         {
+            climbing = true;
             rigidBody.gravityScale = 0f;
             if (Input.GetKey("w"))
             {
-                animator.SetBool("HandClimbingMoving", true);
-                animator.SetBool("HandClimbingIdle", false);
+                animator.SetBool("ArmClimbing", true);
+                animator.SetBool("ArmClimbingIdle", false);
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, moveSpeed * 1);
             }
             else if (Input.GetKey("s"))
             {
-                animator.SetBool("HandClimbingMoving", true);
-                animator.SetBool("HandClimbingIdle", false);
+                animator.SetBool("ArmClimbing", true);
+                animator.SetBool("ArmClimbingIdle", false);
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, moveSpeed * -1);
             }
             else
             {
-                animator.SetBool("HandClimbingIdle", true);
-                animator.SetBool("HandClimbingMoving", false);
+                animator.SetBool("ArmClimbingIdle", true);
+                animator.SetBool("ArmClimbing", false);
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, moveSpeed * 0);
             }
         }
@@ -104,8 +105,9 @@ public class PlayerArmMovement : MonoBehaviour {
         else
         {
             rigidBody.gravityScale = 1f;
-            animator.SetBool("HandClimbingMoving", false);
-            animator.SetBool("HandClimbingIdle", false);
+            animator.SetBool("ArmClimbing", false);
+            animator.SetBool("ArmClimbingIdle", false);
+            climbing = false;
         }
     }
 
