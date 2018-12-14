@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scientist_Room.unity
     guid: 506c7e2e70a36492bb6a1f1fd0833bd0
+  - enabled: 1
+    path: Assets/Scenes/Level_Three_Room.unity
+    guid: 52ad0fe6d0f035448befc7b602f3410f
   m_configObjects: {}

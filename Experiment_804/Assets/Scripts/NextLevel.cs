@@ -31,6 +31,7 @@ public class NextLevel : MonoBehaviour
                 handInDoor = true;
             }
             else {
+                arm.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
                 arm.enabled = false;
                 var armAnimator = arm.GetComponent<Animator>();
                 armAnimator.SetFloat("ArmWalking", 0);
@@ -38,7 +39,7 @@ public class NextLevel : MonoBehaviour
                 Destroy(arm.gameObject, 1f);
                 handInDoor = true;
             }
-            
+
         }
 
         if (col.gameObject.tag == "Player_Foot") {
@@ -57,6 +58,7 @@ public class NextLevel : MonoBehaviour
             }
 
             else {
+                leg.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
                 leg.enabled = false;
                 var legAnimator = leg.GetComponent<Animator>();
                 legAnimator.SetBool("LegJumping", false);
@@ -65,11 +67,16 @@ public class NextLevel : MonoBehaviour
                 Destroy(leg.gameObject, 1f);
                 footInDoor = true;
             }
-            
+
         }
 
         if (footInDoor && handInDoor) {
-            Initiate.Fade(sceneNames[nextScene], Color.black, 2f);
+            if (nextScene == 9) {
+                Initiate.Fade("Credit_List", Color.black, 2f);
+            }
+            else {
+                Initiate.Fade(sceneNames[nextScene], Color.black, 2f);
+            }
         }
     }
 
