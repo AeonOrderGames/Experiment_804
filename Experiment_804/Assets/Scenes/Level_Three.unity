@@ -1434,6 +1434,7 @@ GameObject:
   - component: {fileID: 899793478}
   - component: {fileID: 899793481}
   - component: {fileID: 899793480}
+  - component: {fileID: 899793482}
   m_Layer: 17
   m_Name: ChainVertical
   m_TagString: Untagged
@@ -1456,7 +1457,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1caf00e96b011ff478dab2421b1da616, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1538,6 +1539,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13333333, y: 2.5407405}
   m_EdgeRadius: 0
+--- !u!114 &899793482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 899793477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04528def1300b204f90f60e4c9f74372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderWidth: 0.01
+  cooldown: 3
+  shineSpeed: 0.01
 --- !u!1001 &934132389
 Prefab:
   m_ObjectHideFlags: 0
@@ -2146,6 +2161,7 @@ GameObject:
   - component: {fileID: 1219688051}
   - component: {fileID: 1219688053}
   - component: {fileID: 1219688054}
+  - component: {fileID: 1219688055}
   m_Layer: 17
   m_Name: ChainHorizontal
   m_TagString: Untagged
@@ -2168,7 +2184,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1caf00e96b011ff478dab2421b1da616, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2250,6 +2266,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 0}
   arm: {fileID: 0}
+--- !u!114 &1219688055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1219688050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04528def1300b204f90f60e4c9f74372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderWidth: 0.01
+  cooldown: 4
+  shineSpeed: 0.01
 --- !u!1 &1277390858
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,6 +2479,7 @@ GameObject:
   - component: {fileID: 1449107573}
   - component: {fileID: 1449107572}
   - component: {fileID: 1449107574}
+  - component: {fileID: 1449107575}
   m_Layer: 0
   m_Name: MetalBox
   m_TagString: Untagged
@@ -2471,7 +2502,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1caf00e96b011ff478dab2421b1da616, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2577,6 +2608,20 @@ MonoBehaviour:
   arm: {fileID: 567117453}
   boxStompCollider: {fileID: 653896590}
   ShelfCollider: {fileID: 32210338}
+--- !u!114 &1449107575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1449107569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04528def1300b204f90f60e4c9f74372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderWidth: 0.01
+  cooldown: 3
+  shineSpeed: 0.01
 --- !u!1 &1520865729
 GameObject:
   m_ObjectHideFlags: 0
