@@ -27,7 +27,7 @@ public class ButtonSwitch : MonoBehaviour {
             if (armScript.pushing) {
                 //Obsticle goes up and switch goes on.
                 obsticle1.GetComponent<Animator>().Play(objUp.name);
-
+      
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOn;
             }
         }

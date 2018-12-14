@@ -87,7 +87,6 @@ public class PuzzleBox : MonoBehaviour {
 
             else if (leg != null && leg.activeSelf) {
                 if (leg.GetComponent<Animator>().GetBool("LegStomping")) {
-                    Debug.Log("Leg is stompy");
                     ShelfCollider.SetActive(false);
                     StartCoroutine(setShelfActive());
                 }
