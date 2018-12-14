@@ -12,7 +12,6 @@ public class LegLadder : MonoBehaviour {
         {
             arm.GetComponent<PlayerArmMovement>().climbing = true;
             arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", true);
-            Debug.Log("JA");
         }
     }
     private void OnTriggerStay2D(Collider2D col)
@@ -27,7 +26,6 @@ public class LegLadder : MonoBehaviour {
         {
             arm.GetComponent<PlayerArmMovement>().climbing = true;
             arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", true);
-            Debug.Log("JA");
         }
     }
 
