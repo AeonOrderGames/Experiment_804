@@ -15,8 +15,7 @@ public class ElectricWater : MonoBehaviour {
         electric = true;
         water = GetComponent<SpriteRenderer>();
         flickeringRoutine = flickeringElectric();
-        flickerColor = new Color(100, 255, 255, 255);
-        
+        flickerColor = new Color(0.4f, 1, 1, 1);
     }
 	
 	// Update is called once per frame
@@ -30,7 +29,7 @@ public class ElectricWater : MonoBehaviour {
         {
             electric = true;
             //Turn color of sprites yellow or start a cooroutine that flickers the colors
-            StartCoroutine(flickeringElectric());
+            StartCoroutine(flickeringRoutine);
         }
         if (col.gameObject.name == "Player_Leg" && electric) 
         {
@@ -63,7 +62,7 @@ public class ElectricWater : MonoBehaviour {
             var randomFloat = Random.Range(0.1f, 0.4f);
             water.color = Color.white;
             yield return new WaitForSeconds(randomFloat);
-            water.color = new Color(0.4f, 1, 1, 1);
+            water.color = flickerColor;
             yield return new WaitForSeconds(randomFloat);
         }
 
