@@ -34,8 +34,6 @@ public class SwitchOn : MonoBehaviour {
     private void OnTriggerStay2D(Collider2D col)
     {
         if(handScript == null) {
-            Debug.Log("hand is null");
-            Debug.Log(armScript.pushing);
             if (armScript.pushing) {
                 //Obsticle goes up and switch goes on.
                 obsticle1.GetComponent<Animator>().Play(objUp.name);
