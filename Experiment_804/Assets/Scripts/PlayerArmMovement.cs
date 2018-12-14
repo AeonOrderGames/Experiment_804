@@ -52,13 +52,15 @@ public class PlayerArmMovement : MonoBehaviour {
             pushing = true;
             animator.SetBool("ArmPushing", true);
         }
-        else if (Input.GetKeyUp("2")) {
+         else if (Input.GetKeyUp("2")) {
             handCircleCollider.enabled = true;
             pushingArmCollider.SetActive(false);
             pushing = false;
             animator.SetBool("ArmPushing", false);
         }
 
+        climbing = animator.GetBool("ArmClimbingIdle");
+        Debug.Log(climbing);
         //Checking if the Arm is standing up
         if (Input.GetKey("w") && !climbing) {
             animator.SetBool("ArmStanding", true);

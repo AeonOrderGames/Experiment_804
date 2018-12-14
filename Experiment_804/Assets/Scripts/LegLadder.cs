@@ -7,15 +7,13 @@ public class LegLadder : MonoBehaviour {
     public GameObject hand;
     public GameObject arm;
 
-	// Use this for initialization
-	void Start () {
-
+    private void OnTriggerEnter2D(Collider2D col) {
+        if (arm != null && arm.activeSelf) {
+            arm.GetComponent<PlayerArmMovement>().climbing = true;
+            arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", true);
+            Debug.Log("NAH");
+        }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     private void OnTriggerStay2D(Collider2D col)
     {
@@ -27,13 +25,10 @@ public class LegLadder : MonoBehaviour {
 
         if (arm != null && arm.activeSelf)
         {
-            //Debug.Log("Blobby in");
             arm.GetComponent<PlayerArmMovement>().climbing = true;
-            //arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", true);
-            //Debug.Log(arm.GetComponent<Animator>().GetBool("ArmClimbingIdle"));
-            //Debug.Log(arm.GetComponent<Animator>().GetBool("ArmStanding"));
+            arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", true);
+            Debug.Log("JA");
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D col)
@@ -48,9 +43,8 @@ public class LegLadder : MonoBehaviour {
         if (arm != null && arm.activeSelf)
         {
             arm.GetComponent<PlayerArmMovement>().climbing = false;
-            //arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", false);
-            //arm.GetComponent<Animator>().SetBool("ArmStanding", true);
-            //Debug.Log("Blobby out");
+            arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", false);
+            arm.GetComponent<Animator>().SetBool("ArmStanding", true);
         }
         
     }
