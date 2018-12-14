@@ -16,6 +16,7 @@ public class AcidPool : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
+        Debug.Log(col.gameObject.name);
         if (col.gameObject.name == "Player_Leg") {
             col.gameObject.GetComponent<Animator>().Play("Leg_Death");
             legDead = true;

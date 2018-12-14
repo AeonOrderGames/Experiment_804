@@ -24,6 +24,8 @@ public class PlayerArmMovement : MonoBehaviour {
 
     private LayerMask defaultLayer;
     private Rigidbody2D rigidBody;
+    //For the acid crossing
+    private bool acidLine = false;
 
     // Use this for initialization
     private void Awake() {
@@ -50,13 +52,14 @@ public class PlayerArmMovement : MonoBehaviour {
             pushing = true;
             animator.SetBool("ArmPushing", true);
         }
-        else if (Input.GetKeyUp("2")) {
+         else if (Input.GetKeyUp("2")) {
             handCircleCollider.enabled = true;
             pushingArmCollider.SetActive(false);
             pushing = false;
             animator.SetBool("ArmPushing", false);
         }
 
+        climbing = animator.GetBool("ArmClimbingIdle");
         //Checking if the Arm is standing up
         if (Input.GetKey("w") && !climbing) {
             animator.SetBool("ArmStanding", true);
@@ -96,10 +99,10 @@ public class PlayerArmMovement : MonoBehaviour {
             animator.SetBool("ArmClimbingIdle", false);
             climbing = false;
         }
-
-        if (standing && !climbing && horizontal != 0) {
-            standing = false;
+        if (standing && (horizontal != 0.0f || ((Input.GetKey("a") || Input.GetKey("d")) && !acidLine))) { 
             animator.SetBool("ArmStanding", false);
+            standing = false;
+            standingBoxCollider.SetActive(false);
         }
     }
 
@@ -113,5 +116,19 @@ public class PlayerArmMovement : MonoBehaviour {
 
     private void FixedUpdate() {
         controller.Move(horizontal * Time.fixedDeltaTime, false, false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D col) {
+        Debug.Log(col.gameObject.name);
+        if(col.gameObject.name == "ChainHorizontal") {
+            acidLine = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D col) {
+        Debug.Log(col.gameObject.name);
+        if (col.gameObject.name == "ChainHorizontal") {
+            acidLine = false;
+        }
     }
 }
