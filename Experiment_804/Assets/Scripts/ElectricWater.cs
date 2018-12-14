@@ -6,10 +6,12 @@ public class ElectricWater : MonoBehaviour {
     public bool electric;
     private bool handDead = false;
     private bool footDead = false;
+    private InteractableShine shine;
 
 	// Use this for initialization
 	void Start () {
         electric = true;
+        shine = GetComponent<InteractableShine>();
 	}
 	
 	// Update is called once per frame
@@ -43,6 +45,7 @@ public class ElectricWater : MonoBehaviour {
         if (col.gameObject.name == "Obsticle1")
         {
             electric = false;
+            shine.enabled = false;
         }
     }
 
