@@ -60,7 +60,6 @@ public class PlayerArmMovement : MonoBehaviour {
         }
 
         climbing = animator.GetBool("ArmClimbingIdle");
-        Debug.Log(climbing);
         //Checking if the Arm is standing up
         if (Input.GetKey("w") && !climbing) {
             animator.SetBool("ArmStanding", true);
@@ -100,10 +99,10 @@ public class PlayerArmMovement : MonoBehaviour {
             animator.SetBool("ArmClimbingIdle", false);
             climbing = false;
         }
-
-        if (standing && !climbing && horizontal != 0) {
-            standing = false;
+        if (standing && (horizontal != 0.0f || Input.GetKey("a") || Input.GetKey("d"))) { 
             animator.SetBool("ArmStanding", false);
+            standing = false;
+            standingBoxCollider.SetActive(false);
         }
     }
 

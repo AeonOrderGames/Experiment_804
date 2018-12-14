@@ -8,13 +8,13 @@ public class LegLadder : MonoBehaviour {
     public GameObject arm;
 
     private void OnTriggerEnter2D(Collider2D col) {
-        if (arm != null && arm.activeSelf) {
+        if (arm != null && arm.activeSelf)
+        {
             arm.GetComponent<PlayerArmMovement>().climbing = true;
             arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", true);
-            Debug.Log("NAH");
+            Debug.Log("JA");
         }
     }
-
     private void OnTriggerStay2D(Collider2D col)
     {
         if (hand != null && hand.activeSelf)
