@@ -5,7 +5,7 @@ using UnityEngine;
 public class BreakTubeTrigger : MonoBehaviour {
 
     public GameObject brokenTube;
-    public LegMovement leg;
+    private LegMovement leg;
 
 	// Use this for initialization
 	void Start () {

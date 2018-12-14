@@ -305,11 +305,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4347102484494252, guid: 445f30631ddf7314e8028d2ed8c9c5b9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.8
+      value: 2.76
       objectReference: {fileID: 0}
     - target: {fileID: 4347102484494252, guid: 445f30631ddf7314e8028d2ed8c9c5b9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.37
+      value: -0.47
       objectReference: {fileID: 0}
     - target: {fileID: 4347102484494252, guid: 445f30631ddf7314e8028d2ed8c9c5b9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3044,6 +3044,7 @@ GameObject:
   - component: {fileID: 1091479063}
   - component: {fileID: 1091479067}
   - component: {fileID: 1091479066}
+  - component: {fileID: 1091479068}
   m_Layer: 0
   m_Name: Tube
   m_TagString: Untagged
@@ -3091,7 +3092,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1caf00e96b011ff478dab2421b1da616, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3147,7 +3148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brokenTube: {fileID: 298127031}
-  leg: {fileID: 0}
 --- !u!61 &1091479067
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3173,6 +3173,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6498165, y: 3.5518517}
   m_EdgeRadius: 0
+--- !u!114 &1091479068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1091479062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04528def1300b204f90f60e4c9f74372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderWidth: 0.01
+  cooldown: 3
+  shineSpeed: 0.0192
 --- !u!1 &1122732405
 GameObject:
   m_ObjectHideFlags: 0
@@ -3977,11 +3991,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.4
+      value: 4.41
       objectReference: {fileID: 0}
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.12
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4104,6 +4118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1394525909}
   - component: {fileID: 1394525908}
+  - component: {fileID: 1394525912}
   - component: {fileID: 1394525910}
   - component: {fileID: 1394525911}
   m_Layer: 0
@@ -4128,7 +4143,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1caf00e96b011ff478dab2421b1da616, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4218,6 +4233,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9007143, y: 0.22785714}
   m_EdgeRadius: 0
+--- !u!114 &1394525912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1394525907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04528def1300b204f90f60e4c9f74372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderWidth: 0.095
+  cooldown: 4
+  shineSpeed: 0.0449
 --- !u!1 &1480197352 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1199381254323158, guid: 445f30631ddf7314e8028d2ed8c9c5b9,
@@ -5240,7 +5269,6 @@ GameObject:
   - component: {fileID: 2016234697}
   - component: {fileID: 2016234699}
   - component: {fileID: 2016234700}
-  - component: {fileID: 2016234701}
   m_Layer: 4
   m_Name: WaterFront
   m_TagString: Untagged
@@ -5263,7 +5291,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 1caf00e96b011ff478dab2421b1da616, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5344,20 +5372,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   electric: 0
---- !u!114 &2016234701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2016234696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04528def1300b204f90f60e4c9f74372, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shaderWidth: 0.486
-  cooldown: 1
-  shineSpeed: 0.0504
 --- !u!1 &2080650888
 GameObject:
   m_ObjectHideFlags: 0
