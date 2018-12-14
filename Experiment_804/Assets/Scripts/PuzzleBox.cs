@@ -6,13 +6,17 @@ public class PuzzleBox : MonoBehaviour {
 
    
     private Rigidbody2D box;
+    private AudioSource sound;
+
     public GameObject foot;
     public GameObject leg;
     public GameObject hand;
     public GameObject arm;
     public GameObject boxStompCollider;
     public GameObject ShelfCollider;
-    private AudioSource sound;
+
+    private float maxMass = 1000f;
+    private float minMass = 2;
 
 
     private void Awake() {
@@ -22,11 +26,12 @@ public class PuzzleBox : MonoBehaviour {
 
     //If the player touches the box and is pushing with the hand, the box becomes easier to move
     private void OnCollisionEnter2D(Collision2D col) {
+
         if (hand != null && hand.activeSelf)
         {
             if (col.gameObject.CompareTag("Player_Hand") && hand.GetComponent<Animator>().GetBool("HandPushing"))
             {
-                box.mass = 2;
+                box.mass = minMass;
             }
         }
 
@@ -34,7 +39,7 @@ public class PuzzleBox : MonoBehaviour {
         {
             if (col.gameObject.CompareTag("Player_Hand") && arm.GetComponent<Animator>().GetBool("ArmPushing"))
             {
-                box.mass = 2;
+                box.mass = minMass;
             }
         }
 
@@ -42,11 +47,12 @@ public class PuzzleBox : MonoBehaviour {
 
     //If the hand stops touching the box, it becomes heavy again.
     private void OnCollisionExit2D(Collision2D col) {
+
         if (hand != null && hand.activeSelf)
         {
             if (col.gameObject.CompareTag("Player_Hand") && !hand.GetComponent<Animator>().GetBool("HandPushing"))
             {
-                box.mass = 100;
+                box.mass = maxMass;
             }
         }
 
@@ -54,25 +60,27 @@ public class PuzzleBox : MonoBehaviour {
         {
             if (col.gameObject.CompareTag("Player_Hand") && !arm.GetComponent<Animator>().GetBool("ArmPushing"))
             {
-                box.mass = 100;
+                box.mass = maxMass;
             }
         }
     }
 
-    //If the hand is touching the box but is not pushing, then it becomes heavy again as well
+
     private void FixedUpdate() {
 
+        //If the hand is touching the box but is not pushing, then it should be heavy
         if (hand != null && hand.activeSelf)
         {
             if (!hand.GetComponent<Animator>().GetBool("HandPushing")) {
-                box.mass = 100;
+                box.mass = maxMass;
             }
         }
 
+        //If the arm is touching the box but is not pushing, then it should be heavy
         if (arm != null && arm.activeSelf)
         {
             if (!arm.GetComponent<Animator>().GetBool("ArmPushing")) {
-                box.mass = 100;
+                box.mass = maxMass;
             }
         }
 
@@ -87,7 +95,6 @@ public class PuzzleBox : MonoBehaviour {
 
             else if (leg != null && leg.activeSelf) {
                 if (leg.GetComponent<Animator>().GetBool("LegStomping")) {
-                    Debug.Log("Leg is stompy");
                     ShelfCollider.SetActive(false);
                     StartCoroutine(setShelfActive());
                 }
@@ -98,7 +105,7 @@ public class PuzzleBox : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D col) {
         if(col.tag == "Ground") {
             sound.Play();
-            box.mass = 100;
+            box.mass = maxMass;
         }
     }
 

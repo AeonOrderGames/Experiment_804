@@ -25,8 +25,6 @@ public class PlayerArmMovement : MonoBehaviour {
     private LayerMask defaultLayer;
     private Rigidbody2D rigidBody;
 
-    //private float climbVelocity;
-
     // Use this for initialization
     private void Awake() {
         controller = GetComponent<CharacterController2D>();
