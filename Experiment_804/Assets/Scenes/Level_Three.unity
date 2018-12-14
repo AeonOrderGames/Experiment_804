@@ -578,6 +578,11 @@ Prefab:
       propertyPath: m_Name
       value: PressurePlate2
       objectReference: {fileID: 0}
+    - target: {fileID: 212343823280699280, guid: 20c0a82ae876182468ecf13ee4ac58ca,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1caf00e96b011ff478dab2421b1da616, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20c0a82ae876182468ecf13ee4ac58ca, type: 2}
   m_IsPrefabAsset: 0
@@ -1042,6 +1047,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &710979664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1110088979535956, guid: 20c0a82ae876182468ecf13ee4ac58ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 461222282}
+--- !u!114 &710979665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 710979664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04528def1300b204f90f60e4c9f74372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderWidth: 0.01
+  cooldown: 5
+  shineSpeed: 0.01
 --- !u!1 &720467240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,6 +1826,11 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 212343823280699280, guid: 20c0a82ae876182468ecf13ee4ac58ca,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1caf00e96b011ff478dab2421b1da616, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20c0a82ae876182468ecf13ee4ac58ca, type: 2}
   m_IsPrefabAsset: 0
@@ -3501,3 +3530,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2131396272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1110088979535956, guid: 20c0a82ae876182468ecf13ee4ac58ca,
+    type: 2}
+  m_PrefabInternal: {fileID: 1015772478}
+--- !u!114 &2131396276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2131396272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04528def1300b204f90f60e4c9f74372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderWidth: 0.01
+  cooldown: 4
+  shineSpeed: 0.01
