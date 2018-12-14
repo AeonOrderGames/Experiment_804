@@ -24,7 +24,8 @@ public class PlayerArmMovement : MonoBehaviour {
 
     private LayerMask defaultLayer;
     private Rigidbody2D rigidBody;
-
+    //For the acid crossing
+    private bool acidLine = false;
     //private float climbVelocity;
 
     // Use this for initialization
@@ -99,7 +100,7 @@ public class PlayerArmMovement : MonoBehaviour {
             animator.SetBool("ArmClimbingIdle", false);
             climbing = false;
         }
-        if (standing && (horizontal != 0.0f || Input.GetKey("a") || Input.GetKey("d"))) { 
+        if (standing && (horizontal != 0.0f || ((Input.GetKey("a") || Input.GetKey("d")) && !acidLine))) { 
             animator.SetBool("ArmStanding", false);
             standing = false;
             standingBoxCollider.SetActive(false);
@@ -116,5 +117,19 @@ public class PlayerArmMovement : MonoBehaviour {
 
     private void FixedUpdate() {
         controller.Move(horizontal * Time.fixedDeltaTime, false, false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D col) {
+        Debug.Log(col.gameObject.name);
+        if(col.gameObject.name == "ChainHorizontal") {
+            acidLine = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D col) {
+        Debug.Log(col.gameObject.name);
+        if (col.gameObject.name == "ChainHorizontal") {
+            acidLine = false;
+        }
     }
 }

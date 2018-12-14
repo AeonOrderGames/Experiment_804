@@ -7,7 +7,6 @@ public class ButtonSwitch : MonoBehaviour {
     public GameObject obsticle1;
     public GameObject hand;
     public Sprite switchOn;
-    private Sprite switchOff;
     public AnimationClip objUp;
     public AnimationClip objDown;
 
@@ -15,11 +14,6 @@ public class ButtonSwitch : MonoBehaviour {
 
     private void Awake() {
         armScript = hand.GetComponent<PlayerArmMovement>();
-    }
-
-    // Use this for initialization
-    void Start() {
-        switchOff = GetComponent<SpriteRenderer>().sprite;
     }
 
     private void OnTriggerStay2D(Collider2D col) {
