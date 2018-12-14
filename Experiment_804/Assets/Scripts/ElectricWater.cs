@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ElectricWater : MonoBehaviour {
+    private SpriteRenderer water;
+    private Color flickerColor;
     public bool electric;
     private bool handDead = false;
     private bool footDead = false;
-    private InteractableShine shine;
+    private IEnumerator flickeringRoutine;
 
 	// Use this for initialization
 	void Start () {
         electric = true;
-        shine = GetComponent<InteractableShine>();
-	}
+        water = GetComponent<SpriteRenderer>();
+        flickeringRoutine = flickeringElectric();
+        flickerColor = new Color(100, 255, 255, 255);
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -24,6 +29,8 @@ public class ElectricWater : MonoBehaviour {
         if (col.gameObject.name == "Obsticle1")
         {
             electric = true;
+            //Turn color of sprites yellow or start a cooroutine that flickers the colors
+            StartCoroutine(flickeringElectric());
         }
         if (col.gameObject.name == "Player_Leg" && electric) 
         {
@@ -35,6 +42,7 @@ public class ElectricWater : MonoBehaviour {
             col.gameObject.GetComponent<Animator>().Play("Hand_Death");
             handDead = true;
         }
+
         if(handDead || footDead) {
             StartCoroutine(fadeTimer());
         }
@@ -45,8 +53,20 @@ public class ElectricWater : MonoBehaviour {
         if (col.gameObject.name == "Obsticle1")
         {
             electric = false;
-            shine.enabled = false;
+            //Put both sprite colors back to water or stop the cooroutine that runs the flickering yellow
+            StopCoroutine(flickeringRoutine);
         }
+    }
+
+    private IEnumerator flickeringElectric() {
+        while (true) {
+            var randomFloat = Random.Range(0.1f, 0.4f);
+            water.color = Color.white;
+            yield return new WaitForSeconds(randomFloat);
+            water.color = new Color(0.4f, 1, 1, 1);
+            yield return new WaitForSeconds(randomFloat);
+        }
+
     }
 
     private IEnumerator fadeTimer() {
