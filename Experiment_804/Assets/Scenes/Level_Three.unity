@@ -3454,9 +3454,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2127617995}
   - component: {fileID: 2127617994}
-  - component: {fileID: 2127617993}
   - component: {fileID: 2127617992}
-  - component: {fileID: 2127617996}
+  - component: {fileID: 2127617993}
   m_Layer: 0
   m_Name: Obsticle2Button
   m_TagString: Untagged
@@ -3497,11 +3496,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2127617991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bbcd588cd3bc43f5b28199921e703c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 92a3278a5e4d86944b3dcb76276142b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obsticle1: {fileID: 324845206}
-  hand: {fileID: 2061395632}
+  hand: {fileID: 567117453}
   switchOn: {fileID: 21300000, guid: 21e95a735cb2e481bac723fa066de331, type: 3}
   objUp: {fileID: 7400000, guid: 2d008f02c5de147b88c390e58ffdfccc, type: 2}
   objDown: {fileID: 7400000, guid: 46606076e2fc745e6bfad87b4d891799, type: 2}
@@ -3564,22 +3563,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2127617996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2127617991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bbcd588cd3bc43f5b28199921e703c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obsticle1: {fileID: 324845206}
-  hand: {fileID: 567117453}
-  switchOn: {fileID: 21300016, guid: ccac86970564d4ba3bd21027ceac00a1, type: 3}
-  objUp: {fileID: 7400000, guid: 2d008f02c5de147b88c390e58ffdfccc, type: 2}
-  objDown: {fileID: 7400000, guid: 46606076e2fc745e6bfad87b4d891799, type: 2}
 --- !u!1 &2131396272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1110088979535956, guid: 20c0a82ae876182468ecf13ee4ac58ca,
