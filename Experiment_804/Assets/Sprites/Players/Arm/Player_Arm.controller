@@ -91,9 +91,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: ArmClimbingIdle
     m_EventTreshold: 0
-  - m_ConditionMode: 3
-    m_ConditionEvent: ArmWalking
-    m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102005370027455876}
   m_Solo: 0
