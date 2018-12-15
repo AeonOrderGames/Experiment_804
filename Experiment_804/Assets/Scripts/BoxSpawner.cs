@@ -25,7 +25,7 @@ public class BoxSpawner : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (hand.GetComponent<PlayerHandMovement>().Pushing && canPush)
+        if (hand.GetComponent<PlayerHandMovement>().pushing && canPush)
         {
             if (shelfStatus.available)
             {

@@ -29,6 +29,11 @@ public class CameraSystem : MonoBehaviour {
         followPosition = new Vector3(followPositionX, followPositionY, transform.position.z);
     }
 
+    private void Start() {
+        if (Hand != null) transform.position = new Vector3(Hand.transform.position.x, transform.position.y, transform.position.z);
+        else transform.position = new Vector3(Arm.transform.position.x, transform.position.y, transform.position.z);
+    }
+
     private void LateUpdate() {
         if (Hand != null) {
             if (Hand.activeSelf == false) {

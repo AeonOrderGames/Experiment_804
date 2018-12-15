@@ -16,7 +16,7 @@ public class PlayerHandMovement : MonoBehaviour
     private CircleCollider2D handCircleCollider;
     public GameObject handBoxCollider;
     //Hand pushing public variable referenced and used in puzzle box script
-    public bool Pushing;
+    public bool pushing;
 
     private LayerMask defaultLayer;
 
@@ -39,13 +39,13 @@ public class PlayerHandMovement : MonoBehaviour
         if (Input.GetKeyDown("2")) {
             handCircleCollider.enabled = false;
             handBoxCollider.SetActive(true);
-            Pushing = true;
+            pushing = true;
             animator.SetBool("HandPushing", true);
         }
         else if (Input.GetKeyUp("2")) {
             handCircleCollider.enabled = true;
             handBoxCollider.SetActive(false);
-            Pushing = false;
+            pushing = false;
             animator.SetBool("HandPushing", false);
         }
     }
@@ -124,7 +124,7 @@ public class PlayerHandMovement : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player_Foot") || Pushing)
+        if (col.gameObject.CompareTag("Ground") || col.gameObject.CompareTag("Player_Foot") || pushing)
         {
             grounded = true;
             animator.SetBool("HandJumping", !grounded);

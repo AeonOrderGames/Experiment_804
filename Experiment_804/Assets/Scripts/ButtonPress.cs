@@ -7,15 +7,20 @@ public class ButtonPress : MonoBehaviour {
     private Animator animator;
     private AudioSource sound;
     public GameObject nextLevelTrigger;
+    private PlayerHandMovement hand;
+    private PlayerArmMovement arm;
 
     private void Awake() {
         animator = GetComponent<Animator>();
         sound = GetComponent<AudioSource>();
+        hand = FindObjectOfType<PlayerHandMovement>();
+        arm = FindObjectOfType<PlayerArmMovement>();
     }
 
 
     private void OnTriggerEnter2D(Collider2D col) {
-        if (GameObject.FindGameObjectWithTag("Player_Hand").GetComponentInChildren<BoxCollider2D>().name.Equals(col.name)) {
+        Debug.Log(col.name);
+        if ((hand != null && hand.pushing) || (arm != null && arm.pushing)) {
             animator.Play("Door_Open");
             sound.Play();
             buttonCol.enabled = false;
@@ -24,7 +29,8 @@ public class ButtonPress : MonoBehaviour {
     }
 
     private void OnTriggerStay2D(Collider2D col) {
-        if (GameObject.FindGameObjectWithTag("Player_Hand").GetComponentInChildren<BoxCollider2D>().name.Equals(col.name)) {
+        Debug.Log(col.name);
+        if ((hand != null && hand.pushing) || (arm != null && arm.pushing)) {
             animator.Play("Door_Open");
             sound.Play();
             buttonCol.enabled = false;

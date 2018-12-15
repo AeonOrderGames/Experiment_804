@@ -19,7 +19,7 @@ public class ElevatorOpen : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
-        if ((Hand != null && Hand.Pushing && Leg.gameObject.activeSelf) || (Arm != null && Arm.pushing)) {
+        if ((Hand != null && Hand.pushing && Leg.gameObject.activeSelf) || (Arm != null && Arm.pushing)) {
             sound.Play();
             animator.Play("ElevatorOpen");
             buttonCol.enabled = false;
