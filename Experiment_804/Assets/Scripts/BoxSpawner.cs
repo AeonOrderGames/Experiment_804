@@ -43,6 +43,7 @@ public class BoxSpawner : MonoBehaviour {
                 else
                 {
                     var tempBox = boxes.Dequeue();
+                    tempBox.GetComponent<PuzzleBox>().stompOnce = false;
                     tempBox.transform.position = new Vector3(0.842f, 2.5f, 0);
                     boxes.Enqueue(tempBox);
                 }
