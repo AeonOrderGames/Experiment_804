@@ -72,6 +72,8 @@ public class PlayerArmMovement : MonoBehaviour {
             animator.SetBool("ArmClimbingIdle", true);
             rigidBody.gravityScale = 0f;
 
+            
+
             if (Input.GetKey("w")) {
                 animator.SetBool("ArmClimbing", true);
                 animator.SetBool("ArmClimbingIdle", false);
