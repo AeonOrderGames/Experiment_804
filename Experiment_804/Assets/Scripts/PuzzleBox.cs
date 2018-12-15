@@ -18,11 +18,8 @@ public class PuzzleBox : MonoBehaviour {
     private float maxMass = 1000f;
     private float minMass = 2;
 
-    private bool soundOn = false;
-    private bool stompOnce = false;
-
-    public bool footOn = false;
-    public bool handOn = false;
+    public bool soundOn = false;
+    public bool stompOnce = false;
 
 
     private void Awake() {
@@ -32,18 +29,6 @@ public class PuzzleBox : MonoBehaviour {
 
     //If the player touches the box and is pushing with the hand, the box becomes easier to move
     private void OnCollisionEnter2D(Collision2D col) {
-
-
-        //Check if hand is touching the box
-        if (col.gameObject.CompareTag("Player_Hand"))
-        {
-            handOn = true;
-        }
-        //Check if foot is touching the box
-        if (col.gameObject.CompareTag("Player_Foot"))
-        {
-            footOn = true;
-        }
 
         if (hand != null && hand.activeSelf)
         {
@@ -66,17 +51,6 @@ public class PuzzleBox : MonoBehaviour {
     //If the hand stops touching the box, it becomes heavy again.
     private void OnCollisionExit2D(Collision2D col) {
 
-        //Check if hand is not touching the box
-        if (col.gameObject.CompareTag("Player_Hand"))
-        {
-            handOn = false;
-        }
-        //Check if foot is not touching the box
-        if (col.gameObject.CompareTag("Player_Foot"))
-        {
-            footOn = false;
-        }
-
         if (hand != null && hand.activeSelf)
         {
             if (col.gameObject.CompareTag("Player_Hand") && !hand.GetComponent<Animator>().GetBool("HandPushing"))
@@ -96,23 +70,6 @@ public class PuzzleBox : MonoBehaviour {
 
 
     private void FixedUpdate() {
-
-        //if both hand and foot are touching the box and walking, the box should not move
-        if (handOn && footOn)
-        {
-            if (hand.GetComponent<Animator>().GetFloat("HandWalking") > 0.01 && foot.GetComponent<Animator>().GetFloat("FootWalking") > 0.01)
-            {
-                box.bodyType = RigidbodyType2D.Static;
-            }
-            else
-            {
-                box.bodyType = RigidbodyType2D.Dynamic;
-            }
-        }
-        else
-        {
-            box.bodyType = RigidbodyType2D.Dynamic;
-        }
 
         //If the hand is touching the box but is not pushing, then it should be heavy
         if (hand != null && hand.activeSelf)
@@ -138,9 +95,9 @@ public class PuzzleBox : MonoBehaviour {
                     ShelfCollider.SetActive(false);
                     //if foot has never stomped with that box, sound can go on
                     if (!stompOnce)
-                    {
-                        soundOn = true;
+                    { 
                         stompOnce = true;
+                        soundOn = true;
                     }
                 }
             }
@@ -152,8 +109,8 @@ public class PuzzleBox : MonoBehaviour {
                     //if leg has never stomped with that box, sound can go on
                     if (!stompOnce)
                     {
-                        soundOn = true;
                         stompOnce = true;
+                        soundOn = true;
                     }
                  
                 }
@@ -166,6 +123,11 @@ public class PuzzleBox : MonoBehaviour {
             sound.Play();
             box.mass = maxMass;
             soundOn = false;
+        }
+
+        if (col.gameObject.name == "ShelfFloorCollider")
+        {
+            sound.Play();
         }
     }
 
