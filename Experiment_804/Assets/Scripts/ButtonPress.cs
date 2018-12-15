@@ -22,4 +22,13 @@ public class ButtonPress : MonoBehaviour {
             nextLevelTrigger.SetActive(true); 
         }
     }
+
+    private void OnTriggerStay2D(Collider2D col) {
+        if (GameObject.FindGameObjectWithTag("Player_Hand").GetComponentInChildren<BoxCollider2D>().name.Equals(col.name)) {
+            animator.Play("Door_Open");
+            sound.Play();
+            buttonCol.enabled = false;
+            nextLevelTrigger.SetActive(true);
+        }
+    }
 }
