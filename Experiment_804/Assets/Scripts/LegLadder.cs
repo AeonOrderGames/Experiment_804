@@ -18,15 +18,10 @@ public class LegLadder : MonoBehaviour {
     {
         if (hand != null && hand.activeSelf)
         {
-            //hand.GetComponent<Animator>().SetBool("HandClimbingIdle", true);
-            //hand.GetComponent<PlayerHandMovement>().climbing = true;
-
-            //Test for new hand movements
             //if hand is in the trigger and pushes w, he starts climbing
             if (Input.GetKey("w"))
             {
-                Debug.Log("Blobby is in");
-                FindObjectOfType<HandMovements>().climbing = true;
+                FindObjectOfType<PlayerHandMovement>().climbing = true;
             }
         }
 
@@ -42,12 +37,7 @@ public class LegLadder : MonoBehaviour {
        
         if (hand != null && hand.activeSelf)
         {
-            //hand.GetComponent<Animator>().SetBool("HandClimbingIdle", false);
-            //hand.GetComponent<PlayerHandMovement>().climbing = false;
-
-            //Test for new hand movements
-            FindObjectOfType<HandMovements>().climbing = false;
-            Debug.Log("Blobby is out");
+            FindObjectOfType<PlayerHandMovement>().climbing = false;
         }
 
         if (arm != null && arm.activeSelf)
@@ -66,7 +56,7 @@ public class LegLadder : MonoBehaviour {
             //hand.GetComponent<PlayerHandMovement>().climbing = false;
 
             //Test for new hand movements
-            FindObjectOfType<HandMovements>().climbing = false;
+            FindObjectOfType<PlayerHandMovement>().climbing = false;
         }
 
         if (arm != null && arm.activeSelf)
