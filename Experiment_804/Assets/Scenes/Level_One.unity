@@ -297,7 +297,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -44.91
+      value: -34.03
       objectReference: {fileID: 0}
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -329,7 +329,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1737396780057248, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212262109578561554, guid: b48f19ad65eb44dc3893a9d375a0e29a,
         type: 2}
@@ -349,12 +349,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1737396780057248, guid: b48f19ad65eb44dc3893a9d375a0e29a,
     type: 2}
   m_PrefabInternal: {fileID: 171261231}
---- !u!114 &171261233 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114165547973830740, guid: b48f19ad65eb44dc3893a9d375a0e29a,
-    type: 2}
-  m_PrefabInternal: {fileID: 171261231}
-  m_Script: {fileID: 11500000, guid: e6190305693a97b4a9d8e97471631cbe, type: 3}
 --- !u!4 &171261240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a,
@@ -591,9 +585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9606d392776dd38429551f18ce349caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueCanvas: {fileID: 1971379100}
-  nameText: {fileID: 501434206}
-  dialogueText: {fileID: 1858868497}
+  dialogueCanvas: {fileID: 0}
+  nameText: {fileID: 0}
+  dialogueText: {fileID: 0}
 --- !u!4 &516298290
 Transform:
   m_ObjectHideFlags: 0
@@ -699,8 +693,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shaderWidth: 0.01
-  cooldown: 4
+  cooldown: 2
   shineSpeed: 0.01
+--- !u!114 &625755233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 625755231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef81572db4bc4427491dc0ee43385d70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 1593456137}
+  foot: {fileID: 787896610}
 --- !u!61 &625755238
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -954,11 +961,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4170669889707434, guid: 02e90037f3a48be449880fd5a54e5c47, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -35.62
+      value: -47.18
       objectReference: {fileID: 0}
     - target: {fileID: 4170669889707434, guid: 02e90037f3a48be449880fd5a54e5c47, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -110.194176
+      value: -110.52
       objectReference: {fileID: 0}
     - target: {fileID: 4170669889707434, guid: 02e90037f3a48be449880fd5a54e5c47, type: 2}
       propertyPath: m_LocalPosition.z
@@ -986,7 +993,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1531715500397076, guid: 02e90037f3a48be449880fd5a54e5c47, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 61789152496255234, guid: 02e90037f3a48be449880fd5a54e5c47,
         type: 2}
@@ -1395,10 +1402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9eb4b4f57af049a1bebd5e593b8ddf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonCol: {fileID: 947335680}
-  nextLevelTrigger: {fileID: 1389752262}
-  Leg: {fileID: 171261233}
-  Hand: {fileID: 1593456138}
+  buttonCol: {fileID: 0}
+  nextLevelTrigger: {fileID: 0}
+  Leg: {fileID: 0}
+  Hand: {fileID: 0}
   Arm: {fileID: 0}
 --- !u!61 &947335680
 BoxCollider2D:
@@ -2821,9 +2828,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d3c42044c57664a11881cf11ce4a1e33, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.13
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2834,7 +2841,7 @@ AudioSource:
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
-  BypassListenerEffects: 0
+  BypassListenerEffects: 1
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
@@ -2914,11 +2921,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4347102484494252, guid: 445f30631ddf7314e8028d2ed8c9c5b9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -44.28
+      value: -46.6
       objectReference: {fileID: 0}
     - target: {fileID: 4347102484494252, guid: 445f30631ddf7314e8028d2ed8c9c5b9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -110.41418
+      value: -110.61
       objectReference: {fileID: 0}
     - target: {fileID: 4347102484494252, guid: 445f30631ddf7314e8028d2ed8c9c5b9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3049,12 +3056,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1199381254323158, guid: 445f30631ddf7314e8028d2ed8c9c5b9,
     type: 2}
   m_PrefabInternal: {fileID: 1541959940}
---- !u!114 &1593456138 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114928645004959310, guid: 445f30631ddf7314e8028d2ed8c9c5b9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1541959940}
-  m_Script: {fileID: 11500000, guid: dca5cd66f88a57248addbe7d6767e588, type: 3}
 --- !u!4 &1593456139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4347102484494252, guid: 445f30631ddf7314e8028d2ed8c9c5b9,
@@ -3505,16 +3506,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0bbe6267e8ab94ca95418b8a1e858c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogCanvas: {fileID: 1971379100}
+  dialogCanvas: {fileID: 0}
   dialogue:
-    name: Leg found!
-    sentences:
-    - 'Foot: "Look Hand, I found my leg!"'
-    - 'Congratulations! New Abilities:'
-    - 'Hand: can climb up the leg using "WASD " buttons'
-    - 'Foot: can kick items using "right shift" button'
-  foot: {fileID: 787896610}
-  leg: {fileID: 171261232}
+    name: 
+    sentences: []
+  foot: {fileID: 0}
+  leg: {fileID: 0}
 --- !u!212 &1818947004
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3585,9 +3582,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04528def1300b204f90f60e4c9f74372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shaderWidth: 0.15
+  shaderWidth: 0.01
   cooldown: 2
-  shineSpeed: 0.04
+  shineSpeed: 0.01
 --- !u!1 &1858868495
 GameObject:
   m_ObjectHideFlags: 0
@@ -4229,7 +4226,7 @@ Prefab:
     - target: {fileID: 82592794722505586, guid: 469e37a7a996d364c8bdbacd1e91132a,
         type: 2}
       propertyPath: m_Volume
-      value: 0.57
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 61504246218065804, guid: 469e37a7a996d364c8bdbacd1e91132a,
         type: 2}
@@ -4238,7 +4235,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1581560297847910, guid: 469e37a7a996d364c8bdbacd1e91132a, type: 2}
       propertyPath: m_Name
-      value: Metalbox1
+      value: MetalBox1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 469e37a7a996d364c8bdbacd1e91132a, type: 2}
@@ -4256,8 +4253,8 @@ GameObject:
   - component: {fileID: 2110771390}
   - component: {fileID: 2110771391}
   - component: {fileID: 2110771392}
-  - component: {fileID: 2110771393}
   - component: {fileID: 2110771394}
+  - component: {fileID: 2110771393}
   m_Layer: 0
   m_Name: VentClosed
   m_TagString: Ground
@@ -4406,7 +4403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foot: {fileID: 787896610}
-  ventOpen: {fileID: 1457871804247530, guid: 3756f5a9fffdb426c9bde2df5161a0c0, type: 2}
+  ventOpen: {fileID: 1082620293}
 --- !u!82 &2110771393
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4418,7 +4415,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 195a1ba51398b4050a2759cc6daa3cbe, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.72
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4514,5 +4511,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shaderWidth: 0.01
-  cooldown: 4
+  cooldown: 2
   shineSpeed: 0.01

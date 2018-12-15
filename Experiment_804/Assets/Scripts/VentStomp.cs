@@ -16,36 +16,18 @@ public class VentStomp : MonoBehaviour
         sound = GetComponent<AudioSource>();
     }
 
-    private void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D col)
     {
+        //if foot is stomping 
         if (foot.GetComponent<Animator>().GetBool("FootStomping")) 
         {
+            //Set the vent open
             Instantiate(ventOpen, new Vector2(transform.position.x , -1.425f), Quaternion.identity);
-            
-            //body.bodyType = RigidbodyType2D.Dynamic;
+            //play vent open sound
             sound.Play();
-            //StartCoroutine(delaySpawn());
+            //Destroy the vent closed
             Destroy(gameObject);
         }
 
     }
-
-    /*
-    private void OnCollisionEnter2D(Collision2D col) {
-        if(col.gameObject.CompareTag("Ground")) {
-            StartCoroutine(delayedStatic());       
-        }
-    }
-
-    private IEnumerator delayedStatic()
-    {
-        yield return new WaitForSeconds(1f);
-        body.bodyType = RigidbodyType2D.Static;
-    }
-    */
 }
