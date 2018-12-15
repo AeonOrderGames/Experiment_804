@@ -42,7 +42,7 @@ public class nextRoom : MonoBehaviour {
 
         if (footInDoor && handInDoor) {
             if(nextScene == 8) {
-                Initiate.Fade("Level_Three_Room", Color.black, 2f);
+                Initiate.Fade("Level_Three", Color.black, 2f);
             }
             else {
                 Initiate.Fade("Scientist_Room", Color.black, 2f);

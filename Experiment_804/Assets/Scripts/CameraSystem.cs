@@ -30,8 +30,12 @@ public class CameraSystem : MonoBehaviour {
     }
 
     private void Start() {
-        if (Hand != null) transform.position = new Vector3(Hand.transform.position.x, transform.position.y, transform.position.z);
-        else transform.position = new Vector3(Arm.transform.position.x, transform.position.y, transform.position.z);
+        if (Hand != null) {
+            transform.position = new Vector3(Hand.transform.position.x, transform.position.y, transform.position.z);
+        }
+        else {
+            transform.position = new Vector3(Arm.transform.position.x, transform.position.y, transform.position.z);
+        }
     }
 
     private void LateUpdate() {
