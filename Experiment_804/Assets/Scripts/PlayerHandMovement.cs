@@ -36,7 +36,7 @@ public class PlayerHandMovement : MonoBehaviour
 
     private void Update() {
         //Checking if the Hand is pushing
-        if (Input.GetKeyDown("2")) {
+        if (Input.GetKeyDown("2") && grounded) {
             handCircleCollider.enabled = false;
             handBoxCollider.SetActive(true);
             pushing = true;

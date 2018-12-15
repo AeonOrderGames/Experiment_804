@@ -127,7 +127,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4170669889707434, guid: 02e90037f3a48be449880fd5a54e5c47, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.35
+      value: 0.812
       objectReference: {fileID: 0}
     - target: {fileID: 4170669889707434, guid: 02e90037f3a48be449880fd5a54e5c47, type: 2}
       propertyPath: m_LocalPosition.y
@@ -908,6 +908,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 964413078}
   m_CullTransparentMesh: 0
+--- !u!1 &1021275307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1199381254323158, guid: 445f30631ddf7314e8028d2ed8c9c5b9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1309242127}
 --- !u!1 &1080726407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,8 +1431,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2ac4a178284d14d7399df689d1150975, type: 3}
-    m_FontSize: 36
+    m_Font: {fileID: 12800000, guid: 2982845f21aeb104ca25a623d1758f2d, type: 3}
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1455,11 +1460,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4347102484494252, guid: 445f30631ddf7314e8028d2ed8c9c5b9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.66
+      value: 1.386
       objectReference: {fileID: 0}
     - target: {fileID: 4347102484494252, guid: 445f30631ddf7314e8028d2ed8c9c5b9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: -0.35
       objectReference: {fileID: 0}
     - target: {fileID: 4347102484494252, guid: 445f30631ddf7314e8028d2ed8c9c5b9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1565,12 +1570,14 @@ MonoBehaviour:
     sentences:
     - Something terrible has just happened!
     - A chemical liquid has poured over you and you wake up as a hand and a foot
-    - You remember all the horrible experiments that a horrible scientist has done
-      on you!
-    - You must find your remaining bodyparts, have your revenge and escape!
-    - 'Foot: Moves and jumps with arrow keys and stomps by pressing down when jumping.'
-    - 'Hand: Moves and jumps with WASD keys, and can push items by pressing "2".'
-    - TIME TO GET OUT!!!!
+    - You remember all the horrible experiments that an evil scientist has done on
+      you!
+    - You must find your remaining bodyparts, get revenge and escape!
+    - "Foot: \nMoves and jumps with arrow keys and stomps by pressing down when jumping."
+    - "Hand: \nMoves and jumps with WASD keys, and can push items by pressing \"2\"."
+    - 'THINGS ARE GETTING OUT OF HAND!!
+
+      TIME TO GET OUT!!!!'
 --- !u!61 &1401211118
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1596,6 +1603,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3060503, y: 0.15140867}
   m_EdgeRadius: 0
+--- !u!1 &1406621671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1531715500397076, guid: 02e90037f3a48be449880fd5a54e5c47,
+    type: 2}
+  m_PrefabInternal: {fileID: 196128598}
 --- !u!1 &1497672583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,6 +2427,16 @@ Prefab:
       propertyPath: nextLevelTrigger
       value: 
       objectReference: {fileID: 1807730278}
+    - target: {fileID: 61545112820465632, guid: bec3607cfeddfe145b6fb81552632b58,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.053518742
+      objectReference: {fileID: 0}
+    - target: {fileID: 61545112820465632, guid: bec3607cfeddfe145b6fb81552632b58,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.25041103
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bec3607cfeddfe145b6fb81552632b58, type: 2}
   m_IsPrefabAsset: 0
@@ -2482,7 +2504,9 @@ GameObject:
   - component: {fileID: 2100938648}
   - component: {fileID: 2100938647}
   - component: {fileID: 2100938646}
-  m_Layer: 0
+  - component: {fileID: 2100938649}
+  - component: {fileID: 2100938650}
+  m_Layer: 11
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -2543,9 +2567,40 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2100938645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2100938649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2100938645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
+  DefaultRotInfluence: {x: 1, y: 1, z: 1}
+--- !u!114 &2100938650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2100938645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbda66f1c38c7354693f5bab55ad242b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothing: 0.5
+  Hand: {fileID: 1021275307}
+  Arm: {fileID: 1021275307}
+  Foot: {fileID: 1406621671}
+  Leg: {fileID: 1406621671}
+  minPos: 0
+  maxPos: 0

@@ -497,6 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 159c466f080e43d4f9de11d10b50d077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inRoom: 0
   roomVisited: 0
   armPos: {x: 9.35, y: -1, z: 0}
   legPos: {x: 8.35, y: -0.61, z: 0}
@@ -692,11 +693,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4311386580345438, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 11.26
+      value: -11.09
       objectReference: {fileID: 0}
     - target: {fileID: 4311386580345438, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.01
+      value: -0.96
       objectReference: {fileID: 0}
     - target: {fileID: 4311386580345438, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2915,11 +2916,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.46
+      value: -11.805
       objectReference: {fileID: 0}
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.60999995
+      value: -0.601
       objectReference: {fileID: 0}
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.z

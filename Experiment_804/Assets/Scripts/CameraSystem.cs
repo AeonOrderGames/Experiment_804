@@ -51,14 +51,17 @@ public class CameraSystem : MonoBehaviour {
                  }
             }
         }
+        Debug.Log(Hand + " " + Foot);
         //Edge cases:
         //If the hand is in the elevator
         if (Hand == null && Foot != null) {
             followPosition.x = Foot.transform.position.x;
+            Debug.Log("Hand is null, foot is not null");
         }
         //If the leg is in the elevator
         if (Hand != null && Foot == null ) {
-            followPosition.x = Foot.transform.position.x;
+            followPosition.x = Hand.transform.position.x;
+            Debug.Log("Hand is not null, foot is null");
         }
         //If both hand and foot are still in the scene
         else if (Hand != null && Foot != null) {
@@ -70,6 +73,7 @@ public class CameraSystem : MonoBehaviour {
         if (followPosition.x > maxPos) followPosition.x = maxPos;
 
         newPosition = Vector3.Lerp(transform.position, followPosition, smoothing);
+        newPosition.z = -10f;
         transform.position = newPosition;
     }
 }
