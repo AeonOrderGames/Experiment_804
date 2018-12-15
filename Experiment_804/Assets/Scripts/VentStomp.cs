@@ -13,7 +13,7 @@ public class VentStomp : MonoBehaviour
     void Start()
     {
         //body = GetComponent<Rigidbody2D>();
-        sound = GetComponent<AudioSource>();
+        sound = ventOpen.GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -21,10 +21,12 @@ public class VentStomp : MonoBehaviour
         //if foot is stomping 
         if (foot.GetComponent<Animator>().GetBool("FootStomping")) 
         {
-            //Set the vent open
-            Instantiate(ventOpen, new Vector2(transform.position.x , -1.425f), Quaternion.identity);
             //play vent open sound
             sound.Play();
+
+            //Set the vent open
+            Instantiate(ventOpen, new Vector2(transform.position.x , -1.425f), Quaternion.identity);
+
             //Destroy the vent closed
             Destroy(gameObject);
         }

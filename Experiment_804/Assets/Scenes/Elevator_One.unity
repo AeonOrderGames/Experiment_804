@@ -563,6 +563,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1167032400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1199381254323158, guid: 445f30631ddf7314e8028d2ed8c9c5b9,
+    type: 2}
+  m_PrefabInternal: {fileID: 2077541105}
 --- !u!1 &1209758666
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +809,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1737396780057248, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114492229676822586, guid: b48f19ad65eb44dc3893a9d375a0e29a,
+        type: 2}
+      propertyPath: hand
+      value: 
+      objectReference: {fileID: 1167032400}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
   m_IsPrefabAsset: 0
@@ -948,7 +962,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0b0ec352a3d75457eb3c68776a87397a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.68
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

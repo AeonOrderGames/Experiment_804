@@ -1572,9 +1572,10 @@ MonoBehaviour:
     - A chemical liquid has poured over you and you wake up as a hand and a foot
     - You remember all the horrible experiments that an evil scientist has done on
       you!
-    - You must find your remaining bodyparts, defeet the evil scientist and escape!
-    - "Foot: \nMoves and jumps with arrow keys and stomps by pressing down when jumping."
-    - "Hand: \nMoves and jumps with WASD keys, and can push items by pressing \"2\"."
+    - You must work together to find your remaining bodyparts, defeet the evil scientist
+      and escape!
+    - "FOOT \nMoves and jumps with arrow keys and stomps by pressing down when jumping."
+    - "HAND \nMoves and jumps with WASD keys, and can push items by pressing \"2\"."
     - 'THINGS ARE GETTING OUT OF HAND!!
 
       TIME TO GET OUT!!!!'
@@ -1985,7 +1986,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1603237167}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.941, y: -0.728, z: 0}
+  m_LocalPosition: {x: 0.941, y: -0.728, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
