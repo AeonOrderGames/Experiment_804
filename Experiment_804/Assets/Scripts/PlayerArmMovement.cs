@@ -59,7 +59,7 @@ public class PlayerArmMovement : MonoBehaviour {
             animator.SetBool("ArmPushing", false);
         }
 
-        climbing = animator.GetBool("ArmClimbingIdle");
+        //climbing = animator.GetBool("ArmClimbingIdle"); DO NOT UNCOMMENT FOR NOW
         //Checking if the Arm is standing up
         if (Input.GetKey("w") && !climbing) {
             animator.SetBool("ArmStanding", true);
@@ -82,7 +82,7 @@ public class PlayerArmMovement : MonoBehaviour {
                 animator.SetBool("ArmClimbingIdle", false);
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, (moveSpeed * 0.05f) * -1);
             }
-            else if (horizontal != 0) {
+            else if (Mathf.Abs(horizontal) > 0.01f) {
                 animator.SetBool("ArmClimbing", true);
                 animator.SetBool("ArmClimbingIdle", false);
             }
@@ -91,6 +91,8 @@ public class PlayerArmMovement : MonoBehaviour {
                 animator.SetBool("ArmClimbing", false);
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
             }
+
+            
         }
         else {
             handCircleCollider.enabled = true;
@@ -99,9 +101,10 @@ public class PlayerArmMovement : MonoBehaviour {
             animator.SetBool("ArmClimbingIdle", false);
             climbing = false;
         }
-        if (standing && (horizontal != 0.0f || ((Input.GetKey("a") || Input.GetKey("d")) && !acidLine))) { 
-            animator.SetBool("ArmStanding", false);
+
+        if (standing && !climbing && Mathf.Abs(horizontal) > 0.01f) {
             standing = false;
+            animator.SetBool("ArmStanding", false);
             standingBoxCollider.SetActive(false);
         }
     }
@@ -119,14 +122,12 @@ public class PlayerArmMovement : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D col) {
-        Debug.Log(col.gameObject.name);
         if(col.gameObject.name == "ChainHorizontal") {
             acidLine = true;
         }
     }
 
     private void OnCollisionExit2D(Collision2D col) {
-        Debug.Log(col.gameObject.name);
         if (col.gameObject.name == "ChainHorizontal") {
             acidLine = false;
         }
