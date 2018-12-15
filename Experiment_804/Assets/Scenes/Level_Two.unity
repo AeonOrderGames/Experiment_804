@@ -254,7 +254,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d3c42044c57664a11881cf11ce4a1e33, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.595
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3567,6 +3567,8 @@ MonoBehaviour:
   arm: {fileID: 2103292977}
   boxStompCollider: {fileID: 1168554063}
   ShelfCollider: {fileID: 1559398179}
+  footOn: 0
+  handOn: 0
 --- !u!61 &1124311036
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5069,6 +5071,8 @@ MonoBehaviour:
   arm: {fileID: 2103292977}
   boxStompCollider: {fileID: 1168554063}
   ShelfCollider: {fileID: 1559398179}
+  footOn: 0
+  handOn: 0
 --- !u!61 &1870227562
 BoxCollider2D:
   m_ObjectHideFlags: 0
