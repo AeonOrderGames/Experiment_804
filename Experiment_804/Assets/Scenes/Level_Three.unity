@@ -649,7 +649,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4311386580345438, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.54
+      value: 7.25
       objectReference: {fileID: 0}
     - target: {fileID: 4311386580345438, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2879,8 +2879,8 @@ MonoBehaviour:
   arm: {fileID: 567117453}
   boxStompCollider: {fileID: 653896590}
   ShelfCollider: {fileID: 32210338}
-  footOn: 0
-  handOn: 0
+  soundOn: 0
+  stompOnce: 0
 --- !u!114 &1449107575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2958,7 +2958,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.06000042
+      value: 6.7700005
       objectReference: {fileID: 0}
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.y
