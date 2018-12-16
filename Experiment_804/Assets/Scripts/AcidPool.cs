@@ -16,13 +16,12 @@ public class AcidPool : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
-        Debug.Log(col.gameObject.name);
         if (col.gameObject.name == "Player_Leg") {
             col.gameObject.GetComponent<Animator>().Play("Leg_Death");
             legDead = true;
         }
         if (col.gameObject.name == "Player_Arm") {
-            col.gameObject.GetComponent<Animator>().Play("Arm_Death");
+            col.gameObject.GetComponent<Animator>().Play("Arm_Dying");
             armDead = true;
         }
         if (armDead || legDead) {

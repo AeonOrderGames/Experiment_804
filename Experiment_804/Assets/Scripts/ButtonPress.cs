@@ -19,22 +19,24 @@ public class ButtonPress : MonoBehaviour {
 
 
     private void OnTriggerEnter2D(Collider2D col) {
-        Debug.Log(col.name);
         if ((hand != null && hand.pushing) || (arm != null && arm.pushing)) {
-            animator.Play("Door_Open");
-            sound.Play();
-            buttonCol.enabled = false;
-            nextLevelTrigger.SetActive(true); 
+            if(col.gameObject.CompareTag("Player_Hand")) {
+                animator.Play("Door_Open");
+                sound.Play();
+                buttonCol.enabled = false;
+                nextLevelTrigger.SetActive(true);
+            }
         }
     }
 
     private void OnTriggerStay2D(Collider2D col) {
-        Debug.Log(col.name);
         if ((hand != null && hand.pushing) || (arm != null && arm.pushing)) {
-            animator.Play("Door_Open");
-            sound.Play();
-            buttonCol.enabled = false;
-            nextLevelTrigger.SetActive(true);
+            if (col.gameObject.CompareTag("Player_Hand")) {
+                animator.Play("Door_Open");
+                sound.Play();
+                buttonCol.enabled = false;
+                nextLevelTrigger.SetActive(true);
+            }
         }
     }
 }

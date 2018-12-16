@@ -15,6 +15,7 @@ public class LegMovement : MonoBehaviour {
     public bool kicking;
     private PlayerHandMovement hand;
     private AudioSource sound;
+    private GameObject climbCol;
 
     //private bool kick;
 
@@ -23,6 +24,15 @@ public class LegMovement : MonoBehaviour {
         animator = GetComponent<Animator>();
         hand = FindObjectOfType<PlayerHandMovement>();
         sound = GetComponent<AudioSource>();
+    }
+
+    private void Start() {
+        if (gameObject.transform.Find("ClimbCollider").gameObject != null) {
+            climbCol = gameObject.transform.Find("ClimbCollider").gameObject;
+        }
+        else {
+            climbCol = null;
+        }
     }
 
     void Update() {
@@ -37,7 +47,7 @@ public class LegMovement : MonoBehaviour {
         if (Input.GetKeyDown("up")) {
             jumping = true;
             animator.SetBool("LegJumping", true);
-            this.gameObject.transform.Find("ClimbCollider").gameObject.SetActive(false); // no climbing collider
+            if (climbCol != null) climbCol.SetActive(false);
             if (hand != null) hand.climbing = false; //hand cant climb anymore
         }
 
@@ -64,7 +74,7 @@ public class LegMovement : MonoBehaviour {
     public void OnLanding() {
         animator.SetBool("LegJumping", false);
         animator.SetBool("LegStomping", false);
-        this.gameObject.transform.Find("ClimbCollider").gameObject.SetActive(true); //climbing collider goes back on
+        if (climbCol != null) climbCol.SetActive(true);
     }
 
 

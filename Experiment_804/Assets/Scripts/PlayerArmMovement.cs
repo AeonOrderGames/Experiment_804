@@ -109,6 +109,11 @@ public class PlayerArmMovement : MonoBehaviour {
             animator.SetBool("ArmStanding", false);
             standingBoxCollider.SetActive(false);
         }
+
+        if (pushing && Mathf.Abs(horizontal) > 0.01) {
+            pushing = false;
+            animator.SetBool("ArmPushing", false);
+        }
     }
 
     public void OnArmLanding() {

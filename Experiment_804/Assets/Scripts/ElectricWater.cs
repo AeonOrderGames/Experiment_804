@@ -10,6 +10,11 @@ public class ElectricWater : MonoBehaviour {
     private bool footDead = false;
     private IEnumerator flickeringRoutine;
     private AudioSource sound;
+    private bool handInElectric;
+    private bool footInElectric;
+    private Animator handAnimator;
+    private Animator footAnimator;
+
 
     // Use this for initialization
     void Start() {
@@ -18,13 +23,38 @@ public class ElectricWater : MonoBehaviour {
         flickeringRoutine = flickeringElectric();
         flickerColor = new Color(0.4f, 1, 1, 1);
         sound = GetComponent<AudioSource>();
+        handAnimator = FindObjectOfType<PlayerHandMovement>().gameObject.GetComponent<Animator>();
+        footAnimator = FindObjectOfType<LegMovement>().gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update() {
+        if(electric) {
+            if(handInElectric) {
+                handAnimator.SetBool("HandDeath", true);
+                handDead = true;
+            }
+
+            if(footInElectric) {
+                footAnimator.Play("Leg_Death");
+                footDead = true;
+            }
+
+            if (handDead || footDead) {
+                StartCoroutine(fadeTimer());
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
+        if(col.gameObject.CompareTag("Player_Hand")) {
+            handInElectric = true;
+        }
+        else if (col.gameObject.CompareTag("Player_Foot")) {
+            footInElectric = true;
+        }
+
+
         if (col.gameObject.name == "Obsticle1") {
             electric = true;
             sound.Play();
@@ -53,7 +83,16 @@ public class ElectricWater : MonoBehaviour {
         }
     }
 
+
     private void OnTriggerExit2D(Collider2D col) {
+
+        if (col.gameObject.CompareTag("Player_Hand")) {
+            handInElectric = false;
+        }
+        else if (col.gameObject.CompareTag("Player_Foot")) {
+            footInElectric = false;
+        }
+
         if (col.gameObject.name == "Obsticle1") {
             electric = false;
             sound.Stop();

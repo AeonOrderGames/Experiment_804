@@ -34,7 +34,20 @@ public class PlayerHandMovement : MonoBehaviour
         defaultLayer = LayerMask.GetMask("Default");
     }
 
-    private void Update() {
+    // Update is called once per frame
+    void Update()
+    {
+        float horizontal = Input.GetAxis("Player_Hand_Horizontal");
+        //Checking which direction the hand turns to
+        if (horizontal > 0 && transform.localScale.x < 0)
+        {
+            transform.localScale = new Vector2(1, 1);
+        }
+        else if (horizontal < 0 && transform.localScale.x > 0)
+        {
+            transform.localScale = new Vector2(-1, 1);
+        }
+
         //Checking if the Hand is pushing
         if (Input.GetKeyDown("2") && grounded) {
             handCircleCollider.enabled = false;
@@ -48,21 +61,7 @@ public class PlayerHandMovement : MonoBehaviour
             pushing = false;
             animator.SetBool("HandPushing", false);
         }
-    }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        float horizontal = Input.GetAxis("Player_Hand_Horizontal");
-        //Checking which direction the hand turns to
-        if (horizontal > 0 && transform.localScale.x < 0)
-        {
-            transform.localScale = new Vector2(1, 1);
-        }
-        else if (horizontal < 0 && transform.localScale.x > 0)
-        {
-            transform.localScale = new Vector2(-1, 1);
-        }
         //Checking if the Hand is Walking
         if (Input.GetKey("a") || Input.GetKey("d"))
         {

@@ -44,7 +44,7 @@ public class LegLadder : MonoBehaviour {
         {
             arm.GetComponent<PlayerArmMovement>().climbing = false;
             arm.GetComponent<Animator>().SetBool("ArmClimbingIdle", false);
-            arm.GetComponent<Animator>().SetBool("ArmStanding", true);
+            //arm.GetComponent<Animator>().SetBool("ArmStanding", true);
         }
         
     }
