@@ -9,49 +9,54 @@ public class ElectricWater : MonoBehaviour {
     private bool handDead = false;
     private bool footDead = false;
     private IEnumerator flickeringRoutine;
+    private AudioSource sound;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         electric = true;
         water = GetComponent<SpriteRenderer>();
         flickeringRoutine = flickeringElectric();
         flickerColor = new Color(0.4f, 1, 1, 1);
+        sound = GetComponent<AudioSource>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.name == "Obsticle1")
-        {
+    // Update is called once per frame
+    void Update() {
+    }
+
+    private void OnTriggerEnter2D(Collider2D col) {
+        if (col.gameObject.name == "Obsticle1") {
             electric = true;
+            sound.Play();
             //Turn color of sprites yellow or start a cooroutine that flickers the colors
             StartCoroutine(flickeringRoutine);
         }
-        if (col.gameObject.name == "Player_Leg" && electric) 
-        {
-            col.gameObject.GetComponent<Animator>().Play("Leg_Death");
-            footDead = true;
-        }
-        if (col.gameObject.name == "Player_Hand" && electric)
-        {
-            col.gameObject.GetComponent<Animator>().Play("Hand_Death");
-            handDead = true;
-        }
 
-        if(handDead || footDead) {
+        if (electric) {
+            
+            if (col.gameObject.name == "Player_Leg") {
+                col.gameObject.GetComponent<Animator>().Play("Leg_Death");
+                footDead = true;
+            }
+            if (col.gameObject.name == "Player_Hand") {
+                col.gameObject.GetComponent<Animator>().SetBool("HandDeath", true);
+                handDead = true;
+            }
+            if (col.gameObject.name == "Player_Arm") {
+                col.gameObject.GetComponent<Animator>().Play("Arm_Death");
+                handDead = true;
+            }
+        } 
+
+        if (handDead || footDead) {
             StartCoroutine(fadeTimer());
         }
     }
 
-    private void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.name == "Obsticle1")
-        {
+    private void OnTriggerExit2D(Collider2D col) {
+        if (col.gameObject.name == "Obsticle1") {
             electric = false;
+            sound.Stop();
             //Put both sprite colors back to water or stop the cooroutine that runs the flickering yellow
             StopCoroutine(flickeringRoutine);
         }
@@ -70,6 +75,6 @@ public class ElectricWater : MonoBehaviour {
 
     private IEnumerator fadeTimer() {
         yield return new WaitForSeconds(1f);
-        Initiate.Fade("Level_2", Color.black, 2f);
+        Initiate.Fade("Level_Two", Color.black, 2f);
     }
 }

@@ -23,5 +23,6 @@ public class ArmDestroy : MonoBehaviour {
         FindObjectOfType<Level_1_DialogManager>().StartDialogue(dialogue);
         hand.gameObject.SetActive(false);
         arm.gameObject.SetActive(true);
+        Destroy(FindObjectOfType<LegLadder>().gameObject);
     }
 }

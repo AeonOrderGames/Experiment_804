@@ -850,6 +850,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1737396780057248, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
   m_IsPrefabAsset: 0
@@ -994,7 +998,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0b0ec352a3d75457eb3c68776a87397a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.68
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

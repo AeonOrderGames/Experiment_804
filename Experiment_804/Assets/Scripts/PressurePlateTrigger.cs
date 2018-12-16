@@ -21,14 +21,18 @@ public class PressurePlateTrigger : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = plateOn;
-        pressurePlateOn = true;
+        if (col.gameObject.name != "KickCollider") {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = plateOn;
+            pressurePlateOn = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = plateOff;
-         pressurePlateOn = false;
+        if (col.gameObject.name != "KickCollider") {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = plateOff;
+            pressurePlateOn = false;
+        }
     }
 
 }

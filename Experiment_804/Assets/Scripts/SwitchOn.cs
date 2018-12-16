@@ -10,6 +10,7 @@ public class SwitchOn : MonoBehaviour {
     private Sprite switchOff;
     public AnimationClip objUp;
     public AnimationClip objDown;
+    private AudioSource sound;
 
     private PlayerArmMovement armScript;
     private PlayerHandMovement handScript;
@@ -17,6 +18,7 @@ public class SwitchOn : MonoBehaviour {
     private void Awake() {
         armScript = hand.GetComponent<PlayerArmMovement>();
         handScript = hand.GetComponent<PlayerHandMovement>();
+        sound = GetComponent<AudioSource>();
     }
 
     // Use this for initialization
@@ -56,9 +58,11 @@ public class SwitchOn : MonoBehaviour {
 
     private IEnumerator Obsticle1Timer()
     {
+        sound.Play();
         yield return new WaitForSeconds(10f);
         //Obsticle goes down and switch goes off
         obsticle1.GetComponent<Animator>().Play(objDown.name);
+        sound.Play();
         this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOff;
     }
 }

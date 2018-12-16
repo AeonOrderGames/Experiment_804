@@ -14,6 +14,7 @@ public class LegMovement : MonoBehaviour {
     private bool jumping;
     public bool kicking;
     private PlayerHandMovement hand;
+    private AudioSource sound;
 
     //private bool kick;
 
@@ -21,6 +22,7 @@ public class LegMovement : MonoBehaviour {
         controller = GetComponent<CharacterController2D>();
         animator = GetComponent<Animator>();
         hand = FindObjectOfType<PlayerHandMovement>();
+        sound = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -42,6 +44,7 @@ public class LegMovement : MonoBehaviour {
         if (animator.GetBool("LegJumping") && Input.GetKeyDown("down")) {
             animator.SetBool("LegStomping", true);
             //animator.SetBool("LegJumping", false);
+            sound.Play();
             //To shake the camera when the foot stomps
             CameraShaker.Instance.ShakeOnce(1f, 1f, .1f, 1f);
         }

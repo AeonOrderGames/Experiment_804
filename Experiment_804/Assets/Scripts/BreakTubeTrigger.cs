@@ -6,22 +6,32 @@ public class BreakTubeTrigger : MonoBehaviour {
 
     public GameObject brokenTube;
     private LegMovement leg;
+    private bool kickable;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         leg = FindObjectOfType<LegMovement>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(kickable && leg.kicking) {
+            StartCoroutine(DelayBreak());
+            kickable = false;
+        }
 	}
 
-    private void OnTriggerStay2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.name == "Player_Leg" && leg.kicking)
+        if (col.gameObject.CompareTag("Player_Foot"))
         {
-            StartCoroutine(DelayBreak());
+            kickable = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col) {
+        if (col.gameObject.CompareTag("Player_Foot")) {
+            kickable = false;
         }
     }
 
@@ -30,5 +40,6 @@ public class BreakTubeTrigger : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         Destroy(this.gameObject);
         brokenTube.SetActive(true);
+        brokenTube.GetComponent<AudioSource>().Play();
     }
 }
