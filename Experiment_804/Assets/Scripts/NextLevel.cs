@@ -70,13 +70,8 @@ public class NextLevel : MonoBehaviour
 
         }
 
-        if (footInDoor && handInDoor) {
-            if (nextScene == 9) {
-                Initiate.Fade("Credit_List", Color.black, 2f);
-            }
-            else {
-                Initiate.Fade(sceneNames[nextScene], Color.black, 2f);
-            }
+        if (footInDoor && handInDoor) { 
+            Initiate.Fade(sceneNames[nextScene], Color.black, 2f);
         }
     }
 

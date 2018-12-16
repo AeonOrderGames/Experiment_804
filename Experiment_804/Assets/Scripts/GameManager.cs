@@ -32,14 +32,11 @@ public class GameManager : MonoBehaviour {
         leg = FindObjectOfType<LegMovement>().gameObject;
 
         if (level == 8) {
-            inRoom = true;
             roomVisited = true;
         } 
-        else {
-            inRoom = false;
-        }
 
-        if(!inRoom && roomVisited) {
+
+        if(roomVisited && level == 6) {
             arm.transform.position = armPos;
             leg.transform.position = legPos;
         }

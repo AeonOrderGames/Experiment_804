@@ -56,7 +56,7 @@ public class LegMovement : MonoBehaviour {
             //animator.SetBool("LegJumping", false);
             sound.Play();
             //To shake the camera when the foot stomps
-            CameraShaker.Instance.ShakeOnce(1f, 1f, .1f, 1f);
+            CameraShaker.Instance.ShakeOnce(2f, 1f, .1f, 1f);
         }
 
         if (Input.GetKey(KeyCode.RightShift) && horizontal == 0)

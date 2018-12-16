@@ -818,6 +818,16 @@ Prefab:
       propertyPath: hand
       value: 
       objectReference: {fileID: 1167032400}
+    - target: {fileID: 114495257091987152, guid: b48f19ad65eb44dc3893a9d375a0e29a,
+        type: 2}
+      propertyPath: m_CrouchSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114165547973830740, guid: b48f19ad65eb44dc3893a9d375a0e29a,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
   m_IsPrefabAsset: 0

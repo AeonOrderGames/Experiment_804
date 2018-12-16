@@ -442,7 +442,7 @@ BoxCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 151872192}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -926,7 +926,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4311386580345438, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.094998
+      value: -11.16
       objectReference: {fileID: 0}
     - target: {fileID: 4311386580345438, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -978,6 +978,10 @@ Prefab:
         type: 2}
       propertyPath: m_Radius
       value: 0.11426067
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169970235778720, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
@@ -1588,7 +1592,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 834131728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.2, y: 0.36, z: 0}
+  m_LocalPosition: {x: -6.2, y: 0.5, z: 0}
   m_LocalScale: {x: 1.123194, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3317,7 +3321,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.59753203}
+  m_Offset: {x: 0.5598874, y: 0.43756366}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3328,7 +3332,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.8017612}
+  m_Size: {x: 2.1197748, y: 5.7213798}
   m_EdgeRadius: 0
 --- !u!1 &1580444566
 GameObject:
@@ -4263,7 +4267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6190305693a97b4a9d8e97471631cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 23
+  moveSpeed: 10
   direction: 0
   kicking: 0
 --- !u!114 &2061395634
@@ -4279,7 +4283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 360
-  m_CrouchSpeed: 0.36
+  m_CrouchSpeed: 1
   m_MovementSmoothing: 0.05
   m_AirControl: 1
   m_WhatIsGround:
@@ -4436,7 +4440,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2061395632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.96, y: -0.58, z: 0}
+  m_LocalPosition: {x: -12.025002, y: -0.58, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 1378153924}
