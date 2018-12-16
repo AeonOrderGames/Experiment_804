@@ -1255,15 +1255,15 @@ MonoBehaviour:
   dialogue:
     name: Mr.Eyeballs
     sentences:
-    - 'Mr.Eyeballs: Well, well, eye didn''t know there were anybodies left...'
-    - 'Mr.Eyeballs: If you''re wondering what happened, eye saw everything...'
-    - 'Mr.Eyeballs: The doctor was torn apart, limb by limb by his own experiments...'
-    - 'Mr.Eyeballs: Hurry! Escape before they come back!'
-    - 'Hand: But we have to find the rest of our body!'
-    - 'Mr.Eyeballs: It''s too late for that now. Save yourselves!'
-    - 'Foot: What about you?'
-    - 'Mr.Eyeballs: Dont worry about me. A captain always goes down with his ship...'
-    - 'Hand & Foot: EYE EYE CAPT''N!!!'
+    - 'Mr.Eyeballs: "Well, well, eye didn''t know there were anybodies left..."'
+    - 'Mr.Eyeballs: "If you''re wondering what happened, eye saw everything..."'
+    - 'Mr.Eyeballs: "The doctor was torn apart, limb by limb by his own experiments..."'
+    - 'Mr.Eyeballs: "Hurry! Escape before they come back!"'
+    - 'Hand: "But we have to find the rest of our body!"'
+    - 'Mr.Eyeballs: "It''s too late for that now. Save yourselves!"'
+    - 'Foot: "What about you?"'
+    - 'Mr.Eyeballs: "Dont worry about me. A captain always goes down with his ship..."'
+    - 'Hand & Foot: "EYE EYE CAPT''N!!!"'
 --- !u!61 &1271826891
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -25,6 +25,7 @@ public class ButtonSwitch : MonoBehaviour {
                 obsticle1.GetComponent<Animator>().Play(objUp.name);
                 sound.Play();
                 this.gameObject.GetComponent<SpriteRenderer>().sprite = switchOn;
+                Destroy(this);
             }
         }
     }
