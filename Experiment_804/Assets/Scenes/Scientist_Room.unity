@@ -654,7 +654,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.6
+      value: -2.46
       objectReference: {fileID: 0}
     - target: {fileID: 4448849732318070, guid: b48f19ad65eb44dc3893a9d375a0e29a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -985,7 +985,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: db468a2f8e39d4581aeaf674f250e9a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 49b0dd1fbf21a4685bba34ea5be9e262, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1018,7 +1018,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3811754fdc457984cbf83460caedc862, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d81ca6bd5584ba74db2457cee85fa1fd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
@@ -1129,7 +1129,7 @@ RectTransform:
   m_GameObject: {fileID: 1206153985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1730140896}
   - {fileID: 754878731}
@@ -1259,11 +1259,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogueCanvas: {fileID: 835669177}
   dialogue:
-    name: Eye ball guy looking dude
+    name: Mr.Eyeballs
     sentences:
-    - 'Eyeballs: You''re too late...'
-    - 'Eyeballs: The scientist is dead. They killed him'
-    - Save yourselfs before they come for you too!
+    - 'Mr.Eyeballs: Well, well, eye didn''t know there were anybodies left...'
+    - 'Mr.Eyeballs: If youre wondering what happened, eye saw everything...'
+    - 'Mr.Eyeballs: The doctor was torn apart, limb by limb by his own experiments...'
+    - 'Mr.Eyeballs: Hurry! Escape before they come back!'
+    - 'Hand: But we have to find the rest of our body!'
+    - 'Mr.Eyeballs: It''s too late for that now. Save yourselves!'
+    - 'Foot: What about you?'
+    - 'Mr.Eyeballs: Dont worry about me. A captain always goes down with the ship...'
+    - 'Hand & Foot: EYE EYE CAPT''N!!!'
 --- !u!61 &1271826891
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1677,6 +1683,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1169970235778720, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
+      propertyPath: m_TagString
+      value: Player_Hand
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c8fecd14ffb394ebbfcb987f6afda1, type: 2}
   m_IsPrefabAsset: 0
@@ -1830,6 +1840,53 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1810458179}
   m_CullTransparentMesh: 0
+--- !u!1001 &1906409052
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4452865238913600, guid: 0dda97a070c151a488b5e47bbaa7da12, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452865238913600, guid: 0dda97a070c151a488b5e47bbaa7da12, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -5.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452865238913600, guid: 0dda97a070c151a488b5e47bbaa7da12, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452865238913600, guid: 0dda97a070c151a488b5e47bbaa7da12, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452865238913600, guid: 0dda97a070c151a488b5e47bbaa7da12, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452865238913600, guid: 0dda97a070c151a488b5e47bbaa7da12, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452865238913600, guid: 0dda97a070c151a488b5e47bbaa7da12, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452865238913600, guid: 0dda97a070c151a488b5e47bbaa7da12, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931539956347938, guid: 0dda97a070c151a488b5e47bbaa7da12,
+        type: 2}
+      propertyPath: levelName
+      value: Scientist_Room
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0dda97a070c151a488b5e47bbaa7da12, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &1985648380
 Prefab:
   m_ObjectHideFlags: 0
