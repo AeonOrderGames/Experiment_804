@@ -3049,7 +3049,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d3c42044c57664a11881cf11ce4a1e33, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3742,7 +3742,7 @@ MonoBehaviour:
   dialogue:
     name: Leg found!
     sentences:
-    - 'Hand: Hey look, our leg!'
+    - 'Hand: What the heel! It''s our leg!'
     - 'Foot: Nice! I kneeded that!'
     - 'Congratulations!
 

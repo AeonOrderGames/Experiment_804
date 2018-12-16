@@ -94,11 +94,12 @@ public class PlayerArmMovement : MonoBehaviour {
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
             }
 
+            horizontal = horizontal * 0.5f;
             
         }
         else {
             handCircleCollider.enabled = true;
-            rigidBody.gravityScale = 1f;
+            rigidBody.gravityScale = 3f;
             animator.SetBool("ArmClimbing", false);
             animator.SetBool("ArmClimbingIdle", false);
             climbing = false;
