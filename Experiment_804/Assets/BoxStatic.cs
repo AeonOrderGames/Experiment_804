@@ -18,12 +18,13 @@ public class BoxStatic : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         //if both hand and foot are touching the box and walking, the box should not move
         if (handOn && footOn)
         {
-            if (hand.GetComponent<Animator>().GetFloat("HandWalking") > 0.01 && foot.GetComponent<Animator>().GetFloat("FootWalking") > 0.01)
+            if (hand.GetComponent<Animator>().GetFloat("HandWalking") > 0.01 && foot.GetComponent<Animator>().GetFloat("FootWalking") > 0.01 
+                && !(hand.GetComponent<PlayerHandMovement>().pushing))
             {
                 box.bodyType = RigidbodyType2D.Static;
             }

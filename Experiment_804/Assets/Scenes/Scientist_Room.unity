@@ -382,7 +382,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 112, y: -104}
+  m_AnchoredPosition: {x: 110.4, y: -79.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &364807156
@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 364807154}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &494178737
@@ -1256,13 +1256,13 @@ MonoBehaviour:
     name: Mr.Eyeballs
     sentences:
     - 'Mr.Eyeballs: Well, well, eye didn''t know there were anybodies left...'
-    - 'Mr.Eyeballs: If youre wondering what happened, eye saw everything...'
+    - 'Mr.Eyeballs: If you''re wondering what happened, eye saw everything...'
     - 'Mr.Eyeballs: The doctor was torn apart, limb by limb by his own experiments...'
     - 'Mr.Eyeballs: Hurry! Escape before they come back!'
     - 'Hand: But we have to find the rest of our body!'
     - 'Mr.Eyeballs: It''s too late for that now. Save yourselves!'
     - 'Foot: What about you?'
-    - 'Mr.Eyeballs: Dont worry about me. A captain always goes down with the ship...'
+    - 'Mr.Eyeballs: Dont worry about me. A captain always goes down with his ship...'
     - 'Hand & Foot: EYE EYE CAPT''N!!!'
 --- !u!61 &1271826891
 BoxCollider2D:
@@ -1965,7 +1965,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2ac4a178284d14d7399df689d1150975, type: 3}
-    m_FontSize: 30
+    m_FontSize: 34
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
